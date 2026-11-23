@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e50920">
+  <title>Contact | Jose Technologias</title>
+  <style>
+    :root {
+      --red: #e50920;
+      --red-dark: #b90018;
+      --blue: #1769aa;
+      --bg: #f5f6f8;
+      --surface: #ffffff;
+      --text: #171717;
+      --muted: #686868;
+      --border: #e7e7e7;
+      --shadow: 0 12px 35px rgba(0,0,0,.07);
+    }
+    body.dark {
+      --bg: #101114;
+      --surface: #191b20;
+      --text: #f5f5f5;
+      --muted: #b5b5b5;
+      --border: #30323a;
+      --shadow: 0 12px 35px rgba(0,0,0,.25);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      transition: background .25s, color .25s;
+    }
+    a { text-decoration: none; color: inherit; }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 19px;
+    }
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      background: var(--red);
+      color: white;
+      border-radius: 10px;
+      font-weight: 900;
+    }
+    .brand-name span { color: var(--red); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .icon-button {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 9px;
+      padding: 9px 12px;
+      position: relative;
+    }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--red);
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      min-width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+    .menu-button {
+      background: var(--red);
+      border: none;
+      color: white;
+      border-radius: 9px;
+      padding: 10px 15px;
+      font-weight: 700;
+    }
+    .menu-panel {
+      display: none;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 18px 4%;
+    }
+    .menu-panel.open { display: block; }
+    .menu-inner {
+      max-width: 1120px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .menu-inner a,
+    .menu-inner button {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .menu-inner a.active {
+      color: var(--red);
+      border-color: var(--red);
+    }
+    .language-button { margin-left: auto; }
+    .hero {
+      padding: 95px 0;
+      color: white;
+      text-align: center;
+      background:
+        linear-gradient(110deg, rgba(0,0,0,.88), rgba(0,0,0,.55)),
+        url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+    .eyebrow {
+      color: #ff6878;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #eee;
+      font-size: 17px;
+    }
+    section { padding: 75px 0; }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+    .section-heading .eyebrow { color: var(--red); }
+    .section-heading h2 {
+      font-size: clamp(28px, 4vw, 38px);
+      margin-bottom: 10px;
+    }
+    .section-heading p {
+      max-width: 680px;
+      margin: auto;
+      color: var(--muted);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .contact-info {
+      display: grid;
+      gap: 17px;
+    }
+    .contact-card {
+      padding: 25px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      background: rgba(229,9,32,.1);
+      color: var(--red);
+      border-radius: 12px;
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+    .contact-card h3 {
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+    .contact-card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .contact-link {
+      color: var(--red);
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+    .facebook-link {
+      display: inline-block;
+      background: #1877f2;
+      color: white;
+      border-radius: 8px;
+      padding: 10px 15px;
+      font-weight: 700;
+    }
+    .contact-form {
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+    .contact-form h3 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+    .contact-form > p {
+      color: var(--muted);
+      margin-bottom: 23px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 15px;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    label {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 13px;
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--red);
+    }
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .button {
+      display: inline-block;
+      border: none;
+      padding: 13px 22px;
+      border-radius: 9px;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+    }
+    .button:hover { background: var(--red-dark); }
+    .notice {
+      background: rgba(23,105,170,.09);
+      border: 1px solid rgba(23,105,170,.3);
+      padding: 13px 15px;
+      border-radius: 9px;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    .availability {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 25px;
+      margin-top: 25px;
+    }
+    .availability h3 { margin-bottom: 8px; }
+    .availability p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .cta {
+      text-align: center;
+      padding: 60px 25px;
+      border-radius: 20px;
+      background: linear-gradient(120deg, #e50920, #a90019);
+      color: white;
+    }
+    .cta h2 {
+      font-size: clamp(27px, 4vw, 38px);
+      margin-bottom: 12px;
+    }
+    .cta p {
+      max-width: 650px;
+      margin: auto;
+      color: #ffe5e8;
+    }
+    .cta .button {
+      background: white;
+      color: var(--red);
+      margin-top: 25px;
+    }
+    footer {
+      background: #111216;
+      color: white;
+      padding: 45px 0 20px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 30px;
+    }
+    footer h3 { margin-bottom: 13px; }
+    footer p, footer a {
+      color: #bdbdc4;
+      font-size: 14px;
+    }
+    footer a {
+      display: block;
+      margin: 8px 0;
+    }
+    footer a:hover { color: white; }
+    .copyright {
+      border-top: 1px solid #303038;
+      padding-top: 18px;
+      text-align: center;
+      color: #a7a7ad;
+      font-size: 13px;
+    }
+    @media (max-width: 800px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .navbar { min-height: 68px; }
+      .brand { font-size: 16px; }
+      .nav-actions { gap: 7px; }
+      .icon-button { padding: 8px 10px; }
+      .menu-button { padding: 9px 11px; }
+      .hero { padding: 75px 0; }
+      section { padding: 55px 0; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: auto; }
+      .contact-form { padding: 21px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 22px; }
+      .language-button { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">JT</span>
+        <span class="brand-name">Jose <span>Technologias</span></span>
+      </a>
+      <div class="nav-actions">
+        <a href="cart.html" class="icon-button" aria-label="Shopping cart">
+          🛒 <span class="cart-count" id="cartCount">0</span>
+        </a>
+        <button class="icon-button" id="themeButton" aria-label="Toggle theme">🌙</button>
+        <button class="menu-button" id="menuButton">☰ <span data-i18n="menu">Menú</span></button>
+      </div>
+    </div>
+    <nav class="menu-panel" id="menuPanel">
+      <div class="menu-inner">
+        <a href="index.html" data-i18n="home">Inicio</a>
+        <a href="services.html" data-i18n="services">Servicios</a>
+        <a href="about.html" data-i18n="about">Nosotros</a>
+        <a href="blog.html" data-i18n="blog">Blog</a>
+        <a href="contact.html" class="active" data-i18n="contact">Contacto</a>
+        <a href="cart.html" data-i18n="cart">Carrito</a>
+        <button class="language-button" id="languageButton">🇬🇧 English</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow" data-i18n="heroEyebrow">Estamos aquí para ayudarte</div>
+        <h1 data-i18n="heroTitle">Ponte en contacto con nosotros.</h1>
+        <p data-i18n="heroText">
+          ¿Tienes una pregunta, necesitas un servicio o quieres hablar
+          sobre un proyecto? Nos encantará escucharte.
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-i18n="contactEyebrow">Hablemos</div>
+          <h2 data-i18n="contactTitle">Estamos a un mensaje de distancia</h2>
+          <p data-i18n="contactText">
+            Puedes comunicarte con Jose Technologias a través de nuestros
+            canales de contacto disponibles.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <div class="contact-info">
+              <article class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3 data-i18n="emailTitle">Correo electrónico</h3>
+                <p data-i18n="emailText">
+                  Escríbenos para consultas, cotizaciones o asistencia.
+                </p>
+                <a class="contact-link" href="mailto:support.iunlockpro@gmail.com">
+                  support.iunlockpro@gmail.com
+                </a>
+              </article>
+              <article class="contact-card">
+                <div class="contact-icon">📘</div>
+                <h3 data-i18n="facebookTitle">Facebook</h3>
+                <p data-i18n="facebookText">
+                  Actualmente también puedes encontrarnos en Facebook.
+                  Visita nuestra página y envíanos un mensaje.
+                </p>
+                <!-- Replace # with your actual Facebook page URL. -->
+                <a class="facebook-link" href="#" id="facebookLink"
+                   target="_blank" rel="noopener noreferrer"
+                   data-i18n="visitFacebook">
+                  Visitar Facebook
+                </a>
+                <p style="margin-top:12px;font-size:12px" data-i18n="facebookPlaceholder">
+                  Añade aquí el enlace oficial de tu página de Facebook.
+                </p>
+              </article>
+            </div>
+            <div class="availability">
+              <h3 data-i18n="availabilityTitle">Atención al cliente</h3>
+              <p data-i18n="availabilityText">
+                Envíanos tu consulta por correo electrónico o Facebook.
+                Incluye los detalles de tu solicitud para que podamos
+                orientarte mejor.
+              </p>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <h3 data-i18n="formTitle">Envíanos un mensaje</h3>
+            <p data-i18n="formText">
+              Completa los campos y prepara tu mensaje para enviarlo por correo.
+            </p>
+            <div class="notice" data-i18n="emailNotice">
+              Este formulario abrirá tu aplicación de correo. El mensaje
+              no se envía automáticamente desde este sitio web.
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name" data-i18n="nameLabel">Nombre completo</label>
+                <input type="text" id="name" required maxlength="100">
+              </div>
+              <div class="form-group">
+                <label for="email" data-i18n="emailLabel">Correo electrónico</label>
+                <input type="email" id="email" required maxlength="150">
+              </div>
+              <div class="form-group full">
+                <label for="country" data-i18n="countryLabel">País</label>
+                <select id="country" required>
+                  <option value="">Selecciona tu país</option>
+                  <option>México</option>
+                  <option>Argentina</option>
+                  <option>Colombia</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label for="service" data-i18n="serviceLabel">Servicio de interés</label>
+                <select id="service" required>
+                  <option value="">Selecciona un servicio</option>
+                  <option data-i18n="websiteOption">Diseño de sitios web</option>
+                  <option data-i18n="appOption">Aplicaciones móviles o web</option>
+                  <option data-i18n="maintenanceOption">Gestión y mantenimiento</option>
+                  <option data-i18n="phoneOption">Soluciones para teléfonos</option>
+                  <option data-i18n="icloudOption">Soluciones iCloud</option>
+                  <option data-i18n="otherOption">Otra consulta</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label for="message" data-i18n="messageLabel">Tu mensaje</label>
+                <textarea id="message" required maxlength="3000"
+                  placeholder="Escribe aquí los detalles de tu consulta..."></textarea>
+              </div>
+            </div>
+            <button type="submit" class="button" data-i18n="sendMessage">
+              Preparar correo
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="cta">
+          <h2 data-i18n="ctaTitle">¿Listo para comenzar tu proyecto?</h2>
+          <p data-i18n="ctaText">
+            Explora nuestros servicios y encuentra la solución que necesitas.
+          </p>
+          <a href="services.html" class="button" data-i18n="viewServices">
+            Ver servicios
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Jose Technologias</h3>
+          <p data-i18n="footerDescription">
+            Soluciones tecnológicas para personas, emprendedores y empresas.
+          </p>
+        </div>
+        <div>
+          <h3 data-i18n="quickLinks">Enlaces rápidos</h3>
+          <a href="index.html" data-i18n="home">Inicio</a>
+          <a href="services.html" data-i18n="services">Servicios</a>
+          <a href="about.html" data-i18n="about">Nosotros</a>
+          <a href="blog.html" data-i18n="blog">Blog</a>
+        </div>
+        <div>
+          <h3 data-i18n="getInTouch">Contacto</h3>
+          <a href="mailto:support.iunlockpro@gmail.com">support.iunlockpro@gmail.com</a>
+          <a href="#" id="footerFacebook" data-i18n="facebookTitle">Facebook</a>
+        </div>
+      </div>
+      <div class="copyright">
+        © <span id="year"></span> Jose Technologias.
+        <span data-i18n="rights">Todos los derechos reservados.</span>
+        <br>
+        <span data-i18n="designedBy">Diseñado por BitBridge Technologies INC.</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    /*
+      IMPORTANT:
+      Replace this placeholder with the real URL of your Facebook page.
+      Example: https://www.facebook.com/YourBusinessPage
+    */
+    const FACEBOOK_PAGE_URL = "";
+    const translations = {
+      es: {
+        menu: "Menú", home: "Inicio", services: "Servicios",
+        about: "Nosotros", blog: "Blog", contact: "Contacto", cart: "Carrito",
+        heroEyebrow: "Estamos aquí para ayudarte",
+        heroTitle: "Ponte en contacto con nosotros.",
+        heroText: "¿Tienes una pregunta, necesitas un servicio o quieres hablar sobre un proyecto? Nos encantará escucharte.",
+        contactEyebrow: "Hablemos",
+        contactTitle: "Estamos a un mensaje de distancia",
+        contactText: "Puedes comunicarte con Jose Technologias a través de nuestros canales de contacto disponibles.",
+        emailTitle: "Correo electrónico",
+        emailText: "Escríbenos para consultas, cotizaciones o asistencia.",
+        facebookTitle: "Facebook",
+        facebookText: "Actualmente también puedes encontrarnos en Facebook. Visita nuestra página y envíanos un mensaje.",
+        visitFacebook: "Visitar Facebook",
+        facebookPlaceholder: "Añade aquí el enlace oficial de tu página de Facebook.",
+        availabilityTitle: "Atención al cliente",
+        availabilityText: "Envíanos tu consulta por correo electrónico o Facebook. Incluye los detalles de tu solicitud para que podamos orientarte mejor.",
+        formTitle: "Envíanos un mensaje",
+        formText: "Completa los campos y prepara tu mensaje para enviarlo por correo.",
+        emailNotice: "Este formulario abrirá tu aplicación de correo. El mensaje no se envía automáticamente desde este sitio web.",
+        nameLabel: "Nombre completo",
+        emailLabel: "Correo electrónico",
+        countryLabel: "País",
+        serviceLabel: "Servicio de interés",
+        websiteOption: "Diseño de sitios web",
+        appOption: "Aplicaciones móviles o web",
+        maintenanceOption: "Gestión y mantenimiento",
+        phoneOption: "Soluciones para teléfonos",
+        icloudOption: "Soluciones iCloud",
+        otherOption: "Otra consulta",
+        messageLabel: "Tu mensaje",
+        sendMessage: "Preparar correo",
+        ctaTitle: "¿Listo para comenzar tu proyecto?",
+        ctaText: "Explora nuestros servicios y encuentra la solución que necesitas.",
+        viewServices: "Ver servicios",
+        footerDescription: "Soluciones tecnológicas para personas, emprendedores y empresas.",
+        quickLinks: "Enlaces rápidos",
+        getInTouch: "Contacto",
+        rights: "Todos los derechos reservados.",
+        designedBy: "Diseñado por BitBridge Technologies INC."
+      },
+      en: {
+        menu: "Menu", home: "Home", services: "Services",
+        about: "About Us", blog: "Blog", contact: "Contact", cart: "Cart",
+        heroEyebrow: "We are here to help",
+        heroTitle: "Get in touch with us.",
+        heroText: "Have a question, need a service, or want to discuss a project? We would love to hear from you.",
+        contactEyebrow: "Let's talk",
+        contactTitle: "We are just one message away",
+        contactText: "You can contact Jose Technologias through our available contact channels.",
+        emailTitle: "Email",
+        emailText: "Write to us for enquiries, quotes, or assistance.",
+        facebookTitle: "Facebook",
+        facebookText: "You can also currently find us on Facebook. Visit our page and send us a message.",
+        visitFacebook: "Visit Facebook",
+        facebookPlaceholder: "Add your official Facebook page link here.",
+        availabilityTitle: "Customer support",
+        availabilityText: "Send us your enquiry by email or Facebook. Include details about your request so we can guide you better.",
+        formTitle: "Send us a message",
+        formText: "Complete the fields to prepare your message for email.",
+        emailNotice: "This form will open your email application. The message is not automatically sent by this website.",
+        nameLabel: "Full name",
+        emailLabel: "Email address",
+        countryLabel: "Country",
+        serviceLabel: "Service of interest",
+        websiteOption: "Website design",
+        appOption: "Mobile or web applications",
+        maintenanceOption: "Management and maintenance",
+        phoneOption: "Phone solutions",
+        icloudOption: "iCloud solutions",
+        otherOption: "Other enquiry",
+        messageLabel: "Your message",
+        sendMessage: "Prepare email",
+        ctaTitle: "Ready to start your project?",
+        ctaText: "Explore our services and find the solution you need.",
+        viewServices: "View services",
+        footerDescription: "Technology solutions for individuals, entrepreneurs, and businesses.",
+        quickLinks: "Quick links",
+        getInTouch: "Contact",
+        rights: "All rights reserved.",
+        designedBy: "Designed by BitBridge Technologies INC."
+      }
+    };
+    let currentLanguage = localStorage.getItem("jt_language") || "es";
+    let currentTheme = localStorage.getItem("jt_theme") || "light";
+    function applyLanguage() {
+      document.documentElement.lang = currentLanguage;
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+        const translation = translations[currentLanguage][key];
+        if (translation) {
+          element.textContent = translation;
+        }
+      });
+      document.getElementById("languageButton").textContent =
+        currentLanguage === "es" ? "🇬🇧 English" : "🇲🇽 Español";
+    }
+    function applyTheme() {
+      document.body.classList.toggle("dark", currentTheme === "dark");
+      document.getElementById("themeButton").textContent =
+        currentTheme === "dark" ? "☀️" : "🌙";
+    }
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("jt_cart") || "[]");
+      document.getElementById("cartCount").textContent = cart.length;
+    }
+    function configureFacebookLinks() {
+      const links = [
+        document.getElementById("facebookLink"),
+        document.getElementById("footerFacebook")
+      ];
+      links.forEach(link => {
+        if (FACEBOOK_PAGE_URL) {
+          link.href = FACEBOOK_PAGE_URL;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        } else {
+          link.href = "#";
+          link.addEventListener("click", event => {
+            event.preventDefault();
+            alert(currentLanguage === "es"
+              ? "Añade primero el enlace de tu página de Facebook en el código."
+              : "First add your Facebook page URL in the code.");
+          });
+        }
+      });
+    }
+    document.getElementById("menuButton").addEventListener("click", () => {
+      document.getElementById("menuPanel").classList.toggle("open");
+    });
+    document.getElementById("languageButton").addEventListener("click", () => {
+      currentLanguage = currentLanguage === "es" ? "en" : "es";
+      localStorage.setItem("jt_language", currentLanguage);
+      applyLanguage();
+    });
+    document.getElementById("themeButton").addEventListener("click", () => {
+      currentTheme = currentTheme === "light" ? "dark" : "light";
+      localStorage.setItem("jt_theme", currentTheme);
+      applyTheme();
+    });
+    document.getElementById("contactForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const country = document.getElementById("country").value;
+      const service = document.getElementById("service").value;
+      const message = document.getElementById("message").value.trim();
+      const subject = encodeURIComponent("Website enquiry - Jose Technologias");
+      const body = encodeURIComponent(
+        "Name: " + name +
+        "\nEmail: " + email +
+        "\nCountry: " + country +
+        "\nService: " + service +
+        "\n\nMessage:\n" + message
+      );
+      alert(currentLanguage === "es"
+        ? "Se abrirá tu aplicación de correo. Revisa el mensaje y pulsa Enviar para completar el envío."
+        : "Your email application will open. Review the message and press Send to complete the process.");
+      window.location.href =
+        "mailto:support.iunlockpro@gmail.com?subject=" + subject + "&body=" + body;
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+    applyLanguage();
+    applyTheme();
+    updateCartCount();
+    configureFacebookLinks();
+  </script>
+</body>
+</html>
