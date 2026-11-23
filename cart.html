@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart | Jose Technologias</title>
+<style>
+:root {
+    --red: #e63946;
+    --blue: #2463eb;
+    --black: #111827;
+    --white: #ffffff;
+    --bg: #f5f6fa;
+    --card: #ffffff;
+    --text: #202432;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --shadow: 0 10px 35px rgba(0,0,0,.07);
+}
+body.dark {
+    --bg: #10131b;
+    --card: #1b2030;
+    --text: #f4f5f8;
+    --muted: #a4aabd;
+    --border: #303749;
+    --shadow: 0 10px 35px rgba(0,0,0,.2);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: .3s;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+header {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 17px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--red);
+}
+.logo span {
+    color: var(--text);
+}
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 10px;
+    font-size: 18px;
+}
+.cart-link {
+    position: relative;
+    padding: 10px 13px;
+    border-radius: 10px;
+    background: var(--red);
+    color: white;
+    font-weight: bold;
+}
+.cart-count {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    color: var(--red);
+    border-radius: 50%;
+    min-width: 20px;
+    height: 20px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.menu-panel {
+    display: none;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    padding: 20px 5%;
+}
+.menu-panel.open {
+    display: block;
+}
+.menu-links {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+}
+.menu-links a {
+    color: var(--text);
+    font-weight: 600;
+}
+.menu-links a:hover {
+    color: var(--red);
+}
+.menu-language {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+}
+.menu-language button {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 7px;
+}
+.menu-language button.active {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+}
+.hero {
+    background: linear-gradient(120deg, #151923, #252e43);
+    color: white;
+    padding: 65px 5%;
+    text-align: center;
+}
+.hero h1 {
+    font-size: clamp(30px, 5vw, 46px);
+    margin-bottom: 12px;
+}
+.hero p {
+    color: #d1d5db;
+    line-height: 1.7;
+}
+main {
+    max-width: 1150px;
+    margin: 55px auto;
+    padding: 0 5%;
+}
+.section-title {
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.cart-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: var(--shadow);
+}
+.item-info h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+.item-type {
+    display: inline-block;
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: bold;
+    background: rgba(36,99,235,.1);
+    padding: 5px 9px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+.item-price {
+    font-weight: 800;
+    color: var(--red);
+    font-size: 17px;
+}
+.remove-btn {
+    border: none;
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 10px 13px;
+    border-radius: 9px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.remove-btn:hover {
+    background: #fecaca;
+}
+.summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 100px;
+}
+.summary h2 {
+    font-size: 21px;
+    margin-bottom: 22px;
+}
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 15px 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+.summary-total {
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+    margin-top: 20px;
+    color: var(--text);
+    font-size: 19px;
+    font-weight: 800;
+}
+.summary-note {
+    background: rgba(36,99,235,.08);
+    border-left: 3px solid var(--blue);
+    padding: 12px;
+    border-radius: 7px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+.primary-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--red);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: .2s;
+}
+.primary-btn:hover {
+    background: #c92c39;
+    transform: translateY(-2px);
+}
+.clear-btn {
+    width: 100%;
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 12px;
+    border-radius: 9px;
+    margin-top: 12px;
+}
+.clear-btn:hover {
+    border-color: var(--red);
+    color: var(--red);
+}
+.empty-cart {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    text-align: center;
+    padding: 60px 20px;
+    box-shadow: var(--shadow);
+}
+.empty-icon {
+    font-size: 55px;
+    margin-bottom: 18px;
+}
+.empty-cart h2 {
+    margin-bottom: 10px;
+}
+.empty-cart p {
+    color: var(--muted);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+.empty-cart .primary-btn {
+    max-width: 230px;
+    margin: auto;
+}
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #161b27;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: .3s;
+    z-index: 500;
+    pointer-events: none;
+}
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 30px 5%;
+    margin-top: 70px;
+}
+footer p {
+    color: #c4c9d4;
+    font-size: 13px;
+    line-height: 1.8;
+}
+footer strong {
+    color: #ff5965;
+}
+@media(max-width: 800px) {
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+    .summary {
+        position: static;
+    }
+}
+@media(max-width: 500px) {
+    .navbar {
+        padding: 14px 4%;
+    }
+    .logo {
+        font-size: 17px;
+    }
+    .nav-actions {
+        gap: 7px;
+    }
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+    }
+    .cart-link {
+        padding: 9px;
+        font-size: 13px;
+    }
+    .cart-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .remove-btn {
+        align-self: flex-end;
+    }
+    main {
+        margin: 35px auto;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <a href="index.html" class="logo">JOSE <span>TECHNOLOGIAS</span></a>
+        <div class="nav-actions">
+            <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
+            <a href="cart.html" class="cart-link">
+                🛒 <span class="cart-count" id="cartCount">0</span>
+            </a>
+            <button class="icon-btn" id="menuBtn" aria-label="Open menu">☰</button>
+        </div>
+    </nav>
+    <div class="menu-panel" id="menuPanel">
+        <div class="menu-links">
+            <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+            <a href="services.html" data-es="Servicios" data-en="Services">Servicios</a>
+            <a href="about.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
+            <a href="blog.html" data-es="Blog" data-en="Blog">Blog</a>
+            <a href="contact.html" data-es="Contacto" data-en="Contact">Contacto</a>
+            <a href="cart.html" data-es="Carrito" data-en="Cart">Carrito</a>
+            <div class="menu-language">
+                <button id="spanishBtn">ES</button>
+                <button id="englishBtn">EN</button>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="hero">
+    <h1 data-es="Tu carrito de compras" data-en="Your Shopping Cart">
+        Tu carrito de compras
+    </h1>
+    <p data-es="Revisa tus servicios seleccionados antes de continuar."
+       data-en="Review your selected services before continuing.">
+        Revisa tus servicios seleccionados antes de continuar.
+    </p>
+</section>
+<main>
+    <h2 class="section-title"
+        data-es="Servicios seleccionados"
+        data-en="Selected Services">
+        Servicios seleccionados
+    </h2>
+    <div id="emptyCart" class="empty-cart" style="display:none;">
+        <div class="empty-icon">🛒</div>
+        <h2 data-es="Tu carrito está vacío"
+            data-en="Your cart is empty">
+            Tu carrito está vacío
+        </h2>
+        <p data-es="Todavía no has agregado ningún servicio. Explora nuestros servicios y encuentra la solución adecuada para ti."
+           data-en="You haven't added any services yet. Explore our services and find the right solution for you.">
+            Todavía no has agregado ningún servicio. Explora nuestros servicios y encuentra la solución adecuada para ti.
+        </p>
+        <a href="services.html" class="primary-btn"
+           data-es="Explorar servicios"
+           data-en="Explore Services">
+            Explorar servicios
+        </a>
+    </div>
+    <div class="cart-layout" id="cartLayout">
+        <div class="cart-items" id="cartItems"></div>
+        <aside class="summary">
+            <h2 data-es="Resumen del pedido"
+                data-en="Order Summary">
+                Resumen del pedido
+            </h2>
+            <div class="summary-row">
+                <span data-es="Artículos" data-en="Items">Artículos</span>
+                <strong id="itemCount">0</strong>
+            </div>
+            <div class="summary-row">
+                <span data-es="Servicios con precio definido"
+                      data-en="Priced Services">
+                    Servicios con precio definido
+                </span>
+                <strong id="pricedTotal">$0 MXN</strong>
+            </div>
+            <div class="summary-row">
+                <span data-es="Servicios por cotizar"
+                      data-en="Services Requiring a Quote">
+                    Servicios por cotizar
+                </span>
+                <strong id="quoteCount">0</strong>
+            </div>
+            <div class="summary-row summary-total">
+                <span data-es="Total conocido"
+                      data-en="Known Total">
+                    Total conocido
+                </span>
+                <strong id="grandTotal">$0 MXN</strong>
+            </div>
+            <div class="summary-note"
+                 data-es="Los servicios que requieren cotización tendrán un precio confirmado después de revisar los detalles de tu solicitud. El total mostrado no incluye esos servicios."
+                 data-en="Services requiring a quote will receive a confirmed price after we review your request. The displayed total does not include those services.">
+                Los servicios que requieren cotización tendrán un precio confirmado después de revisar los detalles de tu solicitud. El total mostrado no incluye esos servicios.
+            </div>
+            <a href="checkout.html" class="primary-btn"
+               data-es="Continuar al pago →"
+               data-en="Proceed to Checkout →">
+                Continuar al pago →
+            </a>
+            <button class="clear-btn" id="clearCart"
+                    data-es="Vaciar carrito"
+                    data-en="Clear Cart">
+                Vaciar carrito
+            </button>
+        </aside>
+    </div>
+</main>
+<footer>
+    <p>© <span id="year"></span> Jose Technologias. <span data-es="Todos los derechos reservados."
+       data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+    <p><span data-es="Diseñado por" data-en="Designed by">Diseñado por</span>
+       <strong>BitBridge Technologies INC.</strong></p>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+const CART_KEY = "jt_cart";
+const LANGUAGE_KEY = "jt_language";
+const THEME_KEY = "jt_theme";
+let cart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+let language = localStorage.getItem(LANGUAGE_KEY) || "es";
+const translations = {
+    es: {
+        removed: "Servicio eliminado del carrito.",
+        cleared: "Carrito vaciado correctamente.",
+        confirmClear: "¿Estás seguro de que deseas vaciar el carrito?",
+        unknown: "Cotización",
+        website: "Diseño de sitios web",
+        app: "Aplicación móvil",
+        webapp: "Aplicación web",
+        maintenance: "Gestión y mantenimiento",
+        phone: "Soluciones telefónicas",
+        icloud: "Soluciones iCloud",
+        service: "Servicio"
+    },
+    en: {
+        removed: "Service removed from cart.",
+        cleared: "Cart cleared successfully.",
+        confirmClear: "Are you sure you want to clear your cart?",
+        unknown: "Quote required",
+        website: "Website Design",
+        app: "Mobile Application",
+        webapp: "Web Application",
+        maintenance: "Management & Maintenance",
+        phone: "Phone Solutions",
+        icloud: "iCloud Solutions",
+        service: "Service"
+    }
+};
+function saveCart() {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    renderCart();
+}
+function money(amount) {
+    return "$" + Number(amount).toLocaleString("en-US") + " MXN";
+}
+function getServiceType(type) {
+    return translations[language][type] || translations[language].service;
+}
+function isKnownPrice(price) {
+    return price !== null &&
+           price !== undefined &&
+           price !== "" &&
+           Number.isFinite(Number(price));
+}
+function renderCart() {
+    const container = document.getElementById("cartItems");
+    const empty = document.getElementById("emptyCart");
+    const layout = document.getElementById("cartLayout");
+    container.innerHTML = "";
+    let knownTotal = 0;
+    let quoteItems = 0;
+    cart.forEach((item, index) => {
+        const known = isKnownPrice(item.price);
+        if (known) {
+            knownTotal += Number(item.price);
+        } else {
+            quoteItems++;
+        }
+        const itemElement = document.createElement("div");
+        itemElement.className = "cart-item";
+        const info = document.createElement("div");
+        info.className = "item-info";
+        const title = document.createElement("h3");
+        title.textContent = item.name || translations[language].service;
+        const type = document.createElement("span");
+        type.className = "item-type";
+        type.textContent = getServiceType(item.type);
+        const price = document.createElement("div");
+        price.className = "item-price";
+        price.textContent = known
+            ? money(item.price)
+            : translations[language].unknown;
+        info.appendChild(title);
+        info.appendChild(type);
+        info.appendChild(price);
+        const remove = document.createElement("button");
+        remove.className = "remove-btn";
+        remove.textContent = "✕ " + (language === "es" ? "Eliminar" : "Remove");
+        remove.setAttribute("aria-label", language === "es" ? "Eliminar servicio" : "Remove service");
+        remove.addEventListener("click", () => removeItem(index));
+        itemElement.appendChild(info);
+        itemElement.appendChild(remove);
+        container.appendChild(itemElement);
+    });
+    document.getElementById("cartCount").textContent = cart.length;
+    document.getElementById("itemCount").textContent = cart.length;
+    document.getElementById("pricedTotal").textContent = money(knownTotal);
+    document.getElementById("grandTotal").textContent = money(knownTotal);
+    document.getElementById("quoteCount").textContent = quoteItems;
+    if (cart.length === 0) {
+        empty.style.display = "block";
+        layout.style.display = "none";
+    } else {
+        empty.style.display = "none";
+        layout.style.display = "grid";
+    }
+}
+function removeItem(index) {
+    cart.splice(index, 1);
+    saveCart();
+    showToast(translations[language].removed);
+}
+function clearCart() {
+    if (cart.length === 0) return;
+    if (confirm(translations[language].confirmClear)) {
+        cart = [];
+        saveCart();
+        showToast(translations[language].cleared);
+    }
+}
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
+function applyLanguage() {
+    document.documentElement.lang = language;
+    document.querySelectorAll("[data-es][data-en]").forEach(element => {
+        element.textContent = element.dataset[language];
+    });
+    document.getElementById("spanishBtn").classList.toggle("active", language === "es");
+    document.getElementById("englishBtn").classList.toggle("active", language === "en");
+    renderCart();
+}
+document.getElementById("spanishBtn").addEventListener("click", () => {
+    language = "es";
+    localStorage.setItem(LANGUAGE_KEY, language);
+    applyLanguage();
+});
+document.getElementById("englishBtn").addEventListener("click", () => {
+    language = "en";
+    localStorage.setItem(LANGUAGE_KEY, language);
+    applyLanguage();
+});
+document.getElementById("menuBtn").addEventListener("click", () => {
+    document.getElementById("menuPanel").classList.toggle("open");
+});
+document.getElementById("clearCart").addEventListener("click", clearCart);
+const themeBtn = document.getElementById("themeBtn");
+function applyTheme() {
+    const theme = localStorage.getItem(THEME_KEY) || "light";
+    document.body.classList.toggle("dark", theme === "dark");
+    themeBtn.textContent = theme === "dark" ? "☀️" : "🌙";
+}
+themeBtn.addEventListener("click", () => {
+    const current = localStorage.getItem(THEME_KEY) || "light";
+    localStorage.setItem(THEME_KEY, current === "dark" ? "light" : "dark");
+    applyTheme();
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+applyTheme();
+applyLanguage();
+</script>
+</body>
+</html>
