@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jose Technologias - Soluciones tecnológicas, diseño web, aplicaciones, soporte móvil y soluciones Apple.">
+<title>Jose Technologias | Soluciones Tecnológicas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root {
+    --red: #dc1824;
+    --red-dark: #b8101b;
+    --blue: #2457a6;
+    --black: #111318;
+    --white: #ffffff;
+    --background: #ffffff;
+    --surface: #f5f6f8;
+    --text: #17191f;
+    --muted: #737986;
+    --border: #e6e8ec;
+    --shadow: 0 15px 45px rgba(0,0,0,0.07);
+}
+[data-theme="dark"] {
+    --background: #101217;
+    --surface: #191d25;
+    --text: #f5f5f5;
+    --muted: #a6adba;
+    --border: #303541;
+    --white: #171b22;
+    --shadow: 0 15px 45px rgba(0,0,0,0.25);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    transition: background .3s, color .3s;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+.container {
+    width: 91%;
+    max-width: 1200px;
+    margin: auto;
+}
+/* NAVIGATION */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+}
+.navbar {
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 900;
+    font-size: 17px;
+    letter-spacing: -0.5px;
+}
+.logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+/* TEMPORARY LOGO */
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--red);
+    color: white;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    font-weight: 900;
+}
+.logo-text small {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--red);
+}
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.nav-button {
+    width: 43px;
+    height: 43px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 17px;
+    position: relative;
+}
+.cart-count {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    background: var(--red);
+    color: white;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+/* MENU */
+.menu-panel {
+    display: none;
+    padding: 25px 0;
+    background: var(--background);
+    border-top: 1px solid var(--border);
+}
+.menu-panel.active {
+    display: block;
+}
+.menu-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+.menu-content a {
+    padding: 11px 16px;
+    background: var(--surface);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .2s;
+}
+.menu-content a:hover {
+    background: var(--red);
+    color: white;
+}
+.menu-settings {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+.menu-settings button {
+    padding: 11px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 700;
+}
+/* HERO */
+.hero {
+    padding: 105px 0 95px;
+    background:
+    radial-gradient(circle at 85% 20%, rgba(220,24,36,.12), transparent 35%),
+    linear-gradient(135deg, var(--background), var(--surface));
+    overflow: hidden;
+}
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 55px;
+}
+.hero-label {
+    color: var(--red);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.08;
+    letter-spacing: -3px;
+    margin: 22px 0;
+    font-weight: 900;
+}
+.hero h1 span {
+    color: var(--red);
+}
+.hero-description {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.9;
+    max-width: 600px;
+}
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 30px;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 15px 23px;
+    border-radius: 11px;
+    font-weight: 800;
+    font-size: 14px;
+    border: none;
+    transition: .25s;
+}
+.btn-primary {
+    background: var(--red);
+    color: white;
+}
+.btn-primary:hover {
+    background: var(--red-dark);
+    transform: translateY(-3px);
+}
+.btn-secondary {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+.btn-secondary:hover {
+    border-color: var(--red);
+}
+.hero-visual {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+.hero-visual-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.status {
+    background: rgba(36,87,166,.1);
+    color: var(--blue);
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 800;
+}
+.hero-logo {
+    margin: 35px 0 25px;
+    font-size: 85px;
+    font-weight: 900;
+    color: var(--red);
+    letter-spacing: -7px;
+}
+.hero-visual h3 {
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+.hero-visual p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 14px;
+}
+.visual-bottom {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 12px;
+}
+/* GENERAL SECTIONS */
+.section {
+    padding: 85px 0;
+}
+.section-light {
+    background: var(--surface);
+}
+.section-heading {
+    margin-bottom: 40px;
+}
+.section-heading span {
+    color: var(--red);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.section-heading h2 {
+    font-size: clamp(30px, 4vw, 43px);
+    margin-top: 12px;
+    letter-spacing: -1.5px;
+}
+.section-heading p {
+    color: var(--muted);
+    margin-top: 12px;
+    max-width: 650px;
+    line-height: 1.8;
+}
+/* SERVICES */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+.service-card {
+    padding: 27px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    transition: .3s;
+    box-shadow: var(--shadow);
+}
+.service-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--red);
+}
+.service-icon {
+    width: 55px;
+    height: 55px;
+    background: rgba(220,24,36,.1);
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+.service-card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+.service-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 75px;
+}
+.service-price {
+    font-size: 19px;
+    font-weight: 900;
+    margin: 20px 0;
+}
+.service-price small {
+    color: var(--muted);
+    font-size: 11px;
+}
+.service-card button {
+    width: 100%;
+}
+/* WHY US */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+.why-card {
+    padding: 27px;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    background: var(--white);
+}
+.why-card i {
+    color: var(--red);
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+.why-card h3 {
+    margin-bottom: 10px;
+}
+.why-card p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 14px;
+}
+/* COUNTRIES */
+.countries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+.country {
+    padding: 15px 22px;
+    border-radius: 12px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    font-weight: 700;
+    font-size: 14px;
+}
+/* CTA */
+.cta {
+    background: var(--black);
+    color: white;
+    padding: 65px 30px;
+    border-radius: 23px;
+    text-align: center;
+}
+.cta h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    margin-bottom: 15px;
+}
+.cta p {
+    color: #b9bfca;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+/* FOOTER */
+.footer {
+    background: #101217;
+    color: white;
+    padding: 65px 0 25px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+}
+.footer-brand {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+.footer-brand span {
+    color: var(--red);
+}
+.footer p {
+    color: #aab0bb;
+    font-size: 14px;
+    line-height: 1.9;
+}
+.footer h3 {
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.footer-links a {
+    color: #aab0bb;
+    font-size: 14px;
+}
+.footer-links a:hover {
+    color: white;
+}
+.footer-bottom {
+    border-top: 1px solid #30343d;
+    margin-top: 45px;
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.footer-bottom small {
+    color: #9299a5;
+}
+.footer-bottom strong {
+    color: white;
+}
+/* RESPONSIVE */
+@media(max-width:850px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+    .services-grid,
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media(max-width:580px) {
+    .navbar {
+        height: 72px;
+    }
+    .logo {
+        font-size: 13px;
+    }
+    .logo-icon {
+        width: 42px;
+        height: 42px;
+    }
+    .hero {
+        padding: 70px 0;
+    }
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+    .hero-visual {
+        padding: 25px;
+    }
+    .services-grid,
+    .why-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .menu-settings {
+        margin-left: 0;
+    }
+    .menu-content {
+        align-items: stretch;
+    }
+    .menu-content a {
+        width: 100%;
+    }
+    .section {
+        padding: 65px 0;
+    }
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header">
+<div class="container navbar">
+<a href="index.html" class="logo">
+<!-- TEMPORARY LOGO -->
+<!-- Replace this mark with your GitHub logo URL later -->
+<div class="logo-icon">JT</div>
+<div class="logo-text">
+JOSE TECHNOLOGIAS
+<small>TECHNOLOGY SOLUTIONS</small>
+</div>
+</a>
+<div class="nav-actions">
+<a href="cart.html" class="nav-button" aria-label="Shopping cart">
+<i class="fas fa-shopping-cart"></i>
+<span class="cart-count" id="cartCount">0</span>
+</a>
+<button class="nav-button" onclick="toggleMenu()" aria-label="Open menu">
+<i class="fas fa-bars"></i>
+</button>
+</div>
+</div>
+<div class="menu-panel" id="menuPanel">
+<div class="container menu-content">
+<a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+<a href="services.html" data-es="Servicios" data-en="Services">Servicios</a>
+<a href="about.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
+<a href="blog.html" data-es="Blog" data-en="Blog">Blog</a>
+<a href="contact.html" data-es="Contacto" data-en="Contact">Contacto</a>
+<a href="cart.html">
+<i class="fas fa-shopping-cart"></i>
+<span data-es="Carrito" data-en="Shopping Cart">Carrito</span>
+<span class="cart-count">0</span>
+</a>
+<div class="menu-settings">
+<button onclick="changeLanguage()" id="languageButton">
+EN
+</button>
+<button onclick="changeTheme()" id="themeButton">
+<i class="fas fa-moon"></i>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- HERO SECTION -->
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<span class="hero-label" data-es="SOLUCIONES TECNOLÓGICAS PROFESIONALES" data-en="PROFESSIONAL TECHNOLOGY SOLUTIONS">
+SOLUCIONES TECNOLÓGICAS PROFESIONALES
+</span>
+<h1 data-es="La tecnología que impulsa tus <span>ideas.</span>" data-en="Technology that powers your <span>ideas.</span>">
+La tecnología que impulsa tus <span>ideas.</span>
+</h1>
+<p class="hero-description"
+data-es="Bienvenido a Jose Technologias. Transformamos ideas en soluciones digitales, desarrollamos aplicaciones modernas y ofrecemos asistencia tecnológica para teléfonos y dispositivos Apple."
+data-en="Welcome to Jose Technologias. We transform ideas into digital solutions, develop modern applications and provide technology assistance for phones and Apple devices.">
+Bienvenido a Jose Technologias. Transformamos ideas en soluciones digitales, desarrollamos aplicaciones modernas y ofrecemos asistencia tecnológica para teléfonos y dispositivos Apple.
+</p>
+<div class="hero-buttons">
+<a href="services.html" class="btn btn-primary">
+<i class="fas fa-arrow-right"></i>
+<span data-es="Explorar servicios" data-en="Explore Services">
+Explorar servicios
+</span>
+</a>
+<a href="contact.html" class="btn btn-secondary">
+<i class="fas fa-envelope"></i>
+<span data-es="Contáctanos" data-en="Contact Us">
+Contáctanos
+</span>
+</a>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-visual-top">
+<span class="status">
+<i class="fas fa-circle"></i>
+<span data-es="SOLUCIONES DIGITALES" data-en="DIGITAL SOLUTIONS">SOLUCIONES DIGITALES</span>
+</span>
+<i class="fas fa-microchip" style="color:var(--red);font-size:25px"></i>
+</div>
+<div class="hero-logo">JT.</div>
+<h3 data-es="Innovación. Tecnología. Soluciones." data-en="Innovation. Technology. Solutions.">
+Innovación. Tecnología. Soluciones.
+</h3>
+<p data-es="Creamos experiencias digitales que conectan personas, negocios y tecnología."
+data-en="We create digital experiences that connect people, businesses and technology.">
+Creamos experiencias digitales que conectan personas, negocios y tecnología.
+</p>
+<div class="visual-bottom">
+<span>JOSE TECHNOLOGIAS</span>
+<span>EST. 2026</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SERVICES SECTION -->
+<section class="section">
+<div class="container">
+<div class="section-heading">
+<span data-es="NUESTROS SERVICIOS" data-en="OUR SERVICES">
+NUESTROS SERVICIOS
+</span>
+<h2 data-es="Soluciones para cada necesidad."
+data-en="Solutions for every need.">
+Soluciones para cada necesidad.
+</h2>
+<p data-es="Ofrecemos servicios tecnológicos diseñados para particulares, emprendedores y empresas."
+data-en="We offer technology services designed for individuals, entrepreneurs and businesses.">
+Ofrecemos servicios tecnológicos diseñados para particulares, emprendedores y empresas.
+</p>
+</div>
+<div class="services-grid">
+<!-- WEBSITE DESIGN -->
+<div class="service-card">
+<div class="service-icon">
+<i class="fas fa-globe"></i>
+</div>
+<h3 data-es="Diseño de sitios web" data-en="Website Design">
+Diseño de sitios web
+</h3>
+<p data-es="Creamos sitios web modernos, profesionales, rápidos y adaptables a todos los dispositivos."
+data-en="We create modern, professional, fast websites that adapt to all devices.">
+Creamos sitios web modernos, profesionales, rápidos y adaptables a todos los dispositivos.
+</p>
+<div class="service-price">
+$3,750 MXN
+</div>
+<button class="btn btn-primary" onclick="addToCart('website')">
+<i class="fas fa-cart-plus"></i>
+<span data-es="Añadir al carrito" data-en="Add to Cart">
+Añadir al carrito
+</span>
+</button>
+</div>
+<!-- APPLICATION DEVELOPMENT -->
+<div class="service-card">
+<div class="service-icon">
+<i class="fas fa-mobile-screen-button"></i>
+</div>
+<h3 data-es="Aplicaciones móviles y web" data-en="Mobile & Web Applications">
+Aplicaciones móviles y web
+</h3>
+<p data-es="Diseñamos y desarrollamos aplicaciones personalizadas para empresas, negocios y proyectos."
+data-en="We design and develop customized applications for businesses, companies and projects.">
+Diseñamos y desarrollamos aplicaciones personalizadas para empresas, negocios y proyectos.
+</p>
+<div class="service-price">
+Desde $9,375 MXN
+</div>
+<button class="btn btn-primary" onclick="addToCart('app')">
+<i class="fas fa-cart-plus"></i>
+<span data-es="Añadir al carrito" data-en="Add to Cart">
+Añadir al carrito
+</span>
+</button>
+</div>
+<!-- MAINTENANCE -->
+<div class="service-card">
+<div class="service-icon">
+<i class="fas fa-gears"></i>
+</div>
+<h3 data-es="Gestión y mantenimiento" data-en="Management & Maintenance">
+Gestión y mantenimiento
+</h3>
+<p data-es="Administración, actualizaciones, mantenimiento y soporte para sitios web y aplicaciones."
+data-en="Management, updates, maintenance and support for websites and applications.">
+Administración, actualizaciones, mantenimiento y soporte para sitios web y aplicaciones.
+</p>
+<div class="service-price" data-es="Cotización personalizada" data-en="Custom quotation">
+Cotización personalizada
+</div>
+<button class="btn btn-primary" onclick="addToCart('maintenance')">
+<i class="fas fa-cart-plus"></i>
+<span data-es="Añadir al carrito" data-en="Add to Cart">
+Añadir al carrito
+</span>
+</button>
+</div>
+<!-- PHONE SOLUTIONS -->
+<div class="service-card">
+<div class="service-icon">
+<i class="fas fa-mobile-alt"></i>
+</div>
+<h3 data-es="Soluciones para teléfonos" data-en="Phone Solutions">
+Soluciones para teléfonos
+</h3>
+<p data-es="Evaluación y asistencia técnica para diferentes problemas relacionados con teléfonos móviles."
+data-en="Technical assessment and assistance for different mobile phone issues.">
+Evaluación y asistencia técnica para diferentes problemas relacionados con teléfonos móviles.
+</p>
+<div class="service-price" data-es="Según diagnóstico" data-en="Based on diagnosis">
+Según diagnóstico
+</div>
+<button class="btn btn-primary" onclick="addToCart('phone')">
+<i class="fas fa-cart-plus"></i>
+<span data-es="Añadir al carrito" data-en="Add to Cart">
+Añadir al carrito
+</span>
+</button>
+</div>
+<!-- ICLOUD -->
+<div class="service-card">
+<div class="service-icon">
+<i class="fab fa-apple"></i>
+</div>
+<h3 data-es="Soporte y soluciones Apple" data-en="Apple Support Solutions">
+Soporte y soluciones Apple
+</h3>
+<p data-es="Orientación para recuperación de cuentas, asistencia de activación y soporte autorizado para dispositivos Apple."
+data-en="Guidance for account recovery, activation assistance and authorized support for Apple devices.">
+Orientación para recuperación de cuentas, asistencia de activación y soporte autorizado para dispositivos Apple.
+</p>
+<div class="service-price" data-es="Desde $400 MXN" data-en="From $400 MXN">
+Desde $400 MXN
+</div>
+<button class="btn btn-primary" onclick="addToCart('icloud')">
+<i class="fas fa-cart-plus"></i>
+<span data-es="Añadir al carrito" data-en="Add to Cart">
+Añadir al carrito
+</span>
+</button>
+</div>
+<!-- CUSTOM SOLUTIONS -->
+<div class="service-card">
+<div class="service-icon">
+<i class="fas fa-lightbulb"></i>
+</div>
+<h3 data-es="Soluciones tecnológicas personalizadas" data-en="Custom Technology Solutions">
+Soluciones tecnológicas personalizadas
+</h3>
+<p data-es="¿Tienes una necesidad tecnológica diferente? Cuéntanos tu proyecto y evaluaremos cómo ayudarte."
+data-en="Have a different technology need? Tell us about your project and we will assess how we can help.">
+¿Tienes una necesidad tecnológica diferente? Cuéntanos tu proyecto y evaluaremos cómo ayudarte.
+</p>
+<div class="service-price" data-es="Consultar precio" data-en="Request a quote">
+Consultar precio
+</div>
+<a href="contact.html" class="btn btn-secondary">
+<span data-es="Solicitar información" data-en="Request Information">
+Solicitar información
+</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- WHY CHOOSE US -->
+<section class="section section-light">
+<div class="container">
+<div class="section-heading">
+<span data-es="POR QUÉ ELEGIRNOS" data-en="WHY CHOOSE US">
+POR QUÉ ELEGIRNOS
+</span>
+<h2 data-es="Más que tecnología. Soluciones que funcionan."
+data-en="More than technology. Solutions that work.">
+Más que tecnología. Soluciones que funcionan.
+</h2>
+</div>
+<div class="why-grid">
+<div class="why-card">
+<i class="fas fa-award"></i>
+<h3 data-es="Calidad profesional" data-en="Professional Quality">
+Calidad profesional
+</h3>
+<p data-es="Nos enfocamos en ofrecer soluciones modernas, funcionales y cuidadosamente desarrolladas."
+data-en="We focus on providing modern, functional and carefully developed solutions.">
+Nos enfocamos en ofrecer soluciones modernas, funcionales y cuidadosamente desarrolladas.
+</p>
+</div>
+<div class="why-card">
+<i class="fas fa-handshake"></i>
+<h3 data-es="Atención personalizada" data-en="Personalized Support">
+Atención personalizada
+</h3>
+<p data-es="Cada cliente y cada proyecto recibe atención según sus necesidades."
+data-en="Every customer and project receives attention based on their needs.">
+Cada cliente y cada proyecto recibe atención según sus necesidades.
+</p>
+</div>
+<div class="why-card">
+<i class="fas fa-shield-halved"></i>
+<h3 data-es="Transparencia" data-en="Transparency">
+Transparencia
+</h3>
+<p data-es="Explicamos los servicios, procesos y precios antes de comenzar cualquier trabajo."
+data-en="We explain services, processes and prices before starting any work.">
+Explicamos los servicios, procesos y precios antes de comenzar cualquier trabajo.
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- COUNTRIES -->
+<section class="section">
+<div class="container">
+<div class="section-heading">
+<span data-es="NUESTRA COBERTURA" data-en="OUR COVERAGE">
+NUESTRA COBERTURA
+</span>
+<h2 data-es="Atendemos tres países."
+data-en="Serving three countries.">
+Atendemos tres países.
+</h2>
+<p data-es="Jose Technologias ofrece sus servicios a clientes de los siguientes países."
+data-en="Jose Technologias provides its services to customers in the following countries.">
+Jose Technologias ofrece sus servicios a clientes de los siguientes países.
+</p>
+</div>
+<div class="countries">
+<div class="country">🇲🇽 México</div>
+<div class="country">🇦🇷 Argentina</div>
+<div class="country">🇨🇴 Colombia</div>
+</div>
+</div>
+</section>
+<!-- CALL TO ACTION -->
+<section class="section">
+<div class="container">
+<div class="cta">
+<h2 data-es="¿Listo para comenzar tu próximo proyecto?"
+data-en="Ready to start your next project?">
+¿Listo para comenzar tu próximo proyecto?
+</h2>
+<p data-es="Estamos preparados para ayudarte a convertir tus necesidades tecnológicas en soluciones."
+data-en="We are ready to help turn your technology needs into solutions.">
+Estamos preparados para ayudarte a convertir tus necesidades tecnológicas en soluciones.
+</p>
+<a href="contact.html" class="btn btn-primary">
+<i class="fas fa-paper-plane"></i>
+<span data-es="Contáctanos ahora" data-en="Contact Us Now">
+Contáctanos ahora
+</span>
+</a>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div>
+<div class="footer-brand">
+JOSE <span>TECHNOLOGIAS</span>
+</div>
+<p data-es="Tu aliado tecnológico para el diseño web, desarrollo de aplicaciones, mantenimiento y soluciones digitales."
+data-en="Your technology partner for web design, application development, maintenance and digital solutions.">
+Tu aliado tecnológico para el diseño web, desarrollo de aplicaciones, mantenimiento y soluciones digitales.
+</p>
+</div>
+<div>
+<h3 data-es="Navegación" data-en="Navigation">
+Navegación
+</h3>
+<div class="footer-links">
+<a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+<a href="services.html" data-es="Servicios" data-en="Services">Servicios</a>
+<a href="about.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
+<a href="blog.html" data-es="Blog" data-en="Blog">Blog</a>
+<a href="contact.html" data-es="Contacto" data-en="Contact">Contacto</a>
+</div>
+</div>
+<div>
+<h3 data-es="Contacto" data-en="Contact">
+Contacto
+</h3>
+<div class="footer-links">
+<a href="mailto:support.iunlockpro@gmail.com">
+<i class="fas fa-envelope"></i>
+support.iunlockpro@gmail.com
+</a>
+<a href="https://www.facebook.com/" target="_blank">
+<i class="fab fa-facebook"></i>
+Facebook
+</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<small>
+© <span id="year"></span> Jose Technologias.
+<span data-es="Todos los derechos reservados." data-en="All rights reserved.">
+Todos los derechos reservados.
+</span>
+</small>
+<small>
+<span data-es="Diseñado por" data-en="Designed by">
+Diseñado por
+</span>
+<strong>BitBridge Technologies INC.</strong>
+</small>
+</div>
+</div>
+</footer>
+<script>
+/* ==================================
+   JOSE TECHNOLOGIAS GLOBAL SETTINGS
+================================== */
+/* LANGUAGE */
+let currentLanguage = localStorage.getItem("jt_language") || "es";
+function changeLanguage() {
+    currentLanguage = currentLanguage === "es" ? "en" : "es";
+    localStorage.setItem("jt_language", currentLanguage);
+    applyLanguage();
+}
+function applyLanguage() {
+    document.documentElement.lang = currentLanguage;
+    document.querySelectorAll("[data-es]").forEach(element => {
+        element.innerHTML = element.getAttribute("data-" + currentLanguage);
+    });
+    const languageButton = document.getElementById("languageButton");
+    if(languageButton) {
+        languageButton.textContent = currentLanguage === "es" ? "EN" : "ES";
+    }
+}
+/* DARK AND LIGHT THEME */
+let currentTheme = localStorage.getItem("jt_theme") || "light";
+function applyTheme() {
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    const button = document.getElementById("themeButton");
+    if(button) {
+        button.innerHTML = currentTheme === "dark"
+        ? '<i class="fas fa-sun"></i>'
+        : '<i class="fas fa-moon"></i>';
+    }
+}
+function changeTheme() {
+    currentTheme = currentTheme === "light" ? "dark" : "light";
+    localStorage.setItem("jt_theme", currentTheme);
+    applyTheme();
+}
+/* MENU */
+function toggleMenu() {
+    document.getElementById("menuPanel").classList.toggle("active");
+}
+/* SHOPPING CART */
+function getCart() {
+    return JSON.parse(localStorage.getItem("jt_cart") || "[]");
+}
+function saveCart(cart) {
+    localStorage.setItem("jt_cart", JSON.stringify(cart));
+    updateCartCount();
+}
+function updateCartCount() {
+    const count = getCart().length;
+    document.querySelectorAll(".cart-count").forEach(element => {
+        element.textContent = count;
+    });
+}
+/* ADD SERVICE */
+function addToCart(service) {
+    const services = {
+        website: {
+            name: "Diseño de sitios web",
+            price: 3750
+        },
+        app: {
+            name: "Aplicaciones móviles y web",
+            price: 9375
+        },
+        maintenance: {
+            name: "Gestión y mantenimiento",
+            price: 0
+        },
+        phone: {
+            name: "Soluciones para teléfonos",
+            price: 0
+        },
+        icloud: {
+            name: "Soporte y soluciones Apple",
+            price: 0
+        }
+    };
+    const selected = services[service];
+    if(!selected) return;
+    const cart = getCart();
+    cart.push({
+        id: Date.now() + Math.random(),
+        type: service,
+        name: selected.name,
+        price: selected.price
+    });
+    saveCart(cart);
+    showNotification(
+        currentLanguage === "es"
+        ? "¡Servicio añadido al carrito!"
+        : "Service added to cart!"
+    );
+}
+/* NOTIFICATION */
+function showNotification(message) {
+    const notification = document.createElement("div");
+    notification.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
+    notification.style.cssText = `
+        position:fixed;
+        bottom:25px;
+        right:20px;
+        background:#17191f;
+        color:white;
+        padding:16px 22px;
+        border-radius:12px;
+        z-index:9999;
+        box-shadow:0 10px 30px rgba(0,0,0,.2);
+        font-size:14px;
+        font-weight:700;
+        animation:fadeIn .3s ease;
+    `;
+    document.body.appendChild(notification);
+    setTimeout(() => {
+        notification.remove();
+    }, 2500);
+}
+/* INITIALIZE */
+document.getElementById("year").textContent = new Date().getFullYear();
+applyLanguage();
+applyTheme();
+updateCartCount();
+</script>
+</body>
+</html>
