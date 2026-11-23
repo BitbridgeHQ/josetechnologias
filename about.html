@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e50920">
+  <title>About Us | Jose Technologias</title>
+  <style>
+    :root {
+      --red: #e50920;
+      --red-dark: #b90018;
+      --blue: #1769aa;
+      --bg: #f5f6f8;
+      --surface: #ffffff;
+      --text: #171717;
+      --muted: #686868;
+      --border: #e7e7e7;
+      --shadow: 0 12px 35px rgba(0,0,0,.07);
+    }
+    body.dark {
+      --bg: #101114;
+      --surface: #191b20;
+      --text: #f5f5f5;
+      --muted: #b5b5b5;
+      --border: #30323a;
+      --shadow: 0 12px 35px rgba(0,0,0,.25);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      transition: background .25s, color .25s;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 19px;
+    }
+    .brand img {
+      width: 43px;
+      height: 43px;
+      object-fit: contain;
+      border-radius: 9px;
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      border-radius: 10px;
+      background: var(--red);
+      color: white;
+      font-weight: 900;
+    }
+    .brand span:last-child {
+      color: var(--red);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .icon-button {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 9px;
+      padding: 9px 12px;
+      position: relative;
+    }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--red);
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      min-width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+    .menu-button {
+      background: var(--red);
+      border: none;
+      color: white;
+      border-radius: 9px;
+      padding: 10px 15px;
+      font-weight: 700;
+    }
+    .menu-panel {
+      display: none;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 18px 4%;
+    }
+    .menu-panel.open {
+      display: block;
+    }
+    .menu-inner {
+      max-width: 1120px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .menu-inner a,
+    .menu-inner button {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .menu-inner a.active {
+      color: var(--red);
+      border-color: var(--red);
+    }
+    .menu-inner .language-button {
+      margin-left: auto;
+    }
+    .hero {
+      padding: 100px 0 90px;
+      background:
+        linear-gradient(110deg, rgba(0,0,0,.87), rgba(0,0,0,.60)),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85");
+      background-position: center;
+      background-size: cover;
+      color: white;
+      text-align: center;
+    }
+    .eyebrow {
+      color: #ff6878;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 62px);
+      line-height: 1.12;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #eeeeee;
+      font-size: 17px;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 13px 23px;
+      border-radius: 9px;
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      transition: .2s;
+    }
+    .button:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+    section {
+      padding: 75px 0;
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+    .section-heading .eyebrow {
+      color: var(--red);
+    }
+    .section-heading h2 {
+      font-size: clamp(28px, 4vw, 39px);
+      margin-bottom: 12px;
+    }
+    .section-heading p {
+      max-width: 680px;
+      margin: auto;
+      color: var(--muted);
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+    .story-image {
+      min-height: 390px;
+      border-radius: 18px;
+      background:
+        url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1100&q=85")
+        center/cover;
+      box-shadow: var(--shadow);
+    }
+    .story-content h2 {
+      font-size: 34px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .story-content p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+    .highlight {
+      color: var(--red);
+      font-weight: 700;
+    }
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    .info-card {
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+    .info-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      background: rgba(229,9,32,.1);
+      color: var(--red);
+      border-radius: 12px;
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+    .info-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .info-card p {
+      color: var(--muted);
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+    .value-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 25px 20px;
+      text-align: center;
+    }
+    .value-card .symbol {
+      font-size: 31px;
+      margin-bottom: 12px;
+    }
+    .value-card h3 {
+      margin-bottom: 8px;
+    }
+    .value-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .services-section {
+      background: var(--surface);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .service-card {
+      padding: 25px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+    }
+    .service-card .symbol {
+      font-size: 29px;
+      margin-bottom: 12px;
+    }
+    .service-card h3 {
+      margin-bottom: 8px;
+    }
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .cta {
+      text-align: center;
+      padding: 65px 25px;
+      border-radius: 20px;
+      background: linear-gradient(120deg, #e50920, #a90019);
+      color: white;
+    }
+    .cta h2 {
+      font-size: clamp(27px, 4vw, 38px);
+      margin-bottom: 12px;
+    }
+    .cta p {
+      max-width: 650px;
+      margin: auto;
+      color: #ffe5e8;
+    }
+    .cta .button {
+      background: white;
+      color: var(--red);
+    }
+    footer {
+      background: #111216;
+      color: white;
+      padding: 45px 0 20px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 30px;
+    }
+    footer h3 {
+      margin-bottom: 13px;
+    }
+    footer p,
+    footer a {
+      color: #bdbdc4;
+      font-size: 14px;
+    }
+    footer a {
+      display: block;
+      margin: 8px 0;
+    }
+    footer a:hover {
+      color: white;
+    }
+    .copyright {
+      border-top: 1px solid #303038;
+      padding-top: 18px;
+      text-align: center;
+      color: #a7a7ad;
+      font-size: 13px;
+    }
+    @media (max-width: 800px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+      .story-image {
+        min-height: 280px;
+      }
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 560px) {
+      .brand {
+        font-size: 16px;
+      }
+      .navbar {
+        min-height: 68px;
+      }
+      .nav-actions {
+        gap: 7px;
+      }
+      .icon-button {
+        padding: 8px 10px;
+      }
+      .menu-button {
+        padding: 9px 11px;
+      }
+      .hero {
+        padding: 75px 0;
+      }
+      section {
+        padding: 55px 0;
+      }
+      .mission-grid,
+      .values-grid,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+      .menu-inner .language-button {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <a href="index.html" class="brand">
+        <!-- Replace this text logo with your GitHub-hosted logo when ready. -->
+        <span class="brand-mark">JT</span>
+        <span>Jose <span>Technologias</span></span>
+      </a>
+      <div class="nav-actions">
+        <a href="cart.html" class="icon-button" aria-label="Shopping cart">
+          🛒 <span class="cart-count" id="cartCount">0</span>
+        </a>
+        <button class="icon-button" id="themeButton" aria-label="Toggle theme">🌙</button>
+        <button class="menu-button" id="menuButton">☰ <span data-i18n="menu">Menú</span></button>
+      </div>
+    </div>
+    <nav class="menu-panel" id="menuPanel">
+      <div class="menu-inner">
+        <a href="index.html" data-i18n="home">Inicio</a>
+        <a href="services.html" data-i18n="services">Servicios</a>
+        <a href="about.html" class="active" data-i18n="about">Nosotros</a>
+        <a href="blog.html" data-i18n="blog">Blog</a>
+        <a href="contact.html" data-i18n="contact">Contacto</a>
+        <a href="cart.html" data-i18n="cart">Carrito</a>
+        <button class="language-button" id="languageButton">🇬🇧 English</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow" data-i18n="heroEyebrow">Conoce Jose Technologias</div>
+        <h1 data-i18n="heroTitle">Tecnología que impulsa tus ideas.</h1>
+        <p data-i18n="heroText">
+          Creamos soluciones digitales, conectamos personas con tecnología
+          y ayudamos a empresas y particulares a avanzar con confianza.
+        </p>
+        <a href="services.html" class="button" data-i18n="exploreServices">Explorar servicios</a>
+      </div>
+    </section>
+    <section>
+      <div class="container story-grid">
+        <div class="story-image" role="img" aria-label="Team collaborating in an office"></div>
+        <div class="story-content">
+          <div class="eyebrow" data-i18n="storyEyebrow">Quiénes somos</div>
+          <h2 data-i18n="storyTitle">Soluciones tecnológicas con un propósito.</h2>
+          <p data-i18n="storyText1">
+            Jose Technologias es una empresa de tecnología enfocada en ofrecer
+            soluciones digitales prácticas, modernas y confiables.
+          </p>
+          <p data-i18n="storyText2">
+            Trabajamos con personas, emprendedores y empresas que necesitan
+            construir su presencia digital, desarrollar aplicaciones,
+            mantener sus plataformas y resolver necesidades relacionadas
+            con sus dispositivos.
+          </p>
+          <p data-i18n="storyText3">
+            Nuestro objetivo es hacer que la tecnología sea más accesible,
+            útil y sencilla para nuestros clientes.
+          </p>
+          <p class="highlight" data-i18n="storyHighlight">
+            Tu idea merece una solución tecnológica inteligente.
+          </p>
+          <a href="contact.html" class="button" data-i18n="talkToUs">Hablemos</a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-i18n="purposeEyebrow">Nuestro propósito</div>
+          <h2 data-i18n="purposeTitle">Lo que nos guía</h2>
+          <p data-i18n="purposeText">
+            Cada proyecto comienza con una necesidad. Nuestra responsabilidad
+            es convertirla en una solución útil y bien pensada.
+          </p>
+        </div>
+        <div class="mission-grid">
+          <article class="info-card">
+            <div class="info-icon">🎯</div>
+            <h3 data-i18n="missionTitle">Nuestra misión</h3>
+            <p data-i18n="missionText">
+              Proporcionar servicios tecnológicos accesibles y de calidad,
+              ayudando a nuestros clientes a desarrollar, administrar y
+              mejorar sus herramientas digitales.
+            </p>
+          </article>
+          <article class="info-card">
+            <div class="info-icon">🔭</div>
+            <h3 data-i18n="visionTitle">Nuestra visión</h3>
+            <p data-i18n="visionText">
+              Ser una empresa tecnológica reconocida por su innovación,
+              profesionalismo y capacidad para crear soluciones que
+              simplifiquen la vida de personas y empresas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-i18n="valuesEyebrow">Nuestros principios</div>
+          <h2 data-i18n="valuesTitle">Los valores que nos representan</h2>
+        </div>
+        <div class="values-grid">
+          <article class="value-card">
+            <div class="symbol">💡</div>
+            <h3 data-i18n="innovationTitle">Innovación</h3>
+            <p data-i18n="innovationText">Buscamos formas inteligentes de resolver problemas.</p>
+          </article>
+          <article class="value-card">
+            <div class="symbol">🤝</div>
+            <h3 data-i18n="trustTitle">Confianza</h3>
+            <p data-i18n="trustText">Valoramos la comunicación clara y las relaciones honestas.</p>
+          </article>
+          <article class="value-card">
+            <div class="symbol">⭐</div>
+            <h3 data-i18n="qualityTitle">Calidad</h3>
+            <p data-i18n="qualityText">Prestamos atención a los detalles y al resultado final.</p>
+          </article>
+          <article class="value-card">
+            <div class="symbol">🚀</div>
+            <h3 data-i18n="progressTitle">Progreso</h3>
+            <p data-i18n="progressText">Ayudamos a nuestros clientes a crecer con tecnología.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="services-section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-i18n="offerEyebrow">Qué hacemos</div>
+          <h2 data-i18n="offerTitle">Nuestros servicios</h2>
+          <p data-i18n="offerText">
+            Desde crear una presencia online hasta ofrecer soluciones
+            para dispositivos, estamos aquí para ayudarte.
+          </p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="symbol">🌐</div>
+            <h3 data-i18n="websiteTitle">Diseño de sitios web</h3>
+            <p data-i18n="websiteText">Sitios web modernos, adaptables y profesionales para tu negocio.</p>
+          </article>
+          <article class="service-card">
+            <div class="symbol">📱</div>
+            <h3 data-i18n="appTitle">Aplicaciones móviles y web</h3>
+            <p data-i18n="appText">Diseño y desarrollo de experiencias digitales para diferentes dispositivos.</p>
+          </article>
+          <article class="service-card">
+            <div class="symbol">🛠️</div>
+            <h3 data-i18n="maintenanceTitle">Gestión y mantenimiento</h3>
+            <p data-i18n="maintenanceText">Soporte, actualizaciones y mantenimiento de plataformas digitales.</p>
+          </article>
+          <article class="service-card">
+            <div class="symbol">☎️</div>
+            <h3 data-i18n="phoneTitle">Soluciones para teléfonos</h3>
+            <p data-i18n="phoneText">Asistencia y soluciones relacionadas con dispositivos móviles.</p>
+          </article>
+          <article class="service-card">
+            <div class="symbol">☁️</div>
+            <h3 data-i18n="icloudTitle">Soluciones iCloud</h3>
+            <p data-i18n="icloudText">Asistencia relacionada con dispositivos Apple y servicios iCloud.</p>
+          </article>
+          <article class="service-card">
+            <div class="symbol">💬</div>
+            <h3 data-i18n="consultTitle">Atención personalizada</h3>
+            <p data-i18n="consultText">Evaluamos tus necesidades para orientarte hacia una solución adecuada.</p>
+          </article>
+        </div>
+        <div style="text-align:center">
+          <a href="services.html" class="button" data-i18n="viewAllServices">Ver todos los servicios</a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="cta">
+          <h2 data-i18n="ctaTitle">¿Tienes un proyecto en mente?</h2>
+          <p data-i18n="ctaText">
+            Cuéntanos qué necesitas. Estamos preparados para ayudarte
+            a encontrar una solución tecnológica.
+          </p>
+          <a href="contact.html" class="button" data-i18n="contactUs">Contáctanos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Jose Technologias</h3>
+          <p data-i18n="footerDescription">
+            Soluciones tecnológicas para personas, emprendedores y empresas.
+            Construimos ideas y conectamos posibilidades.
+          </p>
+        </div>
+        <div>
+          <h3 data-i18n="quickLinks">Enlaces rápidos</h3>
+          <a href="index.html" data-i18n="home">Inicio</a>
+          <a href="services.html" data-i18n="services">Servicios</a>
+          <a href="about.html" data-i18n="about">Nosotros</a>
+          <a href="blog.html" data-i18n="blog">Blog</a>
+        </div>
+        <div>
+          <h3 data-i18n="getInTouch">Contacto</h3>
+          <a href="contact.html" data-i18n="contact">Contáctanos</a>
+          <a href="mailto:support.iunlockpro@gmail.com">support.iunlockpro@gmail.com</a>
+        </div>
+      </div>
+      <div class="copyright">
+        © <span id="year"></span> Jose Technologias.
+        <span data-i18n="rights">Todos los derechos reservados.</span>
+        <br>
+        <span data-i18n="designedBy">Diseñado por BitBridge Technologies INC.</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const translations = {
+      es: {
+        menu: "Menú",
+        home: "Inicio",
+        services: "Servicios",
+        about: "Nosotros",
+        blog: "Blog",
+        contact: "Contacto",
+        cart: "Carrito",
+        heroEyebrow: "Conoce Jose Technologias",
+        heroTitle: "Tecnología que impulsa tus ideas.",
+        heroText: "Creamos soluciones digitales, conectamos personas con tecnología y ayudamos a empresas y particulares a avanzar con confianza.",
+        exploreServices: "Explorar servicios",
+        storyEyebrow: "Quiénes somos",
+        storyTitle: "Soluciones tecnológicas con un propósito.",
+        storyText1: "Jose Technologias es una empresa de tecnología enfocada en ofrecer soluciones digitales prácticas, modernas y confiables.",
+        storyText2: "Trabajamos con personas, emprendedores y empresas que necesitan construir su presencia digital, desarrollar aplicaciones, mantener sus plataformas y resolver necesidades relacionadas con sus dispositivos.",
+        storyText3: "Nuestro objetivo es hacer que la tecnología sea más accesible, útil y sencilla para nuestros clientes.",
+        storyHighlight: "Tu idea merece una solución tecnológica inteligente.",
+        talkToUs: "Hablemos",
+        purposeEyebrow: "Nuestro propósito",
+        purposeTitle: "Lo que nos guía",
+        purposeText: "Cada proyecto comienza con una necesidad. Nuestra responsabilidad es convertirla en una solución útil y bien pensada.",
+        missionTitle: "Nuestra misión",
+        missionText: "Proporcionar servicios tecnológicos accesibles y de calidad, ayudando a nuestros clientes a desarrollar, administrar y mejorar sus herramientas digitales.",
+        visionTitle: "Nuestra visión",
+        visionText: "Ser una empresa tecnológica reconocida por su innovación, profesionalismo y capacidad para crear soluciones que simplifiquen la vida de personas y empresas.",
+        valuesEyebrow: "Nuestros principios",
+        valuesTitle: "Los valores que nos representan",
+        innovationTitle: "Innovación",
+        innovationText: "Buscamos formas inteligentes de resolver problemas.",
+        trustTitle: "Confianza",
+        trustText: "Valoramos la comunicación clara y las relaciones honestas.",
+        qualityTitle: "Calidad",
+        qualityText: "Prestamos atención a los detalles y al resultado final.",
+        progressTitle: "Progreso",
+        progressText: "Ayudamos a nuestros clientes a crecer con tecnología.",
+        offerEyebrow: "Qué hacemos",
+        offerTitle: "Nuestros servicios",
+        offerText: "Desde crear una presencia online hasta ofrecer soluciones para dispositivos, estamos aquí para ayudarte.",
+        websiteTitle: "Diseño de sitios web",
+        websiteText: "Sitios web modernos, adaptables y profesionales para tu negocio.",
+        appTitle: "Aplicaciones móviles y web",
+        appText: "Diseño y desarrollo de experiencias digitales para diferentes dispositivos.",
+        maintenanceTitle: "Gestión y mantenimiento",
+        maintenanceText: "Soporte, actualizaciones y mantenimiento de plataformas digitales.",
+        phoneTitle: "Soluciones para teléfonos",
+        phoneText: "Asistencia y soluciones relacionadas con dispositivos móviles.",
+        icloudTitle: "Soluciones iCloud",
+        icloudText: "Asistencia relacionada con dispositivos Apple y servicios iCloud.",
+        consultTitle: "Atención personalizada",
+        consultText: "Evaluamos tus necesidades para orientarte hacia una solución adecuada.",
+        viewAllServices: "Ver todos los servicios",
+        ctaTitle: "¿Tienes un proyecto en mente?",
+        ctaText: "Cuéntanos qué necesitas. Estamos preparados para ayudarte a encontrar una solución tecnológica.",
+        contactUs: "Contáctanos",
+        footerDescription: "Soluciones tecnológicas para personas, emprendedores y empresas. Construimos ideas y conectamos posibilidades.",
+        quickLinks: "Enlaces rápidos",
+        getInTouch: "Contacto",
+        rights: "Todos los derechos reservados.",
+        designedBy: "Diseñado por BitBridge Technologies INC."
+      },
+      en: {
+        menu: "Menu",
+        home: "Home",
+        services: "Services",
+        about: "About Us",
+        blog: "Blog",
+        contact: "Contact",
+        cart: "Cart",
+        heroEyebrow: "Get to know Jose Technologias",
+        heroTitle: "Technology that powers your ideas.",
+        heroText: "We create digital solutions, connect people with technology, and help businesses and individuals move forward with confidence.",
+        exploreServices: "Explore services",
+        storyEyebrow: "Who we are",
+        storyTitle: "Technology solutions with a purpose.",
+        storyText1: "Jose Technologias is a technology company focused on providing practical, modern, and reliable digital solutions.",
+        storyText2: "We work with individuals, entrepreneurs, and businesses that need to build their digital presence, develop applications, maintain their platforms, and solve device-related needs.",
+        storyText3: "Our goal is to make technology more accessible, useful, and straightforward for our clients.",
+        storyHighlight: "Your idea deserves a smart technology solution.",
+        talkToUs: "Let's talk",
+        purposeEyebrow: "Our purpose",
+        purposeTitle: "What guides us",
+        purposeText: "Every project starts with a need. Our responsibility is to turn it into a useful and carefully considered solution.",
+        missionTitle: "Our mission",
+        missionText: "To provide accessible, high-quality technology services that help clients develop, manage, and improve their digital tools.",
+        visionTitle: "Our vision",
+        visionText: "To become a technology company recognized for innovation, professionalism, and the ability to create solutions that simplify life for individuals and businesses.",
+        valuesEyebrow: "Our principles",
+        valuesTitle: "The values that represent us",
+        innovationTitle: "Innovation",
+        innovationText: "We look for smart ways to solve problems.",
+        trustTitle: "Trust",
+        trustText: "We value clear communication and honest relationships.",
+        qualityTitle: "Quality",
+        qualityText: "We pay attention to details and the final result.",
+        progressTitle: "Progress",
+        progressText: "We help our clients grow through technology.",
+        offerEyebrow: "What we do",
+        offerTitle: "Our services",
+        offerText: "From building an online presence to providing device solutions, we are here to help.",
+        websiteTitle: "Website design",
+        websiteText: "Modern, responsive, and professional websites for your business.",
+        appTitle: "Mobile and web applications",
+        appText: "Design and development of digital experiences for different devices.",
+        maintenanceTitle: "Management and maintenance",
+        maintenanceText: "Support, updates, and maintenance for digital platforms.",
+        phoneTitle: "Phone solutions",
+        phoneText: "Assistance and solutions related to mobile devices.",
+        icloudTitle: "iCloud solutions",
+        icloudText: "Assistance related to Apple devices and iCloud services.",
+        consultTitle: "Personalized assistance",
+        consultText: "We assess your needs and guide you toward a suitable solution.",
+        viewAllServices: "View all services",
+        ctaTitle: "Have a project in mind?",
+        ctaText: "Tell us what you need. We are ready to help you find a technology solution.",
+        contactUs: "Contact us",
+        footerDescription: "Technology solutions for individuals, entrepreneurs, and businesses. We build ideas and connect possibilities.",
+        quickLinks: "Quick links",
+        getInTouch: "Get in touch",
+        rights: "All rights reserved.",
+        designedBy: "Designed by BitBridge Technologies INC."
+      }
+    };
+    let currentLanguage = localStorage.getItem("jt_language") || "es";
+    let currentTheme = localStorage.getItem("jt_theme") || "light";
+    function applyLanguage() {
+      document.documentElement.lang = currentLanguage;
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+        if (translations[currentLanguage][key]) {
+          element.textContent = translations[currentLanguage][key];
+        }
+      });
+      document.getElementById("languageButton").textContent =
+        currentLanguage === "es" ? "🇬🇧 English" : "🇲🇽 Español";
+    }
+    function applyTheme() {
+      document.body.classList.toggle("dark", currentTheme === "dark");
+      document.getElementById("themeButton").textContent =
+        currentTheme === "dark" ? "☀️" : "🌙";
+    }
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("jt_cart") || "[]");
+      document.getElementById("cartCount").textContent = cart.length;
+    }
+    document.getElementById("menuButton").addEventListener("click", () => {
+      document.getElementById("menuPanel").classList.toggle("open");
+    });
+    document.getElementById("languageButton").addEventListener("click", () => {
+      currentLanguage = currentLanguage === "es" ? "en" : "es";
+      localStorage.setItem("jt_language", currentLanguage);
+      applyLanguage();
+    });
+    document.getElementById("themeButton").addEventListener("click", () => {
+      currentTheme = currentTheme === "light" ? "dark" : "light";
+      localStorage.setItem("jt_theme", currentTheme);
+      applyTheme();
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+    applyLanguage();
+    applyTheme();
+    updateCartCount();
+  </script>
+</body>
+</html>
