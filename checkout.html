@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Jose Technologias</title>
+<style>
+:root {
+    --red:#e63946;
+    --blue:#2463eb;
+    --bg:#f5f6fa;
+    --card:#ffffff;
+    --text:#202432;
+    --muted:#6b7280;
+    --border:#e5e7eb;
+}
+body.dark {
+    --bg:#10131b;
+    --card:#1b2030;
+    --text:#f4f5f8;
+    --muted:#a4aabd;
+    --border:#303749;
+}
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body {
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:.3s;
+}
+a {
+    text-decoration:none;
+    color:inherit;
+}
+button,input,select,textarea {
+    font-family:inherit;
+}
+button {
+    cursor:pointer;
+}
+header {
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+.navbar {
+    max-width:1200px;
+    margin:auto;
+    padding:17px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+.logo {
+    font-size:21px;
+    font-weight:800;
+    color:var(--red);
+}
+.logo span {
+    color:var(--text);
+}
+.nav-actions {
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+.icon-btn {
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    background:var(--bg);
+    color:var(--text);
+    border-radius:10px;
+    font-size:18px;
+}
+.cart-link {
+    background:var(--red);
+    color:white;
+    padding:11px 13px;
+    border-radius:9px;
+    font-weight:bold;
+}
+.menu-panel {
+    display:none;
+    background:var(--card);
+    padding:20px 5%;
+    border-top:1px solid var(--border);
+}
+.menu-panel.open {
+    display:block;
+}
+.menu-links {
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:18px;
+}
+.menu-links a {
+    font-weight:600;
+}
+.menu-links a:hover {
+    color:var(--red);
+}
+.menu-language {
+    margin-left:auto;
+    display:flex;
+    gap:8px;
+}
+.menu-language button {
+    padding:8px 12px;
+    border:1px solid var(--border);
+    background:var(--bg);
+    color:var(--text);
+    border-radius:7px;
+}
+.menu-language button.active {
+    background:var(--red);
+    color:white;
+    border-color:var(--red);
+}
+.hero {
+    background:linear-gradient(120deg,#151923,#252e43);
+    color:white;
+    text-align:center;
+    padding:55px 5%;
+}
+.hero h1 {
+    font-size:clamp(30px,5vw,44px);
+    margin-bottom:12px;
+}
+.hero p {
+    color:#d1d5db;
+    line-height:1.7;
+}
+main {
+    max-width:1100px;
+    margin:45px auto;
+    padding:0 5%;
+}
+.checkout-layout {
+    display:grid;
+    grid-template-columns:1.5fr .8fr;
+    gap:25px;
+    align-items:start;
+}
+.form-card,.summary-card {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:22px;
+}
+.form-card h2,.summary-card h2 {
+    font-size:21px;
+    margin-bottom:22px;
+}
+.form-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+.form-group {
+    margin-bottom:18px;
+}
+.form-group.full {
+    grid-column:1/-1;
+}
+label {
+    display:block;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+input,select,textarea {
+    width:100%;
+    padding:13px;
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:9px;
+    color:var(--text);
+    outline:none;
+    font-size:14px;
+}
+input:focus,select:focus,textarea:focus {
+    border-color:var(--blue);
+}
+textarea {
+    min-height:110px;
+    resize:vertical;
+}
+small {
+    color:var(--muted);
+    line-height:1.6;
+    display:block;
+    margin-top:7px;
+}
+.section-description {
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.7;
+    margin-top:-12px;
+    margin-bottom:20px;
+}
+.radio-box {
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    margin:12px 0;
+    font-size:14px;
+    color:var(--text);
+}
+.radio-box input {
+    width:auto;
+    margin-top:3px;
+}
+.info-box {
+    background:rgba(36,99,235,.08);
+    border-left:3px solid var(--blue);
+    padding:13px;
+    border-radius:7px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+    margin:15px 0;
+}
+.warning-box {
+    background:rgba(230,57,70,.08);
+    border-left:3px solid var(--red);
+    padding:13px;
+    border-radius:7px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+    margin:15px 0;
+}
+.summary-card {
+    position:sticky;
+    top:100px;
+}
+.summary-item {
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:13px 0;
+    border-bottom:1px solid var(--border);
+    font-size:14px;
+}
+.summary-item span:first-child {
+    color:var(--muted);
+}
+.summary-total {
+    font-size:19px;
+    font-weight:800;
+    padding-top:20px;
+}
+.price {
+    color:var(--red);
+    font-weight:800;
+}
+.payment-method {
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:15px;
+    margin:12px 0;
+}
+.payment-method h3 {
+    font-size:15px;
+    margin-bottom:10px;
+}
+.payment-method p {
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+.scanner {
+    background:#101827;
+    color:white;
+    border-radius:12px;
+    padding:25px 15px;
+    text-align:center;
+    margin-top:20px;
+}
+.scanner-circle {
+    width:65px;
+    height:65px;
+    border:3px solid #46546c;
+    border-top-color:#36d399;
+    border-radius:50%;
+    margin:0 auto 15px;
+    animation:spin 1.5s linear infinite;
+}
+@keyframes spin {
+    to {transform:rotate(360deg);}
+}
+.scanner p {
+    font-size:13px;
+    color:#cbd5e1;
+    line-height:1.7;
+}
+.scanner strong {
+    display:block;
+    margin-bottom:8px;
+}
+.primary-btn {
+    width:100%;
+    display:block;
+    background:var(--red);
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:9px;
+    font-weight:800;
+    font-size:15px;
+    margin-top:15px;
+    text-align:center;
+}
+.primary-btn:hover {
+    background:#c92c39;
+}
+.secondary-btn {
+    width:100%;
+    background:transparent;
+    color:var(--text);
+    border:1px solid var(--border);
+    padding:13px;
+    border-radius:9px;
+    margin-top:10px;
+    font-weight:bold;
+}
+.hidden {
+    display:none!important;
+}
+footer {
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:30px 5%;
+    margin-top:60px;
+}
+footer p {
+    color:#c4c9d4;
+    font-size:13px;
+    line-height:1.8;
+}
+footer strong {
+    color:#ff5965;
+}
+.toast {
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#161b27;
+    color:white;
+    padding:14px 20px;
+    border-radius:10px;
+    opacity:0;
+    transform:translateY(15px);
+    transition:.3s;
+    z-index:500;
+}
+.toast.show {
+    opacity:1;
+    transform:translateY(0);
+}
+@media(max-width:850px) {
+    .checkout-layout {
+        grid-template-columns:1fr;
+    }
+    .summary-card {
+        position:static;
+    }
+}
+@media(max-width:550px) {
+    .form-grid {
+        grid-template-columns:1fr;
+    }
+    .form-group.full {
+        grid-column:auto;
+    }
+    .logo {
+        font-size:17px;
+    }
+    .navbar {
+        padding:14px 4%;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <a href="index.html" class="logo">JOSE <span>TECHNOLOGIAS</span></a>
+        <div class="nav-actions">
+            <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
+            <a href="cart.html" class="cart-link">🛒 <span id="cartCount">0</span></a>
+            <button class="icon-btn" id="menuBtn" aria-label="Open menu">☰</button>
+        </div>
+    </nav>
+    <div class="menu-panel" id="menuPanel">
+        <div class="menu-links">
+            <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+            <a href="services.html" data-es="Servicios" data-en="Services">Servicios</a>
+            <a href="about.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html" data-es="Contacto" data-en="Contact">Contacto</a>
+            <a href="cart.html" data-es="Carrito" data-en="Cart">Carrito</a>
+            <div class="menu-language">
+                <button id="spanishBtn">ES</button>
+                <button id="englishBtn">EN</button>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="hero">
+    <h1 data-es="Finalizar solicitud" data-en="Complete Your Request">
+        Finalizar solicitud
+    </h1>
+    <p data-es="Completa tus datos para que podamos procesar tu solicitud."
+       data-en="Complete your details so we can process your request.">
+        Completa tus datos para que podamos procesar tu solicitud.
+    </p>
+</section>
+<main>
+<div class="checkout-layout">
+<div>
+<form id="checkoutForm">
+    <section class="form-card">
+        <h2 data-es="01. Información personal"
+            data-en="01. Personal Information">
+            01. Información personal
+        </h2>
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="customerName" data-es="Nombre completo *" data-en="Full Name *">Nombre completo *</label>
+                <input type="text" id="customerName" required>
+            </div>
+            <div class="form-group">
+                <label for="email" data-es="Correo electrónico *" data-en="Email Address *">Correo electrónico *</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone" data-es="Número de teléfono" data-en="Phone Number">Número de teléfono</label>
+                <input type="tel" id="phone">
+            </div>
+            <div class="form-group">
+                <label for="country" data-es="País *" data-en="Country *">País *</label>
+                <select id="country" required>
+                    <option value="">Seleccionar país</option>
+                    <option value="Mexico">México</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Other">Otro país</option>
+                </select>
+            </div>
+        </div>
+    </section>
+    <section class="form-card">
+        <h2 data-es="02. Detalles del servicio"
+            data-en="02. Service Details">
+            02. Detalles del servicio
+        </h2>
+        <p class="section-description"
+           data-es="Cuéntanos qué necesitas. Los detalles nos ayudarán a revisar tu solicitud."
+           data-en="Tell us what you need. These details will help us review your request.">
+            Cuéntanos qué necesitas. Los detalles nos ayudarán a revisar tu solicitud.
+        </p>
+        <div class="form-group">
+            <label for="serviceDescription" data-es="Descripción del problema o proyecto *" data-en="Problem or Project Description *">Descripción del problema o proyecto *</label>
+            <textarea id="serviceDescription" required placeholder="Describe lo que necesitas..."></textarea>
+        </div>
+        <div id="deviceFields" class="hidden">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="deviceModel" data-es="Modelo del dispositivo *" data-en="Device Model *">Modelo del dispositivo *</label>
+                    <input type="text" id="deviceModel" placeholder="Ej. iPhone 13 Pro">
+                </div>
+                <div class="form-group">
+                    <label for="imei" data-es="Número IMEI" data-en="IMEI Number">Número IMEI</label>
+                    <input type="text" id="imei" maxlength="20" placeholder="Ingresa el IMEI si lo tienes">
+                </div>
+            </div>
+            <div class="info-box">
+                <strong data-es="¿Cómo encontrar el IMEI?"
+                        data-en="How to find your IMEI?">
+                    ¿Cómo encontrar el IMEI?
+                </strong><br>
+                <span data-es="Puedes encontrarlo en la bandeja SIM, en la caja original del dispositivo o en la pantalla de información del dispositivo, si está disponible. En algunos iPhone bloqueados, la opción de información puede aparecer mediante el botón de información (ⓘ) en la pantalla de configuración."
+                      data-en="You may find it on the SIM tray, original device box, or device information screen if available. On some locked iPhones, an information option may be available through the information (ⓘ) button on the setup screen.">
+                    Puedes encontrarlo en la bandeja SIM, en la caja original del dispositivo o en la pantalla de información del dispositivo, si está disponible. En algunos iPhone bloqueados, la opción de información puede aparecer mediante el botón de información (ⓘ) en la pantalla de configuración.
+                </span>
+            </div>
+            <div class="form-group">
+                <label data-es="¿Cómo obtuviste el dispositivo?"
+                       data-en="How did you obtain the device?">
+                    ¿Cómo obtuviste el dispositivo?
+                </label>
+                <label class="radio-box">
+                    <input type="radio" name="deviceOrigin" value="Bought locked">
+                    <span data-es="Lo compré bloqueado" data-en="I bought it locked">Lo compré bloqueado</span>
+                </label>
+                <label class="radio-box">
+                    <input type="radio" name="deviceOrigin" value="Found device">
+                    <span data-es="Lo encontré" data-en="I found it">Lo encontré</span>
+                </label>
+                <label class="radio-box">
+                    <input type="radio" name="deviceOrigin" value="Other">
+                    <span data-es="Otro motivo" data-en="Other reason">Otro motivo</span>
+                </label>
+            </div>
+            <div class="warning-box"
+                 data-es="Solo podemos ayudar con dispositivos que tienes derecho a utilizar. No podemos ayudar a acceder a cuentas o dispositivos ajenos sin autorización."
+                 data-en="We can only assist with devices you are authorized to use. We cannot help access someone else's account or device without permission.">
+                Solo podemos ayudar con dispositivos que tienes derecho a utilizar. No podemos ayudar a acceder a cuentas o dispositivos ajenos sin autorización.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="extraDetails" data-es="Información adicional (opcional)" data-en="Additional Information (optional)">Información adicional (opcional)</label>
+            <textarea id="extraDetails" placeholder="Información adicional..."></textarea>
+        </div>
+    </section>
+    <section class="form-card">
+        <h2 data-es="03. Método de pago"
+            data-en="03. Payment Method">
+            03. Método de pago
+        </h2>
+        <p class="section-description"
+           data-es="Selecciona tu país para consultar las instrucciones de pago correspondientes."
+           data-en="Select your country to view the relevant payment instructions.">
+            Selecciona tu país para consultar las instrucciones de pago correspondientes.
+        </p>
+        <div id="paymentInstructions">
+            <div class="info-box"
+                 data-es="Selecciona tu país para ver las instrucciones de pago."
+                 data-en="Select your country to view payment instructions.">
+                Selecciona tu país para ver las instrucciones de pago.
+            </div>
+        </div>
+        <div class="warning-box"
+             data-es="Los datos bancarios mostrados son marcadores de posición. No realices ningún pago hasta que Jose Technologias publique sus datos bancarios verificados."
+             data-en="The bank details shown are placeholders. Do not make any payment until Jose Technologias publishes its verified bank details.">
+            Los datos bancarios mostrados son marcadores de posición. No realices ningún pago hasta que Jose Technologias publique sus datos bancarios verificados.
+        </div>
+        <div class="scanner">
+            <div class="scanner-circle"></div>
+            <strong data-es="Sistema de revisión de solicitud"
+                    data-en="Request Review System">
+                Sistema de revisión de solicitud
+            </strong>
+            <p data-es="Esta animación es únicamente visual. No verifica pagos, transacciones ni transferencias bancarias."
+               data-en="This animation is visual only. It does not verify payments, transactions, or bank transfers.">
+                Esta animación es únicamente visual. No verifica pagos, transacciones ni transferencias bancarias.
+            </p>
+        </div>
+        <div class="form-group" style="margin-top:20px;">
+            <label for="paymentReference"
+                   data-es="Referencia de pago (si ya pagaste)"
+                   data-en="Payment Reference (if already paid)">
+                Referencia de pago (si ya pagaste)
+            </label>
+            <input type="text" id="paymentReference" placeholder="Referencia de transferencia">
+        </div>
+        <div class="form-group">
+            <label for="receipt"
+                   data-es="Comprobante de pago (opcional)"
+                   data-en="Payment Receipt (optional)">
+                Comprobante de pago (opcional)
+            </label>
+            <input type="file" id="receipt" accept="image/*,.pdf">
+            <small data-es="El archivo no se carga automáticamente. Deberás adjuntarlo manualmente al correo que se abrirá."
+                   data-en="The file is not uploaded automatically. You must attach it manually to the email that opens.">
+                El archivo no se carga automáticamente. Deberás adjuntarlo manualmente al correo que se abrirá.
+            </small>
+        </div>
+        <label class="radio-box">
+            <input type="checkbox" id="terms" required>
+            <span data-es="Confirmo que la información proporcionada es correcta y que tengo autorización para solicitar este servicio."
+                  data-en="I confirm that the information provided is correct and that I am authorized to request this service.">
+                Confirmo que la información proporcionada es correcta y que tengo autorización para solicitar este servicio.
+            </span>
+        </label>
+        <button type="submit" class="primary-btn"
+                data-es="Enviar solicitud por correo →"
+                data-en="Send Request by Email →">
+            Enviar solicitud por correo →
+        </button>
+        <p class="section-description" style="margin-top:15px;margin-bottom:0;"
+           data-es="Al continuar, se abrirá tu aplicación de correo con los detalles de tu solicitud. Adjunta tu comprobante manualmente si corresponde."
+           data-en="Continuing will open your email application with your request details. Attach your receipt manually if applicable.">
+            Al continuar, se abrirá tu aplicación de correo con los detalles de tu solicitud. Adjunta tu comprobante manualmente si corresponde.
+        </p>
+    </section>
+</form>
+</div>
+<aside class="summary-card">
+    <h2 data-es="Resumen de tu pedido"
+        data-en="Your Order Summary">
+        Resumen de tu pedido
+    </h2>
+    <div id="summaryItems"></div>
+    <div class="summary-item summary-total">
+        <span data-es="Total conocido" data-en="Known Total">Total conocido</span>
+        <strong class="price" id="summaryTotal">$0 MXN</strong>
+    </div>
+    <div class="info-box"
+         data-es="Los precios de servicios personalizados se confirmarán después de revisar tu descripción. Los importes mostrados están en pesos mexicanos (MXN)."
+         data-en="Prices for customized services will be confirmed after reviewing your description. Displayed amounts are in Mexican pesos (MXN).">
+        Los precios de servicios personalizados se confirmarán después de revisar tu descripción. Los importes mostrados están en pesos mexicanos (MXN).
+    </div>
+    <a href="cart.html" class="secondary-btn"
+       style="display:block;text-align:center;"
+       data-es="← Volver al carrito"
+       data-en="← Back to Cart">
+        ← Volver al carrito
+    </a>
+</aside>
+</div>
+</main>
+<footer>
+    <p>© <span id="year"></span> Jose Technologias. <span data-es="Todos los derechos reservados."
+       data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+    <p><span data-es="Diseñado por" data-en="Designed by">Diseñado por</span>
+       <strong>BitBridge Technologies INC.</strong></p>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+const CART_KEY = "jt_cart";
+const LANGUAGE_KEY = "jt_language";
+const THEME_KEY = "jt_theme";
+const SUPPORT_EMAIL = "support.iunlockpro@gmail.com";
+let cart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+let language = localStorage.getItem(LANGUAGE_KEY) || "es";
+const serviceNames = {
+    website: {es:"Diseño de sitios web",en:"Website Design"},
+    app: {es:"Aplicación móvil",en:"Mobile Application"},
+    webapp: {es:"Aplicación web",en:"Web Application"},
+    maintenance: {es:"Gestión y mantenimiento",en:"Management & Maintenance"},
+    phone: {es:"Soluciones telefónicas",en:"Phone Solutions"},
+    icloud: {es:"Soluciones iCloud",en:"iCloud Solutions"}
+};
+function money(amount) {
+    return "$" + Number(amount).toLocaleString("en-US") + " MXN";
+}
+function knownPrice(price) {
+    return price !== null &&
+           price !== undefined &&
+           price !== "" &&
+           Number.isFinite(Number(price));
+}
+function renderSummary() {
+    const container = document.getElementById("summaryItems");
+    container.innerHTML = "";
+    let total = 0;
+    if (cart.length === 0) {
+        const empty = document.createElement("p");
+        empty.textContent = language === "es"
+            ? "No hay servicios en tu carrito."
+            : "There are no services in your cart.";
+        empty.style.color = "var(--muted)";
+        container.appendChild(empty);
+    }
+    cart.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "summary-item";
+        const name = document.createElement("span");
+        name.textContent = item.name || serviceNames[item.type]?.[language] || "Service";
+        const price = document.createElement("strong");
+        if (knownPrice(item.price)) {
+            price.textContent = money(item.price);
+            total += Number(item.price);
+        } else {
+            price.textContent = language === "es" ? "Cotización" : "Quote";
+        }
+        row.appendChild(name);
+        row.appendChild(price);
+        container.appendChild(row);
+    });
+    document.getElementById("summaryTotal").textContent = money(total);
+    document.getElementById("cartCount").textContent = cart.length;
+}
+function isIcloudService() {
+    return cart.some(item => item.type === "icloud");
+}
+function updateDeviceFields() {
+    const deviceFields = document.getElementById("deviceFields");
+    const visible = isIcloudService();
+    deviceFields.classList.toggle("hidden", !visible);
+    document.getElementById("deviceModel").required = visible;
+}
+function updatePaymentInstructions() {
+    const country = document.getElementById("country").value;
+    const box = document.getElementById("paymentInstructions");
+    const accountDetails = {
+        Mexico: {
+            title: "México",
+            accounts: [
+                ["Cuenta bancaria / Transferencia", "Banco: [Agregar banco verificado]", "Titular: [Agregar titular]", "CLABE: [Agregar CLABE verificada]"],
+                ["Segunda opción de pago", "Banco: [Agregar banco verificado]", "Titular: [Agregar titular]", "Cuenta: [Agregar cuenta verificada]"]
+            ]
+        },
+        Argentina: {
+            title: "Argentina",
+            accounts: [
+                ["Transferencia bancaria", "Banco: [Agregar banco verificado]", "Titular: [Agregar titular]", "CBU/CVU: [Agregar dato verificado]"],
+                ["Segunda opción de pago", "Proveedor: [Agregar proveedor]", "Titular: [Agregar titular]", "Alias: [Agregar alias verificado]"]
+            ]
+        },
+        Colombia: {
+            title: "Colombia",
+            accounts: [
+                ["Transferencia bancaria", "Banco: [Agregar banco verificado]", "Titular: [Agregar titular]", "Cuenta: [Agregar cuenta verificada]"],
+                ["Segunda opción de pago", "Proveedor: [Agregar proveedor]", "Titular: [Agregar titular]", "Número: [Agregar dato verificado]"]
+            ]
+        }
+    };
+    if (!accountDetails[country]) {
+        box.innerHTML = `
+            <div class="info-box">
+                ${language === "es"
+                    ? "Selecciona México, Argentina o Colombia para consultar las instrucciones de pago. Para otros países, contacta con nuestro equipo."
+                    : "Select Mexico, Argentina, or Colombia to view payment instructions. For other countries, contact our team."}
+            </div>`;
+        return;
+    }
+    const details = accountDetails[country];
+    box.innerHTML = `
+        <h3 style="margin-bottom:12px;">
+            ${language === "es" ? "Opciones de pago para" : "Payment options for"} ${details.title}
+        </h3>
+        ${details.accounts.map(account => `
+            <div class="payment-method">
+                <h3>${account[0]}</h3>
+                <p>${account.slice(1).join("<br>")}</p>
+            </div>
+        `).join("")}
+    `;
+}
+function generateReference() {
+    return "JT-" + Date.now().toString(36).toUpperCase() +
+           "-" + Math.random().toString(36).substring(2,7).toUpperCase();
+}
+document.getElementById("country").addEventListener("change", updatePaymentInstructions);
+document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    if (!this.reportValidity()) return;
+    if (cart.length === 0) {
+        alert(language === "es"
+            ? "Tu carrito está vacío. Agrega un servicio antes de continuar."
+            : "Your cart is empty. Add a service before continuing.");
+        return;
+    }
+    const name = document.getElementById("customerName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const country = document.getElementById("country").value;
+    const description = document.getElementById("serviceDescription").value.trim();
+    const extra = document.getElementById("extraDetails").value.trim();
+    const device = document.getElementById("deviceModel").value.trim();
+    const imei = document.getElementById("imei").value.trim();
+    const origin = document.querySelector('input[name="deviceOrigin"]:checked')?.value || "Not specified";
+    const paymentReference = document.getElementById("paymentReference").value.trim();
+    const reference = generateReference();
+    const serviceList = cart.map(item => {
+        const itemPrice = knownPrice(item.price)
+            ? money(item.price)
+            : (language === "es" ? "Cotización pendiente" : "Quote pending");
+        return `- ${item.name || serviceNames[item.type]?.[language] || "Service"}: ${itemPrice}`;
+    }).join("\n");
+    const subject = `Jose Technologias - Service Request ${reference}`;
+    const body = `
+JOSE TECHNOLOGIAS - SERVICE REQUEST
+Reference ID: ${reference}
+CUSTOMER INFORMATION
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Country: ${country}
+SELECTED SERVICES
+${serviceList}
+SERVICE DESCRIPTION
+${description}
+DEVICE INFORMATION
+Device Model: ${device || "Not applicable"}
+IMEI: ${imei || "Not provided"}
+Device Origin: ${origin}
+ADDITIONAL INFORMATION
+${extra || "None"}
+PAYMENT REFERENCE
+${paymentReference || "Not provided"}
+IMPORTANT:
+This reference ID is generated by the website and is not a verified payment confirmation.
+If you have a payment receipt, attach it manually to this email.
+    `.trim();
+    const mailto = "mailto:" + SUPPORT_EMAIL +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+    const receipt = document.getElementById("receipt");
+    if (receipt.files.length > 0) {
+        alert(language === "es"
+            ? "Tu aplicación de correo se abrirá. Recuerda adjuntar manualmente el comprobante seleccionado."
+            : "Your email application will open. Remember to manually attach the selected receipt.");
+    }
+    window.location.href = mailto;
+    localStorage.setItem("jt_last_reference", reference);
+});
+function applyLanguage() {
+    document.documentElement.lang = language;
+    document.querySelectorAll("[data-es][data-en]").forEach(element => {
+        element.textContent = element.dataset[language];
+    });
+    document.getElementById("spanishBtn").classList.toggle("active", language === "es");
+    document.getElementById("englishBtn").classList.toggle("active", language === "en");
+    renderSummary();
+    updatePaymentInstructions();
+}
+document.getElementById("spanishBtn").addEventListener("click", () => {
+    language = "es";
+    localStorage.setItem(LANGUAGE_KEY, language);
+    applyLanguage();
+});
+document.getElementById("englishBtn").addEventListener("click", () => {
+    language = "en";
+    localStorage.setItem(LANGUAGE_KEY, language);
+    applyLanguage();
+});
+document.getElementById("menuBtn").addEventListener("click", () => {
+    document.getElementById("menuPanel").classList.toggle("open");
+});
+const themeBtn = document.getElementById("themeBtn");
+function applyTheme() {
+    const theme = localStorage.getItem(THEME_KEY) || "light";
+    document.body.classList.toggle("dark", theme === "dark");
+    themeBtn.textContent = theme === "dark" ? "☀️" : "🌙";
+}
+themeBtn.addEventListener("click", () => {
+    const current = localStorage.getItem(THEME_KEY) || "light";
+    localStorage.setItem(THEME_KEY, current === "dark" ? "light" : "dark");
+    applyTheme();
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+applyTheme();
+applyLanguage();
+updateDeviceFields();
+</script>
+</body>
+</html>
