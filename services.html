@@ -3,1080 +3,1065 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Descubre los servicios tecnológicos de Jose Technologias. Diseño web, aplicaciones, mantenimiento y soluciones Apple.">
-<title>Servicios | Jose Technologias</title>
+<meta name="theme-color" content="#e21d2b">
+<meta name="description" content="Explore professional technology services from Jose Technologias.">
+<title>Our Services | Jose Technologias</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-:root {
-    --red:#dc1824;
-    --red-dark:#b8101b;
-    --blue:#2457a6;
-    --background:#ffffff;
-    --surface:#f5f6f8;
-    --text:#17191f;
-    --muted:#737986;
-    --border:#e6e8ec;
-    --white:#ffffff;
-    --shadow:0 15px 45px rgba(0,0,0,.07);
-}
-[data-theme="dark"] {
-    --background:#101217;
-    --surface:#191d25;
-    --text:#f5f5f5;
-    --muted:#a6adba;
-    --border:#303541;
-    --white:#171b22;
-    --shadow:0 15px 45px rgba(0,0,0,.25);
-}
-* {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-html {
-    scroll-behavior:smooth;
-}
-body {
-    font-family:'Inter',sans-serif;
-    background:var(--background);
-    color:var(--text);
-    transition:background .3s,color .3s;
-}
-a {
-    text-decoration:none;
-    color:inherit;
-}
-button {
-    font-family:inherit;
-    cursor:pointer;
-}
-.container {
-    width:91%;
-    max-width:1200px;
-    margin:auto;
-}
-/* HEADER */
-.header {
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:var(--background);
-    border-bottom:1px solid var(--border);
-}
-.navbar {
-    height:82px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-.logo {
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-weight:900;
-    font-size:17px;
-}
-.logo-icon {
-    width:48px;
-    height:48px;
-    background:var(--red);
-    color:white;
-    border-radius:13px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:23px;
-    font-weight:900;
-}
-.logo-text small {
-    display:block;
-    font-size:9px;
-    letter-spacing:2px;
-    color:var(--red);
-}
-.nav-actions {
-    display:flex;
-    gap:12px;
-}
-.nav-button {
-    width:43px;
-    height:43px;
-    border:1px solid var(--border);
-    border-radius:12px;
-    background:var(--surface);
-    color:var(--text);
-    font-size:17px;
-    position:relative;
-}
-.cart-count {
-    position:absolute;
-    top:-7px;
-    right:-7px;
-    background:var(--red);
-    color:white;
-    font-size:10px;
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-}
-/* MENU */
-.menu-panel {
-    display:none;
-    padding:25px 0;
-    background:var(--background);
-    border-top:1px solid var(--border);
-}
-.menu-panel.active {
-    display:block;
-}
-.menu-content {
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:12px;
-}
-.menu-content a {
-    padding:11px 16px;
-    background:var(--surface);
-    border-radius:10px;
-    font-size:14px;
-    font-weight:600;
-}
-.menu-content a:hover {
-    background:var(--red);
-    color:white;
-}
-.menu-settings {
-    margin-left:auto;
-    display:flex;
-    gap:10px;
-}
-.menu-settings button {
-    padding:11px 15px;
-    border-radius:10px;
-    border:1px solid var(--border);
-    background:var(--surface);
-    color:var(--text);
-    font-weight:700;
-}
-/* PAGE HERO */
-.page-hero {
-    padding:90px 0;
-    background:
-    radial-gradient(circle at 85% 20%,rgba(220,24,36,.12),transparent 35%),
-    linear-gradient(135deg,var(--background),var(--surface));
-}
-.page-hero-content {
-    max-width:800px;
-}
-.eyebrow {
-    color:var(--red);
-    font-size:12px;
-    font-weight:900;
-    letter-spacing:2px;
-    text-transform:uppercase;
-}
-.page-hero h1 {
-    font-size:clamp(40px,6vw,65px);
-    line-height:1.1;
-    letter-spacing:-2.5px;
-    margin:20px 0;
-}
-.page-hero h1 span {
-    color:var(--red);
-}
-.page-hero p {
-    color:var(--muted);
-    font-size:17px;
-    line-height:1.9;
-    max-width:650px;
-}
-/* SECTION */
-.section {
-    padding:85px 0;
-}
-.section-light {
-    background:var(--surface);
-}
-.section-heading {
-    margin-bottom:40px;
-}
-.section-heading h2 {
-    font-size:clamp(29px,4vw,42px);
-    margin:12px 0;
-    letter-spacing:-1.5px;
-}
-.section-heading p {
-    color:var(--muted);
-    line-height:1.8;
-    max-width:700px;
-}
-/* SERVICES */
-.services-grid {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:23px;
-}
-.service-card {
-    background:var(--white);
-    border:1px solid var(--border);
-    border-radius:19px;
-    padding:28px;
-    box-shadow:var(--shadow);
-    transition:.3s;
-    display:flex;
-    flex-direction:column;
-}
-.service-card:hover {
-    transform:translateY(-7px);
-    border-color:var(--red);
-}
-.service-icon {
-    width:58px;
-    height:58px;
-    border-radius:16px;
-    background:rgba(220,24,36,.1);
-    color:var(--red);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
-    margin-bottom:20px;
-}
-.service-card h3 {
-    font-size:20px;
-    margin-bottom:12px;
-}
-.service-card p {
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.9;
-    flex:1;
-}
-.service-price {
-    margin:23px 0;
-    font-size:23px;
-    font-weight:900;
-}
-.service-price small {
-    display:block;
-    color:var(--muted);
-    font-size:11px;
-    font-weight:500;
-    margin-top:4px;
-}
-.service-card button {
-    width:100%;
-    padding:14px;
-    border:none;
-    background:var(--red);
-    color:white;
-    border-radius:11px;
-    font-size:14px;
-    font-weight:800;
-    transition:.25s;
-}
-.service-card button:hover {
-    background:var(--red-dark);
-    transform:translateY(-2px);
-}
-/* ICLOUD PRICE TABLE */
-.price-table-wrapper {
-    overflow-x:auto;
-    margin-top:30px;
-    border:1px solid var(--border);
-    border-radius:16px;
-}
-.price-table {
-    width:100%;
-    border-collapse:collapse;
-    min-width:550px;
-    background:var(--white);
-}
-.price-table th,
-.price-table td {
-    padding:17px;
-    text-align:left;
-    border-bottom:1px solid var(--border);
-    font-size:14px;
-}
-.price-table th {
-    background:var(--surface);
-    font-weight:800;
-}
-.price-table td:last-child {
-    color:var(--red);
-    font-weight:900;
-}
-.price-table tr:last-child td {
-    border-bottom:none;
-}
-/* INFORMATION */
-.info-box {
-    padding:24px;
-    border-radius:15px;
-    background:rgba(36,87,166,.08);
-    border:1px solid rgba(36,87,166,.2);
-    margin-top:25px;
-    line-height:1.9;
-    font-size:14px;
-}
-.info-box strong {
-    color:var(--blue);
-}
-/* CTA */
-.cta {
-    background:#111318;
-    color:white;
-    border-radius:22px;
-    padding:65px 25px;
-    text-align:center;
-}
-.cta h2 {
-    font-size:clamp(27px,4vw,40px);
-    margin-bottom:15px;
-}
-.cta p {
-    color:#b9bfca;
-    margin-bottom:25px;
-    line-height:1.8;
-}
-.btn {
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    gap:9px;
-    padding:15px 23px;
-    background:var(--red);
-    color:white;
-    border-radius:11px;
-    font-weight:800;
-    border:none;
-}
-/* FOOTER */
-.footer {
-    background:#101217;
-    color:white;
-    padding:65px 0 25px;
-}
-.footer-grid {
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    gap:40px;
-}
-.footer-brand {
-    font-size:20px;
-    font-weight:900;
-    margin-bottom:18px;
-}
-.footer-brand span {
-    color:var(--red);
-}
-.footer p {
-    color:#aab0bb;
-    font-size:14px;
-    line-height:1.9;
-}
-.footer h3 {
-    margin-bottom:18px;
-}
-.footer-links {
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-}
-.footer-links a {
-    color:#aab0bb;
-    font-size:14px;
-}
-.footer-links a:hover {
-    color:white;
-}
-.footer-bottom {
-    border-top:1px solid #30343d;
-    margin-top:45px;
-    padding-top:22px;
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    flex-wrap:wrap;
-}
-.footer-bottom small {
-    color:#9299a5;
-}
-/* NOTIFICATION */
-.notification {
-    position:fixed;
-    bottom:25px;
-    right:20px;
-    z-index:9999;
-    background:#17191f;
-    color:white;
-    padding:16px 22px;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
-    font-size:14px;
-    font-weight:700;
-    animation:fadeIn .3s ease;
-}
-@keyframes fadeIn {
-    from {
-        opacity:0;
-        transform:translateY(15px);
-    }
-    to {
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-/* RESPONSIVE */
-@media(max-width:850px) {
-    .services-grid {
-        grid-template-columns:repeat(2,1fr);
-    }
-    .footer-grid {
-        grid-template-columns:1fr 1fr;
-    }
-}
-@media(max-width:580px) {
-    .navbar {
-        height:72px;
-    }
-    .logo {
-        font-size:13px;
-    }
-    .logo-icon {
-        width:42px;
-        height:42px;
-    }
-    .services-grid,
-    .footer-grid {
-        grid-template-columns:1fr;
-    }
-    .menu-content {
-        align-items:stretch;
-    }
-    .menu-content a {
-        width:100%;
-    }
-    .menu-settings {
-        margin-left:0;
-    }
-    .page-hero {
-        padding:65px 0;
-    }
-    .section {
-        padding:65px 0;
-    }
-    .footer-bottom {
-        flex-direction:column;
-    }
+:root{
+--red:#e21d2b;
+--red-dark:#bd1420;
+--blue:#2563eb;
+--bg:#fff;
+--surface:#f7f7f9;
+--surface2:#eeeeF2;
+--text:#151515;
+--muted:#777984;
+--border:#e8e8ec;
+--card:#fff;
+--shadow:0 15px 45px rgba(0,0,0,.07);
+--header:rgba(255,255,255,.94);
+}
+[data-theme="dark"]{
+--bg:#101114;
+--surface:#181a1f;
+--surface2:#22242b;
+--text:#f6f6f7;
+--muted:#a0a2aa;
+--border:#30323a;
+--card:#191b20;
+--shadow:0 15px 45px rgba(0,0,0,.25);
+--header:rgba(16,17,20,.94);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{
+font-family:'DM Sans',sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.65;
+transition:background .3s,color .3s;
+}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+.container{width:min(1160px,90%);margin:auto}
+.section{padding:80px 0}
+.eyebrow{
+color:var(--red);
+font-size:11px;
+font-weight:800;
+letter-spacing:2px;
+text-transform:uppercase;
+display:inline-block;
+margin-bottom:12px;
+}
+.heading{
+max-width:690px;
+margin-bottom:40px;
+}
+.heading h2{
+font-family:'Space Grotesk',sans-serif;
+font-size:clamp(29px,4vw,43px);
+line-height:1.2;
+margin-bottom:13px;
+}
+.heading p{color:var(--muted);font-size:14px}
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+padding:13px 21px;
+border-radius:7px;
+font-size:12px;
+font-weight:800;
+border:1px solid transparent;
+transition:.25s;
+}
+.btn-primary{background:var(--red);color:white}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px)}
+.btn-outline{border-color:var(--border);color:var(--text);background:transparent}
+.topbar{background:#141519;color:white;font-size:11px;padding:9px 0}
+.topbar-content{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.topbar i{color:#ff515c;margin-right:6px}
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:var(--header);
+backdrop-filter:blur(16px);
+border-bottom:1px solid var(--border);
+}
+.navbar{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-size:18px;font-weight:800;white-space:nowrap}
+.logo img{width:42px;height:42px;object-fit:contain}
+.logo span{color:var(--red)}
+.nav-links{display:flex;align-items:center;gap:25px}
+.nav-links a{font-size:12px;font-weight:700;color:var(--muted)}
+.nav-links a:hover,.nav-links a.active{color:var(--red)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.icon-btn{
+width:39px;height:39px;
+border:1px solid var(--border);
+border-radius:7px;
+background:var(--surface);
+color:var(--text);
+display:grid;
+place-items:center;
+position:relative;
+}
+.cart-count{
+position:absolute;
+top:-7px;right:-7px;
+background:var(--red);
+color:white;
+width:18px;height:18px;
+border-radius:50%;
+font-size:10px;
+display:grid;
+place-items:center;
+font-weight:800;
+}
+.menu-btn{display:none}
+.page-hero{
+padding:85px 0 80px;
+background:
+radial-gradient(circle at 90% 15%,rgba(226,29,43,.11),transparent 30%),
+radial-gradient(circle at 5% 90%,rgba(37,99,235,.07),transparent 25%);
+}
+.page-hero-content{max-width:760px}
+.breadcrumb{font-size:11px;color:var(--muted);margin-bottom:20px}
+.breadcrumb a{color:var(--red)}
+.page-hero h1{
+font-family:'Space Grotesk';
+font-size:clamp(38px,5.5vw,61px);
+line-height:1.1;
+letter-spacing:-2px;
+margin-bottom:20px;
+}
+.page-hero h1 span{color:var(--red)}
+.page-hero p{font-size:15px;color:var(--muted);max-width:620px}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.hero-tags span{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:30px;
+padding:8px 13px;
+font-size:10px;
+font-weight:700;
+}
+.hero-tags i{color:var(--red);margin-right:5px}
+.services-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+.service-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:12px;
+padding:28px;
+transition:.3s;
+display:flex;
+flex-direction:column;
+}
+.service-card:hover{
+transform:translateY(-5px);
+border-color:var(--red);
+box-shadow:var(--shadow);
+}
+.service-icon{
+width:52px;height:52px;
+border-radius:10px;
+display:grid;
+place-items:center;
+background:rgba(226,29,43,.1);
+color:var(--red);
+font-size:21px;
+margin-bottom:20px;
+}
+.service-card h3{
+font-family:'Space Grotesk';
+font-size:18px;
+margin-bottom:10px;
+}
+.service-card p{
+font-size:12px;
+color:var(--muted);
+margin-bottom:20px;
+flex:1;
+}
+.price{
+padding:15px 0;
+border-top:1px solid var(--border);
+font-size:11px;
+font-weight:700;
+}
+.price strong{color:var(--red);font-size:20px;display:block;margin-top:4px}
+.service-card .btn{width:100%;margin-top:5px}
+.pricing-section{background:var(--surface)}
+.pricing-intro{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:25px;
+flex-wrap:wrap;
+margin-bottom:35px;
+}
+.currency-badge{
+background:rgba(226,29,43,.1);
+color:var(--red);
+padding:10px 16px;
+border-radius:7px;
+font-size:12px;
+font-weight:800;
+}
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+.price-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:11px;
+padding:23px;
+}
+.price-card h3{
+font-family:'Space Grotesk';
+font-size:17px;
+margin-bottom:8px;
+}
+.price-card p{font-size:11px;color:var(--muted);margin-bottom:17px}
+.price-list{display:grid;gap:0}
+.price-row{
+display:flex;
+justify-content:space-between;
+gap:12px;
+align-items:center;
+padding:11px 0;
+border-top:1px solid var(--border);
+font-size:11px;
+}
+.price-row strong{color:var(--red);white-space:nowrap}
+.select-service{
+margin-top:25px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:14px;
+padding:30px;
+}
+.select-service h3{
+font-family:'Space Grotesk';
+font-size:23px;
+margin-bottom:8px;
+}
+.select-service>p{font-size:12px;color:var(--muted);margin-bottom:23px}
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+.form-group{display:grid;gap:7px}
+.form-group label{font-size:11px;font-weight:800}
+.form-group select{
+width:100%;
+padding:14px;
+border:1px solid var(--border);
+border-radius:7px;
+background:var(--surface);
+color:var(--text);
+font-family:inherit;
+font-size:12px;
+outline:none;
+}
+.form-group select:focus{border-color:var(--red)}
+.selected-price{
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:9px;
+padding:20px;
+margin-top:20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+flex-wrap:wrap;
+}
+.selected-price small{display:block;color:var(--muted);font-size:10px}
+.selected-price strong{font-size:25px;color:var(--red)}
+.selected-price .btn{min-width:160px}
+.notice{
+background:rgba(37,99,235,.08);
+border-left:3px solid var(--blue);
+padding:15px;
+border-radius:5px;
+margin-top:22px;
+font-size:11px;
+color:var(--muted);
+}
+.notice i{color:var(--blue);margin-right:7px}
+.process-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+.process-card{
+padding:23px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:10px;
+}
+.process-number{
+width:38px;height:38px;
+display:grid;
+place-items:center;
+border-radius:8px;
+background:var(--red);
+color:white;
+font-weight:800;
+margin-bottom:16px;
+}
+.process-card h3{font-size:14px;margin-bottom:7px}
+.process-card p{font-size:11px;color:var(--muted)}
+.cta-box{
+padding:50px;
+background:linear-gradient(115deg,#b91420,#ed2938);
+color:white;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:25px;
+}
+.cta-box h2{font-family:'Space Grotesk';font-size:30px;line-height:1.2;margin-bottom:10px}
+.cta-box p{font-size:12px;color:rgba(255,255,255,.8)}
+.cta-box .btn{background:white;color:#c81725;white-space:nowrap}
+footer{background:#121317;color:white;padding:60px 0 0}
+.footer-grid{
+display:grid;
+grid-template-columns:1.5fr 1fr 1fr 1fr;
+gap:35px;
+padding-bottom:45px;
+}
+.footer-brand p{font-size:11px;color:#999ba5;margin-top:15px;max-width:270px}
+.footer-heading{font-size:13px;margin-bottom:18px}
+.footer-links{display:grid;gap:11px}
+.footer-links a{font-size:11px;color:#999ba5}
+.footer-links a:hover{color:#ff4653}
+.footer-bottom{
+border-top:1px solid #292b32;
+padding:20px 0;
+display:flex;
+justify-content:space-between;
+gap:15px;
+flex-wrap:wrap;
+color:#858792;
+font-size:10px;
+}
+.footer-bottom span{color:#ff4653}
+.drawer-overlay{
+position:fixed;inset:0;
+background:rgba(0,0,0,.55);
+z-index:1500;
+opacity:0;visibility:hidden;
+transition:.3s;
+}
+.drawer-overlay.open{opacity:1;visibility:visible}
+.drawer{
+position:fixed;right:-360px;top:0;
+height:100%;width:min(340px,85%);
+background:var(--card);
+z-index:1501;padding:27px;
+transition:.35s;
+overflow-y:auto;
+}
+.drawer.open{right:0}
+.drawer-header{
+display:flex;align-items:center;
+justify-content:space-between;
+padding-bottom:22px;
+border-bottom:1px solid var(--border);
+margin-bottom:20px;
+}
+.drawer-close{
+background:var(--surface);
+border:0;width:35px;height:35px;
+border-radius:7px;color:var(--text);
+}
+.drawer-links{display:grid;gap:5px}
+.drawer-links a{
+padding:12px 10px;
+border-radius:7px;
+font-size:13px;font-weight:700;
+}
+.drawer-links a:hover{background:var(--surface);color:var(--red)}
+.drawer-settings{border-top:1px solid var(--border);margin-top:22px;padding-top:20px}
+.setting-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:12px 0;
+font-size:12px;
+font-weight:700;
+}
+.toggle{
+width:44px;height:24px;
+border:0;border-radius:20px;
+background:#999;position:relative;
+}
+.toggle::after{
+content:"";position:absolute;
+width:18px;height:18px;
+border-radius:50%;background:white;
+top:3px;left:3px;transition:.2s;
+}
+.toggle.active{background:var(--red)}
+.toggle.active::after{left:23px}
+.language-buttons{display:flex;gap:7px}
+.language-buttons button{
+padding:7px 12px;
+border:1px solid var(--border);
+border-radius:5px;
+background:var(--surface);
+color:var(--text);
+font-size:11px;font-weight:800;
+}
+.language-buttons button.selected{background:var(--red);color:white;border-color:var(--red)}
+.toast{
+position:fixed;bottom:25px;right:25px;
+z-index:2000;
+padding:15px 20px;
+background:#17191f;color:white;
+border-radius:9px;
+font-size:12px;
+display:flex;align-items:center;gap:10px;
+box-shadow:var(--shadow);
+transform:translateY(100px);
+opacity:0;transition:.3s;
+}
+.toast.show{transform:translateY(0);opacity:1}
+.toast i{color:#42d392}
+@media(max-width:950px){
+.nav-links{display:none}
+.menu-btn{display:grid}
+.footer-grid{grid-template-columns:repeat(2,1fr)}
+.process-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+.section{padding:60px 0}
+.navbar{height:68px}
+.logo{font-size:15px}
+.logo img{width:36px;height:36px}
+.nav-actions{gap:7px}
+.icon-btn{width:36px;height:36px}
+.page-hero{padding:60px 0}
+.services-grid{grid-template-columns:1fr}
+.pricing-grid{grid-template-columns:1fr}
+.form-grid{grid-template-columns:1fr}
+.select-service{padding:22px}
+.cta-box{padding:32px 23px;flex-direction:column;align-items:flex-start}
+.cta-box h2{font-size:25px}
+.footer-grid{gap:25px 18px}
+}
+@media(max-width:390px){
+.footer-grid{grid-template-columns:1fr}
+.logo{font-size:13px}
 }
 </style>
 </head>
 <body>
-<!-- HEADER -->
-<header class="header">
+<div class="topbar">
+<div class="container topbar-content">
+<span><i class="fa-solid fa-globe"></i> México · Argentina · Colombia</span>
+<span><i class="fa-solid fa-envelope"></i> support.iunlockpro@gmail.com</span>
+</div>
+</div>
+<header>
 <div class="container navbar">
 <a href="index.html" class="logo">
-<div class="logo-icon">JT</div>
-<div class="logo-text">
-JOSE TECHNOLOGIAS
-<small>TECHNOLOGY SOLUTIONS</small>
-</div>
+<img src="https://raw.githubusercontent.com/YOUR-GITHUB-USERNAME/YOUR-REPOSITORY/main/logo.png" alt="Logo" onerror="this.style.display='none'">
+<div>JOSE <span>TECHNOLOGIAS</span></div>
 </a>
-<div class="nav-actions">
-<a href="cart.html" class="nav-button">
-<i class="fas fa-shopping-cart"></i>
-<span class="cart-count">0</span>
-</a>
-<button class="nav-button" onclick="toggleMenu()">
-<i class="fas fa-bars"></i>
-</button>
-</div>
-</div>
-<div class="menu-panel" id="menuPanel">
-<div class="container menu-content">
+<nav class="nav-links">
 <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
-<a href="services.html" data-es="Servicios" data-en="Services">Servicios</a>
-<a href="about.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
-<a href="blog.html">Blog</a>
+<a href="services.html" class="active" data-es="Servicios" data-en="Services">Servicios</a>
+<a href="about.html" data-es="Nosotros" data-en="About">Nosotros</a>
+<a href="blog.html" data-es="Blog" data-en="Blog">Blog</a>
 <a href="contact.html" data-es="Contacto" data-en="Contact">Contacto</a>
-<a href="cart.html">
-<i class="fas fa-shopping-cart"></i>
-<span data-es="Carrito" data-en="Shopping Cart">Carrito</span>
-<span class="cart-count">0</span>
+</nav>
+<div class="nav-actions">
+<a href="cart.html" class="icon-btn">
+<i class="fa-solid fa-cart-shopping"></i>
+<span class="cart-count" id="cartCount">0</span>
 </a>
-<div class="menu-settings">
-<button onclick="changeLanguage()" id="languageButton">EN</button>
-<button onclick="changeTheme()" id="themeButton">
-<i class="fas fa-moon"></i>
-</button>
-</div>
+<button class="icon-btn" id="themeQuick"><i class="fa-solid fa-moon"></i></button>
+<button class="icon-btn menu-btn" id="menuOpen"><i class="fa-solid fa-bars"></i></button>
 </div>
 </div>
 </header>
-<!-- PAGE INTRODUCTION -->
+<main>
 <section class="page-hero">
 <div class="container page-hero-content">
-<span class="eyebrow"
-data-es="LO QUE OFRECEMOS"
-data-en="WHAT WE OFFER">
-LO QUE OFRECEMOS
-</span>
-<h1
-data-es="Nuestros <span>servicios</span> tecnológicos."
-data-en="Our technology <span>services</span>.">
-Nuestros <span>servicios</span> tecnológicos.
+<div class="breadcrumb">
+<a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+<i class="fa-solid fa-angle-right"></i>
+<span data-es="Servicios" data-en="Services">Servicios</span>
+</div>
+<span class="eyebrow" data-es="NUESTROS SERVICIOS" data-en="OUR SERVICES">NUESTROS SERVICIOS</span>
+<h1 data-es="Tecnología profesional para <span>tus necesidades.</span>" data-en="Professional technology for <span>your needs.</span>">
+Tecnología profesional para <span>tus necesidades.</span>
 </h1>
-<p
-data-es="En Jose Technologias ofrecemos soluciones digitales y asistencia tecnológica para particulares, emprendedores y empresas. Explora nuestros servicios y selecciona el que necesitas."
-data-en="At Jose Technologias, we provide digital solutions and technology assistance for individuals, entrepreneurs and businesses. Explore our services and select what you need.">
-En Jose Technologias ofrecemos soluciones digitales y asistencia tecnológica para particulares, emprendedores y empresas. Explora nuestros servicios y selecciona el que necesitas.
+<p data-es="Explora nuestros servicios tecnológicos y encuentra la solución adecuada para tu negocio, tus dispositivos y tus proyectos digitales." data-en="Explore our technology services and find the right solution for your business, devices and digital projects.">
+Explora nuestros servicios tecnológicos y encuentra la solución adecuada para tu negocio, tus dispositivos y tus proyectos digitales.
 </p>
+<div class="hero-tags">
+<span><i class="fa-solid fa-check-circle"></i> <span data-es="Servicio profesional" data-en="Professional service">Servicio profesional</span></span>
+<span><i class="fa-solid fa-globe"></i> México</span>
+<span><i class="fa-solid fa-globe"></i> Argentina</span>
+<span><i class="fa-solid fa-globe"></i> Colombia</span>
+</div>
 </div>
 </section>
-<!-- MAIN SERVICES -->
 <section class="section">
 <div class="container">
-<div class="section-heading">
-<span class="eyebrow"
-data-es="SERVICIOS PRINCIPALES"
-data-en="MAIN SERVICES">
-SERVICIOS PRINCIPALES
-</span>
-<h2
-data-es="Encuentra la solución que necesitas."
-data-en="Find the solution you need.">
-Encuentra la solución que necesitas.
-</h2>
-<p
-data-es="Selecciona un servicio para añadirlo a tu carrito. Podrás proporcionar los detalles necesarios durante el proceso de solicitud."
-data-en="Select a service to add it to your cart. You can provide the necessary details during the request process.">
-Selecciona un servicio para añadirlo a tu carrito. Podrás proporcionar los detalles necesarios durante el proceso de solicitud.
-</p>
+<div class="heading">
+<span class="eyebrow" data-es="SOLUCIONES DIGITALES" data-en="DIGITAL SOLUTIONS">SOLUCIONES DIGITALES</span>
+<h2 data-es="Nuestros servicios tecnológicos" data-en="Our technology services">Nuestros servicios tecnológicos</h2>
+<p data-es="Selecciona el servicio que necesitas para conocer sus características y añadirlo a tu carrito." data-en="Select the service you need to learn more about it and add it to your cart.">Selecciona el servicio que necesitas para conocer sus características y añadirlo a tu carrito.</p>
 </div>
 <div class="services-grid">
-<!-- WEBSITE -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-globe"></i>
+<article class="service-card">
+<div class="service-icon"><i class="fa-solid fa-code"></i></div>
+<h3 data-es="Diseño de sitios web" data-en="Website Design">Diseño de sitios web</h3>
+<p data-es="Creamos sitios web modernos, profesionales, adaptables a dispositivos móviles y diseñados para representar tu marca en Internet." data-en="We create modern, professional, mobile-friendly websites designed to represent your brand online.">Creamos sitios web modernos, profesionales, adaptables a dispositivos móviles y diseñados para representar tu marca en Internet.</p>
+<div class="price">
+<span data-es="Precio del servicio" data-en="Service price">Precio del servicio</span>
+<strong>$3,750 MXN</strong>
 </div>
-<h3 data-es="Diseño de sitios web"
-data-en="Website Design">
-Diseño de sitios web
-</h3>
-<p
-data-es="Diseñamos sitios web modernos, profesionales y totalmente adaptables. Creamos páginas para empresas, negocios, marcas personales y proyectos."
-data-en="We design modern, professional and fully responsive websites for companies, businesses, personal brands and projects.">
-Diseñamos sitios web modernos, profesionales y totalmente adaptables. Creamos páginas para empresas, negocios, marcas personales y proyectos.
-</p>
-<div class="service-price">
-$3,750 MXN
-<small data-es="Precio fijo inicial"
-data-en="Starting fixed price">
-Precio fijo inicial
-</small>
-</div>
-<button onclick="addToCart('website')">
-<i class="fas fa-cart-plus"></i>
-<span data-es="Añadir al carrito"
-data-en="Add to Cart">
-Añadir al carrito
-</span>
+<button class="btn btn-primary add-service" data-id="website" data-name-es="Diseño de sitios web" data-name-en="Website Design" data-price="3750">
+<i class="fa-solid fa-cart-plus"></i>
+<span data-es="Añadir al carrito" data-en="Add to cart">Añadir al carrito</span>
 </button>
+</article>
+<article class="service-card">
+<div class="service-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+<h3 data-es="Aplicaciones móviles" data-en="Mobile Applications">Aplicaciones móviles</h3>
+<p data-es="Desarrollamos aplicaciones móviles personalizadas. El precio final dependerá de las características, funciones y complejidad del proyecto." data-en="We develop custom mobile applications. The final price depends on the features, functionality and complexity of the project.">Desarrollamos aplicaciones móviles personalizadas. El precio final dependerá de las características, funciones y complejidad del proyecto.</p>
+<div class="price">
+<span data-es="Precio inicial" data-en="Starting price">Precio inicial</span>
+<strong>$9,375 MXN+</strong>
 </div>
-<!-- MOBILE APP -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-mobile-screen-button"></i>
-</div>
-<h3 data-es="Aplicaciones móviles"
-data-en="Mobile Applications">
-Aplicaciones móviles
-</h3>
-<p
-data-es="Desarrollamos aplicaciones móviles personalizadas para Android y otros proyectos. El precio depende de las características, funcionalidades y complejidad."
-data-en="We develop customized mobile applications for Android and other projects. Pricing depends on features, functionality and complexity.">
-Desarrollamos aplicaciones móviles personalizadas para Android y otros proyectos. El precio depende de las características, funcionalidades y complejidad.
-</p>
-<div class="service-price">
-Desde $9,375 MXN
-<small data-es="Según las características del proyecto"
-data-en="Depending on project requirements">
-Según las características del proyecto
-</small>
-</div>
-<button onclick="addToCart('app')">
-<i class="fas fa-cart-plus"></i>
-<span data-es="Añadir al carrito"
-data-en="Add to Cart">
-Añadir al carrito
-</span>
+<button class="btn btn-primary add-service" data-id="mobile-app" data-name-es="Diseño de aplicación móvil" data-name-en="Mobile App Design" data-price="9375">
+<i class="fa-solid fa-cart-plus"></i>
+<span data-es="Añadir al carrito" data-en="Add to cart">Añadir al carrito</span>
 </button>
+</article>
+<article class="service-card">
+<div class="service-icon"><i class="fa-solid fa-window-maximize"></i></div>
+<h3 data-es="Aplicaciones web" data-en="Web Applications">Aplicaciones web</h3>
+<p data-es="Soluciones web personalizadas para empresas, negocios y proyectos que necesitan herramientas digitales." data-en="Custom web solutions for businesses and projects that need digital tools.">Soluciones web personalizadas para empresas, negocios y proyectos que necesitan herramientas digitales.</p>
+<div class="price">
+<span data-es="Precio inicial" data-en="Starting price">Precio inicial</span>
+<strong>$9,375 MXN+</strong>
 </div>
-<!-- WEB APPS -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-code"></i>
-</div>
-<h3 data-es="Aplicaciones web"
-data-en="Web Applications">
-Aplicaciones web
-</h3>
-<p
-data-es="Creamos plataformas web, sistemas empresariales, paneles administrativos y herramientas digitales personalizadas."
-data-en="We create web platforms, business systems, administrative dashboards and customized digital tools.">
-Creamos plataformas web, sistemas empresariales, paneles administrativos y herramientas digitales personalizadas.
-</p>
-<div class="service-price">
-<small data-es="Precio según descripción del proyecto"
-data-en="Price based on project description">
-Precio según descripción del proyecto
-</small>
-</div>
-<button onclick="addToCart('webapp')">
-<i class="fas fa-cart-plus"></i>
-<span data-es="Añadir al carrito"
-data-en="Add to Cart">
-Añadir al carrito
-</span>
+<button class="btn btn-primary add-service" data-id="web-app" data-name-es="Diseño de aplicación web" data-name-en="Web App Design" data-price="9375">
+<i class="fa-solid fa-cart-plus"></i>
+<span data-es="Añadir al carrito" data-en="Add to cart">Añadir al carrito</span>
 </button>
+</article>
+<article class="service-card">
+<div class="service-icon"><i class="fa-solid fa-gears"></i></div>
+<h3 data-es="Gestión y mantenimiento" data-en="Management & Maintenance">Gestión y mantenimiento</h3>
+<p data-es="Mantenimiento técnico, actualizaciones, optimización y asistencia para sitios web y aplicaciones existentes." data-en="Technical maintenance, updates, optimization and support for existing websites and applications.">Mantenimiento técnico, actualizaciones, optimización y asistencia para sitios web y aplicaciones existentes.</p>
+<div class="price">
+<span data-es="Precio" data-en="Price">Precio</span>
+<strong data-es="Personalizado" data-en="Custom quote">Personalizado</strong>
 </div>
-<!-- MAINTENANCE -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-screwdriver-wrench"></i>
-</div>
-<h3 data-es="Gestión y mantenimiento"
-data-en="Management & Maintenance">
-Gestión y mantenimiento
-</h3>
-<p
-data-es="Ofrecemos mantenimiento, actualizaciones, administración, corrección de errores y soporte continuo para sitios web y aplicaciones."
-data-en="We provide maintenance, updates, administration, bug fixes and ongoing support for websites and applications.">
-Ofrecemos mantenimiento, actualizaciones, administración, corrección de errores y soporte continuo para sitios web y aplicaciones.
-</p>
-<div class="service-price">
-<small data-es="Cotización personalizada"
-data-en="Custom quotation">
-Cotización personalizada
-</small>
-</div>
-<button onclick="addToCart('maintenance')">
-<i class="fas fa-cart-plus"></i>
-<span data-es="Añadir al carrito"
-data-en="Add to Cart">
-Añadir al carrito
-</span>
+<button class="btn btn-primary add-service" data-id="maintenance" data-name-es="Gestión y mantenimiento" data-name-en="Management & Maintenance" data-price="0">
+<i class="fa-solid fa-cart-plus"></i>
+<span data-es="Solicitar servicio" data-en="Request service">Solicitar servicio</span>
 </button>
+</article>
+<article class="service-card">
+<div class="service-icon"><i class="fa-solid fa-mobile-alt"></i></div>
+<h3 data-es="Soluciones para teléfonos" data-en="Phone Solutions">Soluciones para teléfonos</h3>
+<p data-es="Evaluamos problemas de dispositivos móviles y ofrecemos orientación y asistencia técnica según el modelo y la situación." data-en="We assess mobile device issues and provide guidance and technical assistance based on the model and situation.">Evaluamos problemas de dispositivos móviles y ofrecemos orientación y asistencia técnica según el modelo y la situación.</p>
+<div class="price">
+<span data-es="Precio" data-en="Price">Precio</span>
+<strong data-es="Según diagnóstico" data-en="Based on diagnosis">Según diagnóstico</strong>
 </div>
-<!-- PHONE SOLUTIONS -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-mobile-alt"></i>
-</div>
-<h3 data-es="Soluciones para teléfonos"
-data-en="Phone Solutions">
-Soluciones para teléfonos
-</h3>
-<p
-data-es="Evaluación y asistencia técnica para problemas de software, configuración y funcionamiento de dispositivos móviles."
-data-en="Technical assessment and assistance for software, configuration and mobile device functionality issues.">
-Evaluación y asistencia técnica para problemas de software, configuración y funcionamiento de dispositivos móviles.
-</p>
-<div class="service-price">
-<small data-es="Precio según el problema"
-data-en="Price depends on the issue">
-Precio según el problema
-</small>
-</div>
-<button onclick="addToCart('phone')">
-<i class="fas fa-cart-plus"></i>
-<span data-es="Añadir al carrito"
-data-en="Add to Cart">
-Añadir al carrito
-</span>
+<button class="btn btn-primary add-service" data-id="phone-solutions" data-name-es="Soluciones para teléfonos" data-name-en="Phone Solutions" data-price="0">
+<i class="fa-solid fa-cart-plus"></i>
+<span data-es="Solicitar servicio" data-en="Request service">Solicitar servicio</span>
 </button>
+</article>
+<article class="service-card">
+<div class="service-icon"><i class="fa-brands fa-apple"></i></div>
+<h3 data-es="Asistencia Apple e iCloud" data-en="Apple & iCloud Assistance">Asistencia Apple e iCloud</h3>
+<p data-es="Asistencia para recuperación legítima de cuentas Apple, problemas de acceso y soporte de dispositivos con verificación de propiedad." data-en="Legitimate Apple account recovery, access assistance and device support with ownership verification.">Asistencia para recuperación legítima de cuentas Apple, problemas de acceso y soporte de dispositivos con verificación de propiedad.</p>
+<div class="price">
+<span data-es="Precios por dispositivo" data-en="Device-based pricing">Precios por dispositivo</span>
+<strong data-es="Desde $400 MXN" data-en="From $400 MXN">Desde $400 MXN</strong>
 </div>
-<!-- ICLOUD -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fab fa-apple"></i>
-</div>
-<h3 data-es="Soluciones iCloud"
-data-en="iCloud Solutions">
-Soluciones iCloud
-</h3>
-<p
-data-es="Asistencia autorizada para recuperación de cuentas Apple, problemas de acceso y orientación sobre activación y propiedad del dispositivo."
-data-en="Authorized assistance with Apple account recovery, access issues and guidance regarding device activation and ownership.">
-Asistencia autorizada para recuperación de cuentas Apple, problemas de acceso y orientación sobre activación y propiedad del dispositivo.
-</p>
-<div class="service-price">
-Desde $400 MXN
-<small data-es="Según dispositivo y servicio"
-data-en="Depending on device and service">
-Según dispositivo y servicio
-</small>
-</div>
-<button onclick="addToCart('icloud')">
-<i class="fas fa-cart-plus"></i>
-<span data-es="Añadir al carrito"
-data-en="Add to Cart">
-Añadir al carrito
-</span>
-</button>
-</div>
+<a href="#apple-pricing" class="btn btn-primary">
+<i class="fa-solid fa-arrow-down"></i>
+<span data-es="Consultar precios" data-en="View pricing">Consultar precios</span>
+</a>
+</article>
 </div>
 </div>
 </section>
-<!-- ICLOUD PRICING -->
-<section class="section section-light">
+<section class="section pricing-section" id="apple-pricing">
 <div class="container">
-<div class="section-heading">
-<span class="eyebrow">APPLE SERVICES</span>
-<h2
-data-es="Tarifas de soporte para dispositivos Apple."
-data-en="Apple device support pricing.">
-Tarifas de soporte para dispositivos Apple.
-</h2>
-<p
-data-es="Consulta nuestras tarifas orientativas en pesos mexicanos. La asistencia está limitada a procedimientos oficiales y autorizados."
-data-en="Check our indicative prices in Mexican pesos. Assistance is limited to official and authorized procedures.">
-Consulta nuestras tarifas orientativas en pesos mexicanos. La asistencia está limitada a procedimientos oficiales y autorizados.
-</p>
+<div class="pricing-intro">
+<div class="heading" style="margin-bottom:0">
+<span class="eyebrow" data-es="ASISTENCIA APPLE" data-en="APPLE ASSISTANCE">ASISTENCIA APPLE</span>
+<h2 data-es="Lista de precios por dispositivo" data-en="Device pricing list">Lista de precios por dispositivo</h2>
+<p data-es="Consulta los precios de referencia para los diferentes dispositivos Apple. Todos los precios están expresados en pesos mexicanos." data-en="Check the reference prices for different Apple devices. All prices are expressed in Mexican pesos.">Consulta los precios de referencia para los diferentes dispositivos Apple. Todos los precios están expresados en pesos mexicanos.</p>
 </div>
-<h3 style="margin-bottom:15px">
-<i class="fab fa-apple" style="color:var(--red)"></i>
-iPhone
-</h3>
-<div class="price-table-wrapper">
-<table class="price-table">
-<thead>
-<tr>
-<th data-es="Modelo del dispositivo"
-data-en="Device Model">
-Modelo del dispositivo
-</th>
-<th data-es="Precio"
-data-en="Price">
-Precio
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>iPhone 7 / 7 Plus / 8 / 8 Plus</td>
-<td>$400 MXN</td>
-</tr>
-<tr>
-<td>iPhone X / XR / XS / XS Max</td>
-<td>$650 MXN</td>
-</tr>
-<tr>
-<td>iPhone 11 / 11 Pro / 11 Pro Max</td>
-<td>$780 MXN</td>
-</tr>
-<tr>
-<td>iPhone 12 / 12 Pro / 12 Pro Max</td>
-<td>$780 MXN</td>
-</tr>
-<tr>
-<td>iPhone 13 / 13 Pro / 13 Pro Max</td>
-<td>$850 MXN</td>
-</tr>
-<tr>
-<td>iPhone 14 / 14 Pro / 14 Pro Max</td>
-<td>$850 MXN</td>
-</tr>
-<tr>
-<td>iPhone 15 y posteriores</td>
-<td>$1,000 MXN</td>
-</tr>
-</tbody>
-</table>
+<div class="currency-badge"><i class="fa-solid fa-coins"></i> MXN · Pesos mexicanos</div>
 </div>
-<h3 style="margin:35px 0 15px">
-<i class="fas fa-clock" style="color:var(--red)"></i>
-Apple Watch
-</h3>
-<div class="price-table-wrapper">
-<table class="price-table">
-<thead>
-<tr>
-<th data-es="Modelo"
-data-en="Model">
-Modelo
-</th>
-<th data-es="Precio"
-data-en="Price">
-Precio
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Apple Watch</td>
-<td>$550 MXN</td>
-</tr>
-<tr>
-<td>Apple Watch Ultra</td>
-<td>$650 MXN</td>
-</tr>
-<tr>
-<td>Apple Watch Ultra 2</td>
-<td>$650 MXN</td>
-</tr>
-</tbody>
-</table>
+<div class="pricing-grid">
+<div class="price-card">
+<h3><i class="fa-brands fa-apple" style="color:var(--red)"></i> iPhone</h3>
+<p data-es="Precios según el modelo del dispositivo." data-en="Prices based on device model.">Precios según el modelo del dispositivo.</p>
+<div class="price-list">
+<div class="price-row"><span>iPhone 7 / 7 Plus</span><strong>$400</strong></div>
+<div class="price-row"><span>iPhone 8 / 8 Plus</span><strong>$400</strong></div>
+<div class="price-row"><span>iPhone X / XR / XS / XS Max</span><strong>$650</strong></div>
+<div class="price-row"><span>iPhone 11 / 11 Pro / Pro Max</span><strong>$780</strong></div>
+<div class="price-row"><span>iPhone 12 / 12 Pro / Pro Max</span><strong>$780</strong></div>
+<div class="price-row"><span>iPhone 13 / Pro / Pro Max</span><strong>$850</strong></div>
+<div class="price-row"><span>iPhone 14 / Pro / Pro Max</span><strong>$850</strong></div>
+<div class="price-row"><span>iPhone 15 y posteriores</span><strong>$1,000</strong></div>
 </div>
-<h3 style="margin:35px 0 15px">
-<i class="fas fa-tablet-screen-button" style="color:var(--red)"></i>
-iPad
-</h3>
-<div class="price-table-wrapper">
-<table class="price-table">
-<thead>
-<tr>
-<th data-es="Dispositivo"
-data-en="Device">
-Dispositivo
-</th>
-<th data-es="Precio"
-data-en="Price">
-Precio
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>iPad (modelos compatibles)</td>
-<td>$700 MXN</td>
-</tr>
-</tbody>
-</table>
 </div>
-<div class="info-box">
-<strong>
-<i class="fas fa-circle-info"></i>
-<span data-es="Información importante"
-data-en="Important information">
-Información importante
-</span>
-</strong>
-<p
-data-es="Los precios anteriores son tarifas orientativas en MXN. El servicio está sujeto a verificación de propiedad y elegibilidad. No ofrecemos elusión de Activation Lock, eliminación de protecciones antirrobo ni acceso a dispositivos encontrados o sin autorización."
-data-en="The prices above are indicative rates in MXN. Services are subject to ownership and eligibility verification. We do not bypass Activation Lock, remove anti-theft protections or access found or unauthorized devices.">
-Los precios anteriores son tarifas orientativas en MXN. El servicio está sujeto a verificación de propiedad y elegibilidad. No ofrecemos elusión de Activation Lock, eliminación de protecciones antirrobo ni acceso a dispositivos encontrados o sin autorización.
-</p>
+<div class="price-card">
+<h3><i class="fa-solid fa-clock" style="color:var(--red)"></i> Apple Watch</h3>
+<p data-es="Asistencia según el modelo del reloj." data-en="Assistance based on watch model.">Asistencia según el modelo del reloj.</p>
+<div class="price-list">
+<div class="price-row"><span>Apple Watch Series</span><strong>$550</strong></div>
+<div class="price-row"><span>Apple Watch SE</span><strong>$550</strong></div>
+<div class="price-row"><span>Apple Watch Ultra</span><strong>$650</strong></div>
+<div class="price-row"><span>Apple Watch Ultra 2</span><strong>$650</strong></div>
+</div>
+<div class="notice">
+<i class="fa-solid fa-circle-info"></i>
+<span data-es="El servicio depende del diagnóstico y de la elegibilidad del dispositivo." data-en="Service depends on device diagnosis and eligibility.">El servicio depende del diagnóstico y de la elegibilidad del dispositivo.</span>
+</div>
+</div>
+<div class="price-card">
+<h3><i class="fa-solid fa-tablet-screen-button" style="color:var(--red)"></i> iPad</h3>
+<p data-es="Asistencia para dispositivos iPad compatibles." data-en="Assistance for eligible iPad devices.">Asistencia para dispositivos iPad compatibles.</p>
+<div class="price-list">
+<div class="price-row"><span>iPad</span><strong>$700</strong></div>
+<div class="price-row"><span>iPad Mini</span><strong>$700</strong></div>
+<div class="price-row"><span>iPad Air</span><strong>$700</strong></div>
+<div class="price-row"><span>iPad Pro</span><strong>$700</strong></div>
+</div>
+<div class="notice">
+<i class="fa-solid fa-circle-info"></i>
+<span data-es="Los precios son de referencia y están sujetos a revisión de compatibilidad y propiedad." data-en="Prices are indicative and subject to compatibility and ownership checks.">Los precios son de referencia y están sujetos a revisión de compatibilidad y propiedad.</span>
+</div>
+</div>
+</div>
+<div class="select-service">
+<h3 data-es="Selecciona tu dispositivo" data-en="Select your device">Selecciona tu dispositivo</h3>
+<p data-es="Elige el tipo de dispositivo y su modelo para consultar el precio correspondiente y añadir la solicitud a tu carrito." data-en="Choose your device type and model to see the applicable price and add the request to your cart.">Elige el tipo de dispositivo y su modelo para consultar el precio correspondiente y añadir la solicitud a tu carrito.</p>
+<div class="form-grid">
+<div class="form-group">
+<label data-es="Tipo de dispositivo" data-en="Device type">Tipo de dispositivo</label>
+<select id="deviceType">
+<option value="">Seleccionar dispositivo</option>
+<option value="iphone">iPhone</option>
+<option value="watch">Apple Watch</option>
+<option value="ipad">iPad</option>
+</select>
+</div>
+<div class="form-group">
+<label data-es="Modelo del dispositivo" data-en="Device model">Modelo del dispositivo</label>
+<select id="deviceModel" disabled>
+<option value="">Primero selecciona el dispositivo</option>
+</select>
+</div>
+</div>
+<div class="selected-price">
+<div>
+<small data-es="Precio estimado del servicio" data-en="Estimated service price">Precio estimado del servicio</small>
+<strong id="devicePrice">$0 MXN</strong>
+</div>
+<button class="btn btn-primary" id="addDevice" disabled>
+<i class="fa-solid fa-cart-plus"></i>
+<span data-es="Añadir al carrito" data-en="Add to cart">Añadir al carrito</span>
+</button>
+</div>
+<div class="notice">
+<i class="fa-solid fa-shield-halved"></i>
+<span data-es="La asistencia relacionada con Apple e iCloud requiere verificar la propiedad del dispositivo o la autorización del titular. No ofrecemos servicios para evadir Activation Lock ni protecciones antirrobo." data-en="Apple and iCloud assistance requires verification of device ownership or authorization from the owner. We do not offer Activation Lock or anti-theft protection bypass services.">La asistencia relacionada con Apple e iCloud requiere verificar la propiedad del dispositivo o la autorización del titular. No ofrecemos servicios para evadir Activation Lock ni protecciones antirrobo.</span>
+</div>
 </div>
 </div>
 </section>
-<!-- CTA -->
 <section class="section">
 <div class="container">
-<div class="cta">
-<h2
-data-es="¿No sabes qué servicio necesitas?"
-data-en="Not sure which service you need?">
-¿No sabes qué servicio necesitas?
-</h2>
-<p
-data-es="Cuéntanos qué necesitas. Nuestro equipo podrá orientarte sobre las opciones disponibles."
-data-en="Tell us what you need. Our team can guide you through the available options.">
-Cuéntanos qué necesitas. Nuestro equipo podrá orientarte sobre las opciones disponibles.
-</p>
-<a href="contact.html" class="btn">
-<i class="fas fa-envelope"></i>
-<span data-es="Contactar con nosotros"
-data-en="Contact Us">
-Contactar con nosotros
-</span>
-</a>
+<div class="heading">
+<span class="eyebrow" data-es="CÓMO FUNCIONA" data-en="HOW IT WORKS">CÓMO FUNCIONA</span>
+<h2 data-es="Solicitar un servicio es sencillo." data-en="Requesting a service is simple.">Solicitar un servicio es sencillo.</h2>
+<p data-es="Hemos organizado el proceso para que puedas realizar tu solicitud de manera clara." data-en="We have organized the process to make your service request straightforward.">Hemos organizado el proceso para que puedas realizar tu solicitud de manera clara.</p>
+</div>
+<div class="process-grid">
+<div class="process-card">
+<div class="process-number">01</div>
+<h3 data-es="Selecciona un servicio" data-en="Choose a service">Selecciona un servicio</h3>
+<p data-es="Explora las opciones y selecciona la solución que necesitas." data-en="Explore the options and select the solution you need.">Explora las opciones y selecciona la solución que necesitas.</p>
+</div>
+<div class="process-card">
+<div class="process-number">02</div>
+<h3 data-es="Añade al carrito" data-en="Add to cart">Añade al carrito</h3>
+<p data-es="Guarda tu selección y continúa cuando estés preparado." data-en="Save your selection and continue when you're ready.">Guarda tu selección y continúa cuando estés preparado.</p>
+</div>
+<div class="process-card">
+<div class="process-number">03</div>
+<h3 data-es="Completa tu solicitud" data-en="Complete your request">Completa tu solicitud</h3>
+<p data-es="Proporciona la información necesaria para evaluar el servicio." data-en="Provide the information required to evaluate your service.">Proporciona la información necesaria para evaluar el servicio.</p>
+</div>
+<div class="process-card">
+<div class="process-number">04</div>
+<h3 data-es="Recibe instrucciones" data-en="Receive instructions">Recibe instrucciones</h3>
+<p data-es="Recibirás información sobre los siguientes pasos y las condiciones aplicables." data-en="You'll receive information about the next steps and applicable conditions.">Recibirás información sobre los siguientes pasos y las condiciones aplicables.</p>
+</div>
 </div>
 </div>
 </section>
-<!-- FOOTER -->
-<footer class="footer">
+<section class="section" style="padding-top:0">
+<div class="container">
+<div class="cta-box">
+<div>
+<h2 data-es="¿No encuentras el servicio que necesitas?" data-en="Can't find the service you need?">¿No encuentras el servicio que necesitas?</h2>
+<p data-es="Contáctanos y cuéntanos qué necesitas. Estamos aquí para ayudarte." data-en="Contact us and tell us what you need. We're here to help.">Contáctanos y cuéntanos qué necesitas. Estamos aquí para ayudarte.</p>
+</div>
+<a href="contact.html" class="btn"><span data-es="Contáctanos" data-en="Contact us">Contáctanos</span> <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</div>
+</section>
+</main>
+<footer>
 <div class="container">
 <div class="footer-grid">
 <div>
-<div class="footer-brand">
-JOSE <span>TECHNOLOGIAS</span>
-</div>
-<p
-data-es="Tu aliado tecnológico para el diseño web, desarrollo de aplicaciones, mantenimiento y soluciones digitales."
-data-en="Your technology partner for web design, application development, maintenance and digital solutions.">
-Tu aliado tecnológico para el diseño web, desarrollo de aplicaciones, mantenimiento y soluciones digitales.
-</p>
+<a href="index.html" class="logo" style="color:white">
+<img src="https://raw.githubusercontent.com/YOUR-GITHUB-USERNAME/YOUR-REPOSITORY/main/logo.png" alt="Logo" onerror="this.style.display='none'">
+<div>JOSE <span>TECHNOLOGIAS</span></div>
+</a>
+<p style="font-size:11px;color:#999ba5;margin-top:15px" data-es="Soluciones tecnológicas profesionales para personas, emprendedores y empresas." data-en="Professional technology solutions for individuals, entrepreneurs and businesses.">Soluciones tecnológicas profesionales para personas, emprendedores y empresas.</p>
 </div>
 <div>
-<h3 data-es="Navegación" data-en="Navigation">
-Navegación
-</h3>
+<h4 class="footer-heading" data-es="Enlaces rápidos" data-en="Quick Links">Enlaces rápidos</h4>
 <div class="footer-links">
 <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
 <a href="services.html" data-es="Servicios" data-en="Services">Servicios</a>
-<a href="about.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
-<a href="blog.html">Blog</a>
+<a href="about.html" data-es="Nosotros" data-en="About">Nosotros</a>
+<a href="blog.html" data-es="Blog" data-en="Blog">Blog</a>
 <a href="contact.html" data-es="Contacto" data-en="Contact">Contacto</a>
 </div>
 </div>
 <div>
-<h3 data-es="Contacto" data-en="Contact">
-Contacto
-</h3>
+<h4 class="footer-heading" data-es="Servicios" data-en="Services">Servicios</h4>
 <div class="footer-links">
-<a href="mailto:support.iunlockpro@gmail.com">
-<i class="fas fa-envelope"></i>
-support.iunlockpro@gmail.com
-</a>
-<a href="https://www.facebook.com/" target="_blank">
-<i class="fab fa-facebook"></i>
-Facebook
-</a>
+<a href="#services" data-es="Diseño web" data-en="Website Design">Diseño web</a>
+<a href="#services" data-es="Aplicaciones" data-en="Applications">Aplicaciones</a>
+<a href="#apple-pricing" data-es="Asistencia Apple" data-en="Apple Assistance">Asistencia Apple</a>
+<a href="#services" data-es="Soluciones móviles" data-en="Phone Solutions">Soluciones móviles</a>
+</div>
+</div>
+<div>
+<h4 class="footer-heading" data-es="Contáctanos" data-en="Contact Us">Contáctanos</h4>
+<div class="footer-links">
+<a href="mailto:support.iunlockpro@gmail.com">support.iunlockpro@gmail.com</a>
+<a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+<a href="cart.html" data-es="Mi carrito" data-en="My Cart">Mi carrito</a>
 </div>
 </div>
 </div>
 <div class="footer-bottom">
-<small>
-© <span id="year"></span> Jose Technologias.
-<span data-es="Todos los derechos reservados."
-data-en="All rights reserved.">
-Todos los derechos reservados.
-</span>
-</small>
-<small>
-<span data-es="Diseñado por" data-en="Designed by">
-Diseñado por
-</span>
-<strong>BitBridge Technologies INC.</strong>
-</small>
+<div>© <span id="year"></span> Jose Technologias. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></div>
+<div data-es="Diseñado por BitBridge Technologies INC." data-en="Designed by BitBridge Technologies INC.">Diseñado por BitBridge Technologies INC.</div>
 </div>
 </div>
 </footer>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer">
+<div class="drawer-header">
+<div style="font-family:'Space Grotesk';font-weight:800">JOSE <span style="color:var(--red)">TECHNOLOGIAS</span></div>
+<button class="drawer-close" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+</div>
+<nav class="drawer-links">
+<a href="index.html"><i class="fa-solid fa-house"></i> <span data-es="Inicio" data-en="Home">Inicio</span></a>
+<a href="services.html"><i class="fa-solid fa-layer-group"></i> <span data-es="Servicios" data-en="Services">Servicios</span></a>
+<a href="about.html"><i class="fa-solid fa-building"></i> <span data-es="Nosotros" data-en="About">Nosotros</span></a>
+<a href="blog.html"><i class="fa-solid fa-newspaper"></i> <span data-es="Blog" data-en="Blog">Blog</span></a>
+<a href="contact.html"><i class="fa-solid fa-envelope"></i> <span data-es="Contacto" data-en="Contact">Contacto</span></a>
+<a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> <span data-es="Mi carrito" data-en="My Cart">Mi carrito</span></a>
+</nav>
+<div class="drawer-settings">
+<div class="setting-row">
+<span><i class="fa-solid fa-language"></i> <span data-es="Idioma" data-en="Language">Idioma</span></span>
+<div class="language-buttons">
+<button id="langES">ES</button>
+<button id="langEN">EN</button>
+</div>
+</div>
+<div class="setting-row">
+<span><i class="fa-solid fa-moon"></i> <span data-es="Modo oscuro" data-en="Dark mode">Modo oscuro</span></span>
+<button class="toggle" id="themeToggle"></button>
+</div>
+</div>
+</aside>
+<div class="toast" id="toast">
+<i class="fa-solid fa-circle-check"></i>
+<span id="toastMessage"></span>
+</div>
 <script>
-/* GLOBAL LANGUAGE */
-let currentLanguage = localStorage.getItem("jt_language") || "es";
-function changeLanguage() {
-    currentLanguage = currentLanguage === "es" ? "en" : "es";
-    localStorage.setItem("jt_language",currentLanguage);
-    applyLanguage();
+/* GLOBAL STORAGE - SAME AS INDEX.HTML */
+const STORAGE={
+language:"jose_language",
+theme:"jose_theme",
+cart:"jose_cart"
+};
+let currentLanguage=localStorage.getItem(STORAGE.language)||"es";
+let currentTheme=localStorage.getItem(STORAGE.theme)||"light";
+const messages={
+es:{
+added:"Servicio añadido al carrito correctamente.",
+themeLight:"Modo claro activado.",
+themeDark:"Modo oscuro activado.",
+selectDevice:"Selecciona un dispositivo y modelo.",
+selectFirst:"Primero selecciona el dispositivo.",
+custom:"El precio se determinará después de evaluar tu solicitud."
+},
+en:{
+added:"Service successfully added to cart.",
+themeLight:"Light mode activated.",
+themeDark:"Dark mode activated.",
+selectDevice:"Select a device and model.",
+selectFirst:"Select the device type first.",
+custom:"The price will be determined after reviewing your request."
 }
-function applyLanguage() {
-    document.documentElement.lang = currentLanguage;
-    document.querySelectorAll("[data-es]").forEach(element => {
-        element.innerHTML = element.getAttribute("data-" + currentLanguage);
-    });
-    const button = document.getElementById("languageButton");
-    if(button) {
-        button.textContent = currentLanguage === "es" ? "EN" : "ES";
-    }
+};
+/* LANGUAGE */
+function applyLanguage(language){
+currentLanguage=language;
+localStorage.setItem(STORAGE.language,language);
+document.documentElement.lang=language;
+document.querySelectorAll("[data-es][data-en]").forEach(el=>{
+el.innerHTML=el.getAttribute("data-"+language);
+});
+document.getElementById("langES").classList.toggle("selected",language==="es");
+document.getElementById("langEN").classList.toggle("selected",language==="en");
 }
 /* THEME */
-let currentTheme = localStorage.getItem("jt_theme") || "light";
-function applyTheme() {
-    document.documentElement.setAttribute("data-theme",currentTheme);
-    const button = document.getElementById("themeButton");
-    if(button) {
-        button.innerHTML = currentTheme === "dark"
-        ? '<i class="fas fa-sun"></i>'
-        : '<i class="fas fa-moon"></i>';
-    }
+function applyTheme(theme){
+currentTheme=theme;
+localStorage.setItem(STORAGE.theme,theme);
+document.documentElement.setAttribute("data-theme",theme);
+document.getElementById("themeToggle").classList.toggle("active",theme==="dark");
+document.getElementById("themeQuick").innerHTML=
+theme==="dark"
+?'<i class="fa-solid fa-sun"></i>'
+:'<i class="fa-solid fa-moon"></i>';
 }
-function changeTheme() {
-    currentTheme = currentTheme === "light" ? "dark" : "light";
-    localStorage.setItem("jt_theme",currentTheme);
-    applyTheme();
+function toggleTheme(){
+applyTheme(currentTheme==="light"?"dark":"light");
+showToast(messages[currentLanguage][currentTheme==="dark"?"themeDark":"themeLight"]);
 }
-/* MENU */
-function toggleMenu() {
-    document.getElementById("menuPanel").classList.toggle("active");
+document.getElementById("themeQuick").addEventListener("click",toggleTheme);
+document.getElementById("themeToggle").addEventListener("click",toggleTheme);
+document.getElementById("langES").addEventListener("click",()=>applyLanguage("es"));
+document.getElementById("langEN").addEventListener("click",()=>applyLanguage("en"));
+/* DRAWER */
+const drawer=document.getElementById("drawer");
+const overlay=document.getElementById("drawerOverlay");
+function openDrawer(){
+drawer.classList.add("open");
+overlay.classList.add("open");
+document.body.style.overflow="hidden";
 }
+function closeDrawer(){
+drawer.classList.remove("open");
+overlay.classList.remove("open");
+document.body.style.overflow="";
+}
+document.getElementById("menuOpen").addEventListener("click",openDrawer);
+document.getElementById("menuClose").addEventListener("click",closeDrawer);
+overlay.addEventListener("click",closeDrawer);
+document.querySelectorAll(".drawer-links a").forEach(link=>{
+link.addEventListener("click",closeDrawer);
+});
 /* CART */
-function getCart() {
-    try {
-        return JSON.parse(localStorage.getItem("jt_cart") || "[]");
-    } catch(error) {
-        return [];
-    }
+function getCart(){
+try{
+return JSON.parse(localStorage.getItem(STORAGE.cart))||[];
+}catch(e){
+return [];
 }
-function saveCart(cart) {
-    localStorage.setItem("jt_cart",JSON.stringify(cart));
-    updateCartCount();
 }
-function updateCartCount() {
-    document.querySelectorAll(".cart-count").forEach(element => {
-        element.textContent = getCart().length;
-    });
+function saveCart(cart){
+localStorage.setItem(STORAGE.cart,JSON.stringify(cart));
+updateCartCount();
 }
-/* ADD TO CART */
-function addToCart(service) {
-    const services = {
-        website: {
-            name:"Diseño de sitios web",
-            price:3750
-        },
-        app: {
-            name:"Aplicaciones móviles",
-            price:9375
-        },
-        webapp: {
-            name:"Aplicaciones web",
-            price:0
-        },
-        maintenance: {
-            name:"Gestión y mantenimiento",
-            price:0
-        },
-        phone: {
-            name:"Soluciones para teléfonos",
-            price:0
-        },
-        icloud: {
-            name:"Soluciones iCloud",
-            price:0
-        }
-    };
-    const selected = services[service];
-    if(!selected) return;
-    const cart = getCart();
-    cart.push({
-        id:Date.now() + Math.random(),
-        type:service,
-        name:selected.name,
-        price:selected.price
-    });
-    saveCart(cart);
-    showNotification(
-        currentLanguage === "es"
-        ? "¡Servicio añadido al carrito!"
-        : "Service successfully added to cart!"
-    );
+function updateCartCount(){
+const count=getCart().reduce((sum,item)=>sum+(Number(item.quantity)||1),0);
+document.getElementById("cartCount").textContent=count;
 }
-/* NOTIFICATION */
-function showNotification(message) {
-    const notification = document.createElement("div");
-    notification.className = "notification";
-    notification.innerHTML =
-    '<i class="fas fa-check-circle"></i> ' + message;
-    document.body.appendChild(notification);
-    setTimeout(() => {
-        notification.remove();
-    },2500);
+function addToCart(item){
+const cart=getCart();
+const existing=cart.find(product=>product.id===item.id);
+if(existing){
+existing.quantity=(Number(existing.quantity)||1)+1;
+}else{
+cart.push({...item,quantity:1});
 }
-/* INITIALIZE */
-document.getElementById("year").textContent = new Date().getFullYear();
-applyLanguage();
-applyTheme();
+saveCart(cart);
+showToast(messages[currentLanguage].added);
+}
+document.querySelectorAll(".add-service").forEach(button=>{
+button.addEventListener("click",()=>{
+const name=currentLanguage==="es"
+?button.dataset.nameEs
+:button.dataset.nameEn;
+const price=Number(button.dataset.price);
+addToCart({
+id:button.dataset.id,
+name:name,
+nameEs:button.dataset.nameEs,
+nameEn:button.dataset.nameEn,
+price:price,
+currency:"MXN",
+type:"general"
+});
+});
+});
+/* APPLE DEVICE PRICING */
+const deviceType=document.getElementById("deviceType");
+const deviceModel=document.getElementById("deviceModel");
+const devicePrice=document.getElementById("devicePrice");
+const addDevice=document.getElementById("addDevice");
+const deviceData={
+iphone:[
+["iPhone 7",400],
+["iPhone 7 Plus",400],
+["iPhone 8",400],
+["iPhone 8 Plus",400],
+["iPhone X",650],
+["iPhone XR",650],
+["iPhone XS",650],
+["iPhone XS Max",650],
+["iPhone 11",780],
+["iPhone 11 Pro",780],
+["iPhone 11 Pro Max",780],
+["iPhone 12",780],
+["iPhone 12 Pro",780],
+["iPhone 12 Pro Max",780],
+["iPhone 13",850],
+["iPhone 13 Pro",850],
+["iPhone 13 Pro Max",850],
+["iPhone 14",850],
+["iPhone 14 Plus",850],
+["iPhone 14 Pro",850],
+["iPhone 14 Pro Max",850],
+["iPhone 15",1000],
+["iPhone 15 Plus",1000],
+["iPhone 15 Pro",1000],
+["iPhone 15 Pro Max",1000],
+["iPhone 16 and later",1000]
+],
+watch:[
+["Apple Watch Series",550],
+["Apple Watch SE",550],
+["Apple Watch Ultra",650],
+["Apple Watch Ultra 2",650]
+],
+ipad:[
+["iPad",700],
+["iPad Mini",700],
+["iPad Air",700],
+["iPad Pro",700]
+]
+};
+let selectedDevice=null;
+deviceType.addEventListener("change",()=>{
+const type=deviceType.value;
+deviceModel.innerHTML="";
+devicePrice.textContent="$0 MXN";
+addDevice.disabled=true;
+selectedDevice=null;
+if(!type){
+deviceModel.disabled=true;
+deviceModel.innerHTML='<option value="">Seleccionar dispositivo</option>';
+return;
+}
+deviceModel.disabled=false;
+const placeholder=document.createElement("option");
+placeholder.value="";
+placeholder.textContent=currentLanguage==="es"?"Seleccionar modelo":"Select model";
+deviceModel.appendChild(placeholder);
+deviceData[type].forEach((item,index)=>{
+const option=document.createElement("option");
+option.value=index;
+option.textContent=item[0];
+deviceModel.appendChild(option);
+});
+});
+deviceModel.addEventListener("change",()=>{
+if(deviceModel.value===""){
+selectedDevice=null;
+devicePrice.textContent="$0 MXN";
+addDevice.disabled=true;
+return;
+}
+const selected=deviceData[deviceType.value][Number(deviceModel.value)];
+selectedDevice={
+name:selected[0],
+price:selected[1],
+type:deviceType.value
+};
+devicePrice.textContent="$"+selected[1].toLocaleString("es-MX")+" MXN";
+addDevice.disabled=false;
+});
+addDevice.addEventListener("click",()=>{
+if(!selectedDevice){
+showToast(messages[currentLanguage].selectDevice);
+return;
+}
+addToCart({
+id:"apple-"+selectedDevice.type+"-"+selectedDevice.name.toLowerCase().replace(/[^a-z0-9]+/g,"-"),
+name:selectedDevice.name,
+nameEs:selectedDevice.name,
+nameEn:selectedDevice.name,
+price:selectedDevice.price,
+currency:"MXN",
+type:"apple",
+deviceType:selectedDevice.type
+});
+});
+/* TOAST */
+let toastTimer;
+function showToast(message){
+const toast=document.getElementById("toast");
+document.getElementById("toastMessage").textContent=message;
+toast.classList.add("show");
+clearTimeout(toastTimer);
+toastTimer=setTimeout(()=>{
+toast.classList.remove("show");
+},3000);
+}
+/* INITIALIZATION */
+document.getElementById("year").textContent=new Date().getFullYear();
+applyLanguage(currentLanguage);
+applyTheme(currentTheme);
 updateCartCount();
 </script>
 </body>
