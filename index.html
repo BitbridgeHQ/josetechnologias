@@ -3,1064 +3,1207 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Jose Technologias - Soluciones tecnológicas, diseño web, aplicaciones, soporte móvil y soluciones Apple.">
+<meta name="theme-color" content="#e21d2b">
+<meta name="description" content="Jose Technologias - Soluciones tecnológicas profesionales, diseño web, aplicaciones móviles, soluciones para teléfonos y soporte Apple.">
 <title>Jose Technologias | Soluciones Tecnológicas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-:root {
-    --red: #dc1824;
-    --red-dark: #b8101b;
-    --blue: #2457a6;
-    --black: #111318;
-    --white: #ffffff;
-    --background: #ffffff;
-    --surface: #f5f6f8;
-    --text: #17191f;
-    --muted: #737986;
-    --border: #e6e8ec;
-    --shadow: 0 15px 45px rgba(0,0,0,0.07);
-}
-[data-theme="dark"] {
-    --background: #101217;
-    --surface: #191d25;
-    --text: #f5f5f5;
-    --muted: #a6adba;
-    --border: #303541;
-    --white: #171b22;
-    --shadow: 0 15px 45px rgba(0,0,0,0.25);
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html {
-    scroll-behavior: smooth;
-}
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--background);
-    color: var(--text);
-    transition: background .3s, color .3s;
-}
-a {
-    text-decoration: none;
-    color: inherit;
-}
-button {
-    font-family: inherit;
-    cursor: pointer;
-}
-.container {
-    width: 91%;
-    max-width: 1200px;
-    margin: auto;
-}
-/* NAVIGATION */
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: var(--background);
-    border-bottom: 1px solid var(--border);
-}
-.navbar {
-    height: 82px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 900;
-    font-size: 17px;
-    letter-spacing: -0.5px;
-}
-.logo img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    border-radius: 10px;
-}
-/* TEMPORARY LOGO */
-.logo-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--red);
-    color: white;
-    border-radius: 13px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 23px;
-    font-weight: 900;
-}
-.logo-text small {
-    display: block;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--red);
-}
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-.nav-button {
-    width: 43px;
-    height: 43px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--surface);
-    color: var(--text);
-    font-size: 17px;
-    position: relative;
-}
-.cart-count {
-    position: absolute;
-    top: -7px;
-    right: -7px;
-    background: var(--red);
-    color: white;
-    font-size: 10px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-}
-/* MENU */
-.menu-panel {
-    display: none;
-    padding: 25px 0;
-    background: var(--background);
-    border-top: 1px solid var(--border);
-}
-.menu-panel.active {
-    display: block;
-}
-.menu-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-}
-.menu-content a {
-    padding: 11px 16px;
-    background: var(--surface);
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: .2s;
-}
-.menu-content a:hover {
-    background: var(--red);
-    color: white;
-}
-.menu-settings {
-    margin-left: auto;
-    display: flex;
-    gap: 10px;
-}
-.menu-settings button {
-    padding: 11px 15px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text);
-    font-weight: 700;
-}
-/* HERO */
-.hero {
-    padding: 105px 0 95px;
-    background:
-    radial-gradient(circle at 85% 20%, rgba(220,24,36,.12), transparent 35%),
-    linear-gradient(135deg, var(--background), var(--surface));
-    overflow: hidden;
-}
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr .8fr;
-    align-items: center;
-    gap: 55px;
-}
-.hero-label {
-    color: var(--red);
-    font-weight: 800;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-.hero h1 {
-    font-size: clamp(42px, 6vw, 72px);
-    line-height: 1.08;
-    letter-spacing: -3px;
-    margin: 22px 0;
-    font-weight: 900;
-}
-.hero h1 span {
-    color: var(--red);
-}
-.hero-description {
-    color: var(--muted);
-    font-size: 17px;
-    line-height: 1.9;
-    max-width: 600px;
-}
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 13px;
-    margin-top: 30px;
-}
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    padding: 15px 23px;
-    border-radius: 11px;
-    font-weight: 800;
-    font-size: 14px;
-    border: none;
-    transition: .25s;
-}
-.btn-primary {
-    background: var(--red);
-    color: white;
-}
-.btn-primary:hover {
-    background: var(--red-dark);
-    transform: translateY(-3px);
-}
-.btn-secondary {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text);
-}
-.btn-secondary:hover {
-    border-color: var(--red);
-}
-.hero-visual {
-    background: var(--white);
-    border: 1px solid var(--border);
-    padding: 35px;
-    border-radius: 25px;
-    box-shadow: var(--shadow);
-    position: relative;
-}
-.hero-visual-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.status {
-    background: rgba(36,87,166,.1);
-    color: var(--blue);
-    padding: 8px 12px;
-    border-radius: 30px;
-    font-size: 10px;
-    font-weight: 800;
-}
-.hero-logo {
-    margin: 35px 0 25px;
-    font-size: 85px;
-    font-weight: 900;
-    color: var(--red);
-    letter-spacing: -7px;
-}
-.hero-visual h3 {
-    font-size: 23px;
-    margin-bottom: 12px;
-}
-.hero-visual p {
-    color: var(--muted);
-    line-height: 1.8;
-    font-size: 14px;
-}
-.visual-bottom {
-    margin-top: 28px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    color: var(--muted);
-    font-size: 12px;
-}
-/* GENERAL SECTIONS */
-.section {
-    padding: 85px 0;
-}
-.section-light {
-    background: var(--surface);
-}
-.section-heading {
-    margin-bottom: 40px;
-}
-.section-heading span {
-    color: var(--red);
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-.section-heading h2 {
-    font-size: clamp(30px, 4vw, 43px);
-    margin-top: 12px;
-    letter-spacing: -1.5px;
-}
-.section-heading p {
-    color: var(--muted);
-    margin-top: 12px;
-    max-width: 650px;
-    line-height: 1.8;
-}
-/* SERVICES */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-.service-card {
-    padding: 27px;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    transition: .3s;
-    box-shadow: var(--shadow);
-}
-.service-card:hover {
-    transform: translateY(-7px);
-    border-color: var(--red);
-}
-.service-icon {
-    width: 55px;
-    height: 55px;
-    background: rgba(220,24,36,.1);
-    color: var(--red);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    font-size: 23px;
-    margin-bottom: 20px;
-}
-.service-card h3 {
-    font-size: 19px;
-    margin-bottom: 12px;
-}
-.service-card p {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.8;
-    min-height: 75px;
-}
-.service-price {
-    font-size: 19px;
-    font-weight: 900;
-    margin: 20px 0;
-}
-.service-price small {
-    color: var(--muted);
-    font-size: 11px;
-}
-.service-card button {
-    width: 100%;
-}
-/* WHY US */
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-.why-card {
-    padding: 27px;
-    border: 1px solid var(--border);
-    border-radius: 17px;
-    background: var(--white);
-}
-.why-card i {
-    color: var(--red);
-    font-size: 27px;
-    margin-bottom: 20px;
-}
-.why-card h3 {
-    margin-bottom: 10px;
-}
-.why-card p {
-    color: var(--muted);
-    line-height: 1.8;
-    font-size: 14px;
-}
-/* COUNTRIES */
-.countries {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 30px;
-}
-.country {
-    padding: 15px 22px;
-    border-radius: 12px;
-    background: var(--white);
-    border: 1px solid var(--border);
-    font-weight: 700;
-    font-size: 14px;
-}
-/* CTA */
-.cta {
-    background: var(--black);
-    color: white;
-    padding: 65px 30px;
-    border-radius: 23px;
-    text-align: center;
-}
-.cta h2 {
-    font-size: clamp(28px, 4vw, 42px);
-    margin-bottom: 15px;
-}
-.cta p {
-    color: #b9bfca;
-    margin-bottom: 25px;
-    line-height: 1.8;
-}
-/* FOOTER */
-.footer {
-    background: #101217;
-    color: white;
-    padding: 65px 0 25px;
-}
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 40px;
-}
-.footer-brand {
-    font-size: 20px;
-    font-weight: 900;
-    margin-bottom: 18px;
-}
-.footer-brand span {
-    color: var(--red);
-}
-.footer p {
-    color: #aab0bb;
-    font-size: 14px;
-    line-height: 1.9;
-}
-.footer h3 {
-    margin-bottom: 18px;
-    font-size: 16px;
-}
-.footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-.footer-links a {
-    color: #aab0bb;
-    font-size: 14px;
-}
-.footer-links a:hover {
-    color: white;
-}
-.footer-bottom {
-    border-top: 1px solid #30343d;
-    margin-top: 45px;
-    padding-top: 22px;
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-.footer-bottom small {
-    color: #9299a5;
-}
-.footer-bottom strong {
-    color: white;
-}
-/* RESPONSIVE */
-@media(max-width:850px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
-    }
-    .services-grid,
-    .why-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-@media(max-width:580px) {
-    .navbar {
-        height: 72px;
-    }
-    .logo {
-        font-size: 13px;
-    }
-    .logo-icon {
-        width: 42px;
-        height: 42px;
-    }
-    .hero {
-        padding: 70px 0;
-    }
-    .hero h1 {
-        letter-spacing: -2px;
-    }
-    .hero-visual {
-        padding: 25px;
-    }
-    .services-grid,
-    .why-grid,
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-    .menu-settings {
-        margin-left: 0;
-    }
-    .menu-content {
-        align-items: stretch;
-    }
-    .menu-content a {
-        width: 100%;
-    }
-    .section {
-        padding: 65px 0;
-    }
-    .footer-bottom {
-        flex-direction: column;
-    }
+:root{
+--red:#e21d2b;
+--red-dark:#bd1420;
+--blue:#2563eb;
+--bg:#ffffff;
+--surface:#f7f7f9;
+--surface2:#eeeeF2;
+--text:#151515;
+--muted:#777984;
+--border:#e8e8ec;
+--card:#ffffff;
+--shadow:0 15px 45px rgba(0,0,0,.07);
+--header:rgba(255,255,255,.92);
+}
+[data-theme="dark"]{
+--bg:#101114;
+--surface:#181a1f;
+--surface2:#22242b;
+--text:#f6f6f7;
+--muted:#a0a2aa;
+--border:#30323a;
+--card:#191b20;
+--shadow:0 15px 45px rgba(0,0,0,.25);
+--header:rgba(16,17,20,.94);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{
+font-family:'DM Sans',sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.65;
+transition:background .3s,color .3s;
+overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+img{max-width:100%;display:block}
+.container{
+width:min(1160px,90%);
+margin:auto;
+}
+.section{padding:90px 0}
+.section-heading{
+max-width:650px;
+margin-bottom:42px;
+}
+.eyebrow{
+color:var(--red);
+font-weight:800;
+font-size:12px;
+letter-spacing:2px;
+text-transform:uppercase;
+display:inline-block;
+margin-bottom:12px;
+}
+.section-heading h2{
+font-family:'Space Grotesk',sans-serif;
+font-size:clamp(30px,4vw,43px);
+line-height:1.2;
+margin-bottom:15px;
+}
+.section-heading p{color:var(--muted);font-size:15px}
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+padding:14px 23px;
+border-radius:7px;
+font-size:13px;
+font-weight:800;
+border:1px solid transparent;
+transition:.25s;
+}
+.btn-primary{background:var(--red);color:white}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-3px)}
+.btn-outline{
+border-color:var(--border);
+color:var(--text);
+background:transparent;
+}
+.btn-outline:hover{border-color:var(--red);color:var(--red)}
+.topbar{
+background:#141519;
+color:#fff;
+font-size:11px;
+padding:9px 0;
+}
+.topbar-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+flex-wrap:wrap;
+}
+.topbar-left,.topbar-right{
+display:flex;
+align-items:center;
+gap:20px;
+}
+.topbar i{color:#ff515c;margin-right:6px}
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:var(--header);
+backdrop-filter:blur(16px);
+border-bottom:1px solid var(--border);
+}
+.navbar{
+height:78px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-family:'Space Grotesk',sans-serif;
+font-size:19px;
+font-weight:800;
+white-space:nowrap;
+}
+.logo img{
+width:43px;
+height:43px;
+object-fit:contain;
+}
+.logo span{color:var(--red)}
+.nav-links{
+display:flex;
+align-items:center;
+gap:25px;
+}
+.nav-links a{
+font-size:12px;
+font-weight:700;
+color:var(--muted);
+transition:.2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--red)}
+.nav-actions{
+display:flex;
+align-items:center;
+gap:12px;
+}
+.icon-btn{
+width:39px;
+height:39px;
+border:1px solid var(--border);
+border-radius:7px;
+background:var(--surface);
+color:var(--text);
+position:relative;
+display:grid;
+place-items:center;
+font-size:15px;
+}
+.cart-count{
+position:absolute;
+top:-7px;
+right:-7px;
+background:var(--red);
+color:white;
+width:18px;
+height:18px;
+border-radius:50%;
+font-size:10px;
+display:grid;
+place-items:center;
+font-weight:800;
+}
+.menu-btn{display:none}
+.hero{
+padding:85px 0 80px;
+background:
+radial-gradient(circle at 85% 15%,rgba(226,29,43,.10),transparent 30%),
+radial-gradient(circle at 5% 90%,rgba(37,99,235,.07),transparent 25%);
+}
+.hero-grid{
+display:grid;
+grid-template-columns:1.05fr .95fr;
+align-items:center;
+gap:65px;
+}
+.hero-tag{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 13px;
+background:rgba(226,29,43,.09);
+border-radius:30px;
+color:var(--red);
+font-size:11px;
+font-weight:800;
+margin-bottom:22px;
+}
+.hero h1{
+font-family:'Space Grotesk',sans-serif;
+font-size:clamp(39px,5.4vw,65px);
+line-height:1.08;
+letter-spacing:-2.5px;
+margin-bottom:22px;
+}
+.hero h1 span{color:var(--red)}
+.hero-description{
+color:var(--muted);
+font-size:15px;
+max-width:510px;
+margin-bottom:30px;
+}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-stats{
+display:flex;
+gap:35px;
+margin-top:43px;
+flex-wrap:wrap;
+}
+.stat strong{
+font-family:'Space Grotesk',sans-serif;
+font-size:25px;
+display:block;
+}
+.stat small{font-size:11px;color:var(--muted)}
+.hero-visual{
+position:relative;
+min-height:430px;
+display:grid;
+place-items:center;
+}
+.hero-image{
+width:100%;
+height:420px;
+border-radius:20px;
+object-fit:cover;
+background:linear-gradient(145deg,#20242e,#e21d2b);
+box-shadow:var(--shadow);
+}
+.hero-badge{
+position:absolute;
+bottom:28px;
+left:-25px;
+padding:18px;
+border-radius:12px;
+background:var(--card);
+box-shadow:var(--shadow);
+display:flex;
+gap:13px;
+align-items:center;
+max-width:225px;
+}
+.badge-icon{
+width:42px;height:42px;
+background:rgba(226,29,43,.12);
+color:var(--red);
+border-radius:9px;
+display:grid;
+place-items:center;
+}
+.hero-badge strong{font-size:12px;display:block}
+.hero-badge small{font-size:10px;color:var(--muted)}
+.trust-strip{
+padding:24px 0;
+border-top:1px solid var(--border);
+border-bottom:1px solid var(--border);
+background:var(--surface);
+}
+.trust-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+.trust-item{
+display:flex;
+align-items:center;
+gap:12px;
+justify-content:center;
+}
+.trust-item i{color:var(--red);font-size:21px}
+.trust-item strong{font-size:12px;display:block}
+.trust-item small{font-size:10px;color:var(--muted)}
+.services-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+.service-card{
+padding:28px;
+border:1px solid var(--border);
+border-radius:12px;
+background:var(--card);
+transition:.3s;
+position:relative;
+overflow:hidden;
+}
+.service-card:hover{
+transform:translateY(-7px);
+border-color:var(--red);
+box-shadow:var(--shadow);
+}
+.service-icon{
+width:53px;
+height:53px;
+display:grid;
+place-items:center;
+background:rgba(226,29,43,.10);
+color:var(--red);
+border-radius:10px;
+font-size:22px;
+margin-bottom:21px;
+}
+.service-card h3{
+font-family:'Space Grotesk',sans-serif;
+font-size:18px;
+margin-bottom:10px;
+}
+.service-card p{
+font-size:12px;
+color:var(--muted);
+min-height:65px;
+margin-bottom:20px;
+}
+.service-price{
+font-size:12px;
+font-weight:800;
+margin-bottom:17px;
+}
+.service-price span{color:var(--red);font-size:17px}
+.service-link{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding-top:15px;
+border-top:1px solid var(--border);
+color:var(--red);
+font-size:12px;
+font-weight:800;
+}
+.service-link i{transition:.2s}
+.service-link:hover i{transform:translateX(5px)}
+.services-cta{
+text-align:center;
+margin-top:40px;
+}
+.why-section{background:var(--surface)}
+.why-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+.why-image{
+width:100%;
+height:430px;
+object-fit:cover;
+border-radius:15px;
+background:var(--surface2);
+}
+.why-list{display:grid;gap:23px;margin-top:30px}
+.why-item{display:flex;gap:15px}
+.why-item i{
+width:42px;height:42px;
+flex-shrink:0;
+display:grid;
+place-items:center;
+border-radius:9px;
+color:var(--red);
+background:rgba(226,29,43,.1);
+}
+.why-item h4{font-size:14px;margin-bottom:4px}
+.why-item p{font-size:12px;color:var(--muted)}
+.blog-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+}
+.blog-card{
+border:1px solid var(--border);
+border-radius:12px;
+overflow:hidden;
+background:var(--card);
+transition:.3s;
+}
+.blog-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.blog-image{
+height:205px;
+width:100%;
+object-fit:cover;
+background:var(--surface2);
+}
+.blog-content{padding:22px}
+.blog-category{
+color:var(--red);
+font-size:10px;
+font-weight:800;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+.blog-content h3{
+font-family:'Space Grotesk',sans-serif;
+font-size:17px;
+line-height:1.4;
+margin:10px 0;
+}
+.blog-content p{font-size:12px;color:var(--muted);margin-bottom:17px}
+.blog-content a{
+font-size:11px;
+font-weight:800;
+color:var(--red);
+}
+.reviews-section{background:var(--surface)}
+.reviews-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+.review-card{
+padding:24px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:11px;
+}
+.stars{color:#f5a623;font-size:13px;letter-spacing:2px;margin-bottom:13px}
+.review-card>p{
+font-size:12px;
+color:var(--muted);
+line-height:1.8;
+min-height:75px;
+}
+.review-user{
+display:flex;
+align-items:center;
+gap:11px;
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid var(--border);
+}
+.avatar{
+width:37px;height:37px;
+border-radius:50%;
+background:rgba(226,29,43,.12);
+color:var(--red);
+display:grid;
+place-items:center;
+font-weight:800;
+font-size:13px;
+}
+.review-user strong{display:block;font-size:12px}
+.review-user small{font-size:10px;color:var(--muted)}
+.review-note{
+margin-top:20px;
+font-size:10px;
+color:var(--muted);
+}
+.review-cta{
+margin-top:30px;
+display:flex;
+justify-content:center;
+}
+.cta-section{padding:70px 0}
+.cta-box{
+padding:55px;
+border-radius:16px;
+background:linear-gradient(115deg,#b91420,#ed2938);
+color:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:30px;
+}
+.cta-box h2{
+font-family:'Space Grotesk',sans-serif;
+font-size:clamp(25px,4vw,39px);
+line-height:1.2;
+max-width:550px;
+margin-bottom:12px;
+}
+.cta-box p{font-size:13px;color:rgba(255,255,255,.8)}
+.cta-box .btn{
+background:white;
+color:#c81725;
+white-space:nowrap;
+}
+footer{
+background:#121317;
+color:white;
+padding:65px 0 0;
+}
+.footer-grid{
+display:grid;
+grid-template-columns:1.5fr 1fr 1fr 1fr;
+gap:40px;
+padding-bottom:50px;
+}
+.footer-brand p{
+color:#999ba5;
+font-size:12px;
+max-width:280px;
+margin:17px 0;
+}
+.footer-heading{
+font-size:13px;
+margin-bottom:20px;
+font-weight:800;
+}
+.footer-links{display:grid;gap:12px}
+.footer-links a{
+color:#999ba5;
+font-size:11px;
+transition:.2s;
+}
+.footer-links a:hover{color:#ff4653}
+.footer-socials{display:flex;gap:10px;margin-top:20px}
+.footer-socials a{
+width:34px;height:34px;
+border-radius:7px;
+display:grid;
+place-items:center;
+background:#24262d;
+color:white;
+font-size:13px;
+}
+.footer-bottom{
+border-top:1px solid #292b32;
+padding:20px 0;
+display:flex;
+justify-content:space-between;
+gap:15px;
+flex-wrap:wrap;
+color:#858792;
+font-size:10px;
+}
+.footer-bottom span{color:#ff4653}
+.drawer-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+z-index:1500;
+opacity:0;
+visibility:hidden;
+transition:.3s;
+}
+.drawer-overlay.open{opacity:1;visibility:visible}
+.drawer{
+position:fixed;
+right:-360px;
+top:0;
+height:100%;
+width:min(340px,85%);
+background:var(--card);
+z-index:1501;
+padding:27px;
+transition:.35s;
+overflow-y:auto;
+}
+.drawer.open{right:0}
+.drawer-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding-bottom:25px;
+border-bottom:1px solid var(--border);
+margin-bottom:20px;
+}
+.drawer-close{
+background:var(--surface);
+border:0;
+width:35px;height:35px;
+border-radius:7px;
+color:var(--text);
+}
+.drawer-title{
+font-family:'Space Grotesk',sans-serif;
+font-weight:800;
+font-size:18px;
+}
+.drawer-links{display:grid;gap:5px}
+.drawer-links a{
+padding:12px 10px;
+border-radius:7px;
+font-size:13px;
+font-weight:700;
+}
+.drawer-links a:hover{background:var(--surface);color:var(--red)}
+.drawer-settings{
+border-top:1px solid var(--border);
+margin-top:22px;
+padding-top:22px;
+}
+.setting-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:12px 0;
+font-size:12px;
+font-weight:700;
+}
+.toggle{
+width:44px;height:24px;
+border:0;
+border-radius:20px;
+background:#999;
+position:relative;
+}
+.toggle::after{
+content:"";
+position:absolute;
+width:18px;height:18px;
+border-radius:50%;
+background:white;
+top:3px;left:3px;
+transition:.2s;
+}
+.toggle.active{background:var(--red)}
+.toggle.active::after{left:23px}
+.language-buttons{display:flex;gap:8px}
+.language-buttons button{
+padding:7px 13px;
+border:1px solid var(--border);
+border-radius:5px;
+background:var(--surface);
+color:var(--text);
+font-size:11px;
+font-weight:800;
+}
+.language-buttons button.selected{
+background:var(--red);
+color:white;
+border-color:var(--red);
+}
+.toast{
+position:fixed;
+bottom:25px;
+right:25px;
+z-index:2000;
+padding:15px 20px;
+background:#17191f;
+color:white;
+border-radius:9px;
+font-size:12px;
+display:flex;
+align-items:center;
+gap:10px;
+box-shadow:var(--shadow);
+transform:translateY(100px);
+opacity:0;
+transition:.3s;
+}
+.toast.show{transform:translateY(0);opacity:1}
+.toast i{color:#42d392}
+@media(max-width:950px){
+.nav-links{display:none}
+.menu-btn{display:grid}
+.hero-grid{gap:35px}
+.hero-visual{min-height:350px}
+.hero-image{height:350px}
+.footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+.section{padding:65px 0}
+.topbar-content{justify-content:center}
+.topbar-right{display:none}
+.navbar{height:68px}
+.logo{font-size:16px}
+.logo img{width:37px;height:37px}
+.nav-actions{gap:7px}
+.icon-btn{width:36px;height:36px}
+.hero{padding:60px 0}
+.hero-grid{grid-template-columns:1fr;gap:40px}
+.hero h1{letter-spacing:-1.7px}
+.hero-visual{min-height:280px}
+.hero-image{height:300px}
+.hero-badge{left:8px;bottom:12px}
+.trust-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+.trust-item{justify-content:flex-start}
+.services-grid{grid-template-columns:1fr}
+.service-card p{min-height:0}
+.why-grid{grid-template-columns:1fr;gap:35px}
+.why-image{height:290px}
+.blog-grid{grid-template-columns:1fr}
+.blog-image{height:220px}
+.reviews-grid{grid-template-columns:1fr}
+.review-card>p{min-height:0}
+.cta-box{padding:35px 25px;flex-direction:column;align-items:flex-start}
+.footer-grid{grid-template-columns:1fr 1fr;gap:30px 20px}
+.footer-brand{grid-column:1/-1}
+}
+@media(max-width:390px){
+.logo{font-size:14px}
+.nav-actions{gap:5px}
+.footer-grid{grid-template-columns:1fr}
+.footer-brand{grid-column:auto}
+.hero h1{font-size:37px}
 }
 </style>
 </head>
 <body>
-<!-- HEADER -->
-<header class="header">
+<div class="topbar">
+<div class="container topbar-content">
+<div class="topbar-left">
+<span><i class="fa-solid fa-globe"></i> México · Argentina · Colombia</span>
+<span><i class="fa-solid fa-envelope"></i> support.iunlockpro@gmail.com</span>
+</div>
+<div class="topbar-right">
+<span><i class="fa-solid fa-circle-check"></i> Soluciones tecnológicas profesionales</span>
+</div>
+</div>
+</div>
+<header>
 <div class="container navbar">
 <a href="index.html" class="logo">
-<!-- TEMPORARY LOGO -->
-<!-- Replace this mark with your GitHub logo URL later -->
-<div class="logo-icon">JT</div>
-<div class="logo-text">
-JOSE TECHNOLOGIAS
-<small>TECHNOLOGY SOLUTIONS</small>
-</div>
+<img src="https://raw.githubusercontent.com/YOUR-GITHUB-USERNAME/YOUR-REPOSITORY/main/logo.png" alt="Jose Technologias Logo" onerror="this.style.display='none'">
+<div>JOSE <span>TECHNOLOGIAS</span></div>
 </a>
-<div class="nav-actions">
-<a href="cart.html" class="nav-button" aria-label="Shopping cart">
-<i class="fas fa-shopping-cart"></i>
-<span class="cart-count" id="cartCount">0</span>
-</a>
-<button class="nav-button" onclick="toggleMenu()" aria-label="Open menu">
-<i class="fas fa-bars"></i>
-</button>
-</div>
-</div>
-<div class="menu-panel" id="menuPanel">
-<div class="container menu-content">
-<a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+<nav class="nav-links">
+<a href="index.html" class="active" data-es="Inicio" data-en="Home">Inicio</a>
 <a href="services.html" data-es="Servicios" data-en="Services">Servicios</a>
-<a href="about.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
+<a href="about.html" data-es="Nosotros" data-en="About">Nosotros</a>
 <a href="blog.html" data-es="Blog" data-en="Blog">Blog</a>
 <a href="contact.html" data-es="Contacto" data-en="Contact">Contacto</a>
-<a href="cart.html">
-<i class="fas fa-shopping-cart"></i>
-<span data-es="Carrito" data-en="Shopping Cart">Carrito</span>
-<span class="cart-count">0</span>
+</nav>
+<div class="nav-actions">
+<a href="cart.html" class="icon-btn" aria-label="Shopping cart">
+<i class="fa-solid fa-cart-shopping"></i>
+<span class="cart-count" id="cartCount">0</span>
 </a>
-<div class="menu-settings">
-<button onclick="changeLanguage()" id="languageButton">
-EN
+<button class="icon-btn" id="themeQuick" aria-label="Change theme">
+<i class="fa-solid fa-moon"></i>
 </button>
-<button onclick="changeTheme()" id="themeButton">
-<i class="fas fa-moon"></i>
+<button class="icon-btn menu-btn" id="menuOpen" aria-label="Open menu">
+<i class="fa-solid fa-bars"></i>
 </button>
-</div>
 </div>
 </div>
 </header>
-<!-- HERO SECTION -->
+<main>
 <section class="hero">
 <div class="container hero-grid">
 <div>
-<span class="hero-label" data-es="SOLUCIONES TECNOLÓGICAS PROFESIONALES" data-en="PROFESSIONAL TECHNOLOGY SOLUTIONS">
-SOLUCIONES TECNOLÓGICAS PROFESIONALES
-</span>
-<h1 data-es="La tecnología que impulsa tus <span>ideas.</span>" data-en="Technology that powers your <span>ideas.</span>">
-La tecnología que impulsa tus <span>ideas.</span>
+<div class="hero-tag">
+<i class="fa-solid fa-bolt"></i>
+<span data-es="TECNOLOGÍA PARA UN FUTURO MEJOR" data-en="TECHNOLOGY FOR A BETTER FUTURE">TECNOLOGÍA PARA UN FUTURO MEJOR</span>
+</div>
+<h1 data-es="La tecnología que necesitas, <span>a tu alcance.</span>" data-en="The technology you need, <span>within reach.</span>">
+La tecnología que necesitas, <span>a tu alcance.</span>
 </h1>
-<p class="hero-description"
-data-es="Bienvenido a Jose Technologias. Transformamos ideas en soluciones digitales, desarrollamos aplicaciones modernas y ofrecemos asistencia tecnológica para teléfonos y dispositivos Apple."
-data-en="Welcome to Jose Technologias. We transform ideas into digital solutions, develop modern applications and provide technology assistance for phones and Apple devices.">
-Bienvenido a Jose Technologias. Transformamos ideas en soluciones digitales, desarrollamos aplicaciones modernas y ofrecemos asistencia tecnológica para teléfonos y dispositivos Apple.
+<p class="hero-description" data-es="Impulsamos tus ideas con soluciones tecnológicas profesionales. Diseñamos sitios web, aplicaciones y ofrecemos asistencia especializada para tus dispositivos." data-en="We bring your ideas to life with professional technology solutions. We design websites, applications and provide specialized device assistance.">
+Impulsamos tus ideas con soluciones tecnológicas profesionales. Diseñamos sitios web, aplicaciones y ofrecemos asistencia especializada para tus dispositivos.
 </p>
 <div class="hero-buttons">
 <a href="services.html" class="btn btn-primary">
-<i class="fas fa-arrow-right"></i>
-<span data-es="Explorar servicios" data-en="Explore Services">
-Explorar servicios
-</span>
+<span data-es="Explorar servicios" data-en="Explore services">Explorar servicios</span>
+<i class="fa-solid fa-arrow-right"></i>
 </a>
-<a href="contact.html" class="btn btn-secondary">
-<i class="fas fa-envelope"></i>
-<span data-es="Contáctanos" data-en="Contact Us">
-Contáctanos
-</span>
+<a href="contact.html" class="btn btn-outline">
+<i class="fa-regular fa-message"></i>
+<span data-es="Contáctanos" data-en="Contact us">Contáctanos</span>
 </a>
+</div>
+<div class="hero-stats">
+<div class="stat">
+<strong>05+</strong>
+<small data-es="Áreas de servicio" data-en="Service categories">Áreas de servicio</small>
+</div>
+<div class="stat">
+<strong>03</strong>
+<small data-es="Países atendidos" data-en="Countries served">Países atendidos</small>
+</div>
+<div class="stat">
+<strong>24/7</strong>
+<small data-es="Solicitudes en línea" data-en="Online requests">Solicitudes en línea</small>
+</div>
 </div>
 </div>
 <div class="hero-visual">
-<div class="hero-visual-top">
-<span class="status">
-<i class="fas fa-circle"></i>
-<span data-es="SOLUCIONES DIGITALES" data-en="DIGITAL SOLUTIONS">SOLUCIONES DIGITALES</span>
-</span>
-<i class="fas fa-microchip" style="color:var(--red);font-size:25px"></i>
+<img class="hero-image" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1100&q=85" alt="Professional technology workspace">
+<div class="hero-badge">
+<div class="badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+<div>
+<strong data-es="Soluciones profesionales" data-en="Professional solutions">Soluciones profesionales</strong>
+<small data-es="Tecnología en la que puedes confiar" data-en="Technology you can trust">Tecnología en la que puedes confiar</small>
 </div>
-<div class="hero-logo">JT.</div>
-<h3 data-es="Innovación. Tecnología. Soluciones." data-en="Innovation. Technology. Solutions.">
-Innovación. Tecnología. Soluciones.
-</h3>
-<p data-es="Creamos experiencias digitales que conectan personas, negocios y tecnología."
-data-en="We create digital experiences that connect people, businesses and technology.">
-Creamos experiencias digitales que conectan personas, negocios y tecnología.
-</p>
-<div class="visual-bottom">
-<span>JOSE TECHNOLOGIAS</span>
-<span>EST. 2026</span>
 </div>
 </div>
 </div>
 </section>
-<!-- SERVICES SECTION -->
-<section class="section">
+<section class="trust-strip">
+<div class="container trust-grid">
+<div class="trust-item">
+<i class="fa-solid fa-laptop-code"></i>
+<div><strong data-es="Diseño profesional" data-en="Professional design">Diseño profesional</strong><small data-es="Soluciones digitales" data-en="Digital solutions">Soluciones digitales</small></div>
+</div>
+<div class="trust-item">
+<i class="fa-solid fa-headset"></i>
+<div><strong data-es="Soporte especializado" data-en="Specialized support">Soporte especializado</strong><small data-es="Asistencia tecnológica" data-en="Technology assistance">Asistencia tecnológica</small></div>
+</div>
+<div class="trust-item">
+<i class="fa-solid fa-globe-americas"></i>
+<div><strong data-es="Servicio internacional" data-en="International service">Servicio internacional</strong><small data-es="Tres países" data-en="Three countries">Tres países</small></div>
+</div>
+<div class="trust-item">
+<i class="fa-solid fa-credit-card"></i>
+<div><strong data-es="Precios transparentes" data-en="Transparent pricing">Precios transparentes</strong><small data-es="Cotizaciones claras" data-en="Clear quotations">Cotizaciones claras</small></div>
+</div>
+</div>
+</section>
+<section class="section" id="services">
 <div class="container">
 <div class="section-heading">
-<span data-es="NUESTROS SERVICIOS" data-en="OUR SERVICES">
-NUESTROS SERVICIOS
-</span>
-<h2 data-es="Soluciones para cada necesidad."
-data-en="Solutions for every need.">
-Soluciones para cada necesidad.
-</h2>
-<p data-es="Ofrecemos servicios tecnológicos diseñados para particulares, emprendedores y empresas."
-data-en="We offer technology services designed for individuals, entrepreneurs and businesses.">
-Ofrecemos servicios tecnológicos diseñados para particulares, emprendedores y empresas.
+<span class="eyebrow" data-es="LO QUE HACEMOS" data-en="WHAT WE DO">LO QUE HACEMOS</span>
+<h2 data-es="Soluciones diseñadas para hacer más." data-en="Solutions designed to do more.">Soluciones diseñadas para hacer más.</h2>
+<p data-es="Ofrecemos servicios tecnológicos para particulares, emprendedores y empresas que buscan crecer y resolver sus necesidades digitales." data-en="We provide technology services for individuals, entrepreneurs and businesses looking to grow and solve their digital needs.">
+Ofrecemos servicios tecnológicos para particulares, emprendedores y empresas que buscan crecer y resolver sus necesidades digitales.
 </p>
 </div>
 <div class="services-grid">
-<!-- WEBSITE DESIGN -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-globe"></i>
+<article class="service-card">
+<div class="service-icon"><i class="fa-solid fa-code"></i></div>
+<h3 data-es="Diseño de sitios web" data-en="Website Design">Diseño de sitios web</h3>
+<p data-es="Sitios web modernos, rápidos, adaptables y profesionales para empresas, negocios y marcas personales." data-en="Modern, fast, responsive and professional websites for businesses and personal brands.">Sitios web modernos, rápidos, adaptables y profesionales para empresas, negocios y marcas personales.</p>
+<div class="service-price"><span>$3,750 MXN</span> / <span data-es="Desde" data-en="Starting at">Desde</span></div>
+<a href="services.html" class="service-link"><span data-es="Ver servicio" data-en="View service">Ver servicio</span><i class="fa-solid fa-arrow-right"></i></a>
+</article>
+<article class="service-card">
+<div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+<h3 data-es="Aplicaciones móviles y web" data-en="Mobile & Web Applications">Aplicaciones móviles y web</h3>
+<p data-es="Desarrollo de aplicaciones personalizadas según tus ideas, necesidades y objetivos empresariales." data-en="Custom application development based on your ideas, needs and business goals.">Desarrollo de aplicaciones personalizadas según tus ideas, necesidades y objetivos empresariales.</p>
+<div class="service-price"><span>$9,375 MXN+</span></div>
+<a href="services.html" class="service-link"><span data-es="Ver servicio" data-en="View service">Ver servicio</span><i class="fa-solid fa-arrow-right"></i></a>
+</article>
+<article class="service-card">
+<div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+<h3 data-es="Gestión y mantenimiento" data-en="Management & Maintenance">Gestión y mantenimiento</h3>
+<p data-es="Mantenimiento, actualizaciones y asistencia continua para mantener tus plataformas funcionando." data-en="Maintenance, updates and ongoing assistance to keep your platforms running smoothly.">Mantenimiento, actualizaciones y asistencia continua para mantener tus plataformas funcionando.</p>
+<div class="service-price"><span data-es="Cotización personalizada" data-en="Custom quotation">Cotización personalizada</span></div>
+<a href="services.html" class="service-link"><span data-es="Ver servicio" data-en="View service">Ver servicio</span><i class="fa-solid fa-arrow-right"></i></a>
+</article>
+<article class="service-card">
+<div class="service-icon"><i class="fa-solid fa-mobile-alt"></i></div>
+<h3 data-es="Soluciones para teléfonos" data-en="Phone Solutions">Soluciones para teléfonos</h3>
+<p data-es="Diagnóstico y asistencia técnica para diferentes problemas relacionados con dispositivos móviles." data-en="Diagnostics and technical assistance for various mobile device issues.">Diagnóstico y asistencia técnica para diferentes problemas relacionados con dispositivos móviles.</p>
+<div class="service-price"><span data-es="Según el problema" data-en="Based on the issue">Según el problema</span></div>
+<a href="services.html" class="service-link"><span data-es="Ver servicio" data-en="View service">Ver servicio</span><i class="fa-solid fa-arrow-right"></i></a>
+</article>
+<article class="service-card">
+<div class="service-icon"><i class="fa-brands fa-apple"></i></div>
+<h3 data-es="Asistencia Apple e iCloud" data-en="Apple & iCloud Assistance">Asistencia Apple e iCloud</h3>
+<p data-es="Asistencia con cuentas Apple, recuperación de acceso y soporte legítimo para dispositivos con comprobación de propiedad." data-en="Apple account assistance, access recovery and legitimate device support with ownership verification.">Asistencia con cuentas Apple, recuperación de acceso y soporte legítimo para dispositivos con comprobación de propiedad.</p>
+<div class="service-price"><span data-es="Desde $400 MXN" data-en="Starting at $400 MXN">Desde $400 MXN</span></div>
+<a href="services.html" class="service-link"><span data-es="Ver servicio" data-en="View service">Ver servicio</span><i class="fa-solid fa-arrow-right"></i></a>
+</article>
+<article class="service-card">
+<div class="service-icon"><i class="fa-solid fa-briefcase"></i></div>
+<h3 data-es="Servicios empresariales" data-en="Business Technology Services">Servicios empresariales</h3>
+<p data-es="Asesoramiento y soluciones digitales para ayudar a empresas y emprendedores a mejorar sus operaciones." data-en="Digital consulting and solutions to help businesses and entrepreneurs improve their operations.">Asesoramiento y soluciones digitales para ayudar a empresas y emprendedores a mejorar sus operaciones.</p>
+<div class="service-price"><span data-es="Cotización personalizada" data-en="Custom quotation">Cotización personalizada</span></div>
+<a href="services.html" class="service-link"><span data-es="Ver servicio" data-en="View service">Ver servicio</span><i class="fa-solid fa-arrow-right"></i></a>
+</article>
 </div>
-<h3 data-es="Diseño de sitios web" data-en="Website Design">
-Diseño de sitios web
-</h3>
-<p data-es="Creamos sitios web modernos, profesionales, rápidos y adaptables a todos los dispositivos."
-data-en="We create modern, professional, fast websites that adapt to all devices.">
-Creamos sitios web modernos, profesionales, rápidos y adaptables a todos los dispositivos.
-</p>
-<div class="service-price">
-$3,750 MXN
-</div>
-<button class="btn btn-primary" onclick="addToCart('website')">
-<i class="fas fa-cart-plus"></i>
-<span data-es="Añadir al carrito" data-en="Add to Cart">
-Añadir al carrito
-</span>
-</button>
-</div>
-<!-- APPLICATION DEVELOPMENT -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-mobile-screen-button"></i>
-</div>
-<h3 data-es="Aplicaciones móviles y web" data-en="Mobile & Web Applications">
-Aplicaciones móviles y web
-</h3>
-<p data-es="Diseñamos y desarrollamos aplicaciones personalizadas para empresas, negocios y proyectos."
-data-en="We design and develop customized applications for businesses, companies and projects.">
-Diseñamos y desarrollamos aplicaciones personalizadas para empresas, negocios y proyectos.
-</p>
-<div class="service-price">
-Desde $9,375 MXN
-</div>
-<button class="btn btn-primary" onclick="addToCart('app')">
-<i class="fas fa-cart-plus"></i>
-<span data-es="Añadir al carrito" data-en="Add to Cart">
-Añadir al carrito
-</span>
-</button>
-</div>
-<!-- MAINTENANCE -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-gears"></i>
-</div>
-<h3 data-es="Gestión y mantenimiento" data-en="Management & Maintenance">
-Gestión y mantenimiento
-</h3>
-<p data-es="Administración, actualizaciones, mantenimiento y soporte para sitios web y aplicaciones."
-data-en="Management, updates, maintenance and support for websites and applications.">
-Administración, actualizaciones, mantenimiento y soporte para sitios web y aplicaciones.
-</p>
-<div class="service-price" data-es="Cotización personalizada" data-en="Custom quotation">
-Cotización personalizada
-</div>
-<button class="btn btn-primary" onclick="addToCart('maintenance')">
-<i class="fas fa-cart-plus"></i>
-<span data-es="Añadir al carrito" data-en="Add to Cart">
-Añadir al carrito
-</span>
-</button>
-</div>
-<!-- PHONE SOLUTIONS -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-mobile-alt"></i>
-</div>
-<h3 data-es="Soluciones para teléfonos" data-en="Phone Solutions">
-Soluciones para teléfonos
-</h3>
-<p data-es="Evaluación y asistencia técnica para diferentes problemas relacionados con teléfonos móviles."
-data-en="Technical assessment and assistance for different mobile phone issues.">
-Evaluación y asistencia técnica para diferentes problemas relacionados con teléfonos móviles.
-</p>
-<div class="service-price" data-es="Según diagnóstico" data-en="Based on diagnosis">
-Según diagnóstico
-</div>
-<button class="btn btn-primary" onclick="addToCart('phone')">
-<i class="fas fa-cart-plus"></i>
-<span data-es="Añadir al carrito" data-en="Add to Cart">
-Añadir al carrito
-</span>
-</button>
-</div>
-<!-- ICLOUD -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fab fa-apple"></i>
-</div>
-<h3 data-es="Soporte y soluciones Apple" data-en="Apple Support Solutions">
-Soporte y soluciones Apple
-</h3>
-<p data-es="Orientación para recuperación de cuentas, asistencia de activación y soporte autorizado para dispositivos Apple."
-data-en="Guidance for account recovery, activation assistance and authorized support for Apple devices.">
-Orientación para recuperación de cuentas, asistencia de activación y soporte autorizado para dispositivos Apple.
-</p>
-<div class="service-price" data-es="Desde $400 MXN" data-en="From $400 MXN">
-Desde $400 MXN
-</div>
-<button class="btn btn-primary" onclick="addToCart('icloud')">
-<i class="fas fa-cart-plus"></i>
-<span data-es="Añadir al carrito" data-en="Add to Cart">
-Añadir al carrito
-</span>
-</button>
-</div>
-<!-- CUSTOM SOLUTIONS -->
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-lightbulb"></i>
-</div>
-<h3 data-es="Soluciones tecnológicas personalizadas" data-en="Custom Technology Solutions">
-Soluciones tecnológicas personalizadas
-</h3>
-<p data-es="¿Tienes una necesidad tecnológica diferente? Cuéntanos tu proyecto y evaluaremos cómo ayudarte."
-data-en="Have a different technology need? Tell us about your project and we will assess how we can help.">
-¿Tienes una necesidad tecnológica diferente? Cuéntanos tu proyecto y evaluaremos cómo ayudarte.
-</p>
-<div class="service-price" data-es="Consultar precio" data-en="Request a quote">
-Consultar precio
-</div>
-<a href="contact.html" class="btn btn-secondary">
-<span data-es="Solicitar información" data-en="Request Information">
-Solicitar información
-</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- WHY CHOOSE US -->
-<section class="section section-light">
-<div class="container">
-<div class="section-heading">
-<span data-es="POR QUÉ ELEGIRNOS" data-en="WHY CHOOSE US">
-POR QUÉ ELEGIRNOS
-</span>
-<h2 data-es="Más que tecnología. Soluciones que funcionan."
-data-en="More than technology. Solutions that work.">
-Más que tecnología. Soluciones que funcionan.
-</h2>
-</div>
-<div class="why-grid">
-<div class="why-card">
-<i class="fas fa-award"></i>
-<h3 data-es="Calidad profesional" data-en="Professional Quality">
-Calidad profesional
-</h3>
-<p data-es="Nos enfocamos en ofrecer soluciones modernas, funcionales y cuidadosamente desarrolladas."
-data-en="We focus on providing modern, functional and carefully developed solutions.">
-Nos enfocamos en ofrecer soluciones modernas, funcionales y cuidadosamente desarrolladas.
-</p>
-</div>
-<div class="why-card">
-<i class="fas fa-handshake"></i>
-<h3 data-es="Atención personalizada" data-en="Personalized Support">
-Atención personalizada
-</h3>
-<p data-es="Cada cliente y cada proyecto recibe atención según sus necesidades."
-data-en="Every customer and project receives attention based on their needs.">
-Cada cliente y cada proyecto recibe atención según sus necesidades.
-</p>
-</div>
-<div class="why-card">
-<i class="fas fa-shield-halved"></i>
-<h3 data-es="Transparencia" data-en="Transparency">
-Transparencia
-</h3>
-<p data-es="Explicamos los servicios, procesos y precios antes de comenzar cualquier trabajo."
-data-en="We explain services, processes and prices before starting any work.">
-Explicamos los servicios, procesos y precios antes de comenzar cualquier trabajo.
-</p>
-</div>
-</div>
-</div>
-</section>
-<!-- COUNTRIES -->
-<section class="section">
-<div class="container">
-<div class="section-heading">
-<span data-es="NUESTRA COBERTURA" data-en="OUR COVERAGE">
-NUESTRA COBERTURA
-</span>
-<h2 data-es="Atendemos tres países."
-data-en="Serving three countries.">
-Atendemos tres países.
-</h2>
-<p data-es="Jose Technologias ofrece sus servicios a clientes de los siguientes países."
-data-en="Jose Technologias provides its services to customers in the following countries.">
-Jose Technologias ofrece sus servicios a clientes de los siguientes países.
-</p>
-</div>
-<div class="countries">
-<div class="country">🇲🇽 México</div>
-<div class="country">🇦🇷 Argentina</div>
-<div class="country">🇨🇴 Colombia</div>
-</div>
-</div>
-</section>
-<!-- CALL TO ACTION -->
-<section class="section">
-<div class="container">
-<div class="cta">
-<h2 data-es="¿Listo para comenzar tu próximo proyecto?"
-data-en="Ready to start your next project?">
-¿Listo para comenzar tu próximo proyecto?
-</h2>
-<p data-es="Estamos preparados para ayudarte a convertir tus necesidades tecnológicas en soluciones."
-data-en="We are ready to help turn your technology needs into solutions.">
-Estamos preparados para ayudarte a convertir tus necesidades tecnológicas en soluciones.
-</p>
-<a href="contact.html" class="btn btn-primary">
-<i class="fas fa-paper-plane"></i>
-<span data-es="Contáctanos ahora" data-en="Contact Us Now">
-Contáctanos ahora
-</span>
+<div class="services-cta">
+<a href="services.html" class="btn btn-primary">
+<span data-es="Ver todos los servicios" data-en="View all services">Ver todos los servicios</span>
+<i class="fa-solid fa-arrow-right"></i>
 </a>
 </div>
 </div>
 </section>
-<!-- FOOTER -->
-<footer class="footer">
+<section class="section why-section">
+<div class="container why-grid">
+<div>
+<img class="why-image" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=85" alt="Technology team working together">
+</div>
+<div>
+<span class="eyebrow" data-es="POR QUÉ ELEGIRNOS" data-en="WHY CHOOSE US">POR QUÉ ELEGIRNOS</span>
+<div class="section-heading" style="margin-bottom:0">
+<h2 data-es="Más que tecnología. Soluciones que funcionan." data-en="More than technology. Solutions that work.">Más que tecnología. Soluciones que funcionan.</h2>
+<p data-es="Nuestro objetivo es ofrecer una experiencia profesional desde tu primera consulta hasta la entrega de tu servicio." data-en="Our goal is to provide a professional experience from your first inquiry to the delivery of your service.">Nuestro objetivo es ofrecer una experiencia profesional desde tu primera consulta hasta la entrega de tu servicio.</p>
+</div>
+<div class="why-list">
+<div class="why-item">
+<i class="fa-solid fa-user-check"></i>
+<div><h4 data-es="Atención personalizada" data-en="Personalized service">Atención personalizada</h4><p data-es="Cada solicitud se evalúa según tus necesidades específicas." data-en="Every request is evaluated according to your specific needs.">Cada solicitud se evalúa según tus necesidades específicas.</p></div>
+</div>
+<div class="why-item">
+<i class="fa-solid fa-tags"></i>
+<div><h4 data-es="Precios claros" data-en="Clear pricing">Precios claros</h4><p data-es="Conoce los precios disponibles antes de confirmar tu solicitud." data-en="Know the available prices before confirming your request.">Conoce los precios disponibles antes de confirmar tu solicitud.</p></div>
+</div>
+<div class="why-item">
+<i class="fa-solid fa-globe"></i>
+<div><h4 data-es="Atención internacional" data-en="International support">Atención internacional</h4><p data-es="Atendemos solicitudes de México, Argentina y Colombia." data-en="We serve customers from Mexico, Argentina and Colombia.">Atendemos solicitudes de México, Argentina y Colombia.</p></div>
+</div>
+<div class="why-item">
+<i class="fa-solid fa-comments"></i>
+<div><h4 data-es="Comunicación directa" data-en="Direct communication">Comunicación directa</h4><p data-es="Puedes comunicarte con nosotros por correo electrónico." data-en="You can contact us directly through email.">Puedes comunicarte con nosotros por correo electrónico.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow" data-es="NUESTRO BLOG" data-en="OUR BLOG">NUESTRO BLOG</span>
+<h2 data-es="Ideas, tecnología y conocimiento." data-en="Ideas, technology and knowledge.">Ideas, tecnología y conocimiento.</h2>
+<p data-es="Descubre artículos y consejos sobre tecnología, aplicaciones, teléfonos y soluciones digitales." data-en="Discover articles and tips about technology, applications, phones and digital solutions.">Descubre artículos y consejos sobre tecnología, aplicaciones, teléfonos y soluciones digitales.</p>
+</div>
+<div class="blog-grid">
+<article class="blog-card">
+<img class="blog-image" src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=800&q=80" alt="Website design">
+<div class="blog-content">
+<span class="blog-category" data-es="Diseño web" data-en="Web Design">Diseño web</span>
+<h3 data-es="Por qué tu negocio necesita un sitio web profesional" data-en="Why your business needs a professional website">Por qué tu negocio necesita un sitio web profesional</h3>
+<p data-es="Descubre cómo una presencia digital profesional puede ayudar a tu negocio a crecer y generar confianza." data-en="Discover how a professional digital presence can help your business grow and build trust.">Descubre cómo una presencia digital profesional puede ayudar a tu negocio a crecer y generar confianza.</p>
+<a href="blog.html"><span data-es="Leer artículo" data-en="Read article">Leer artículo</span> →</a>
+</div>
+</article>
+<article class="blog-card">
+<img class="blog-image" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9?auto=format&fit=crop&w=800&q=80" alt="Mobile application">
+<div class="blog-content">
+<span class="blog-category" data-es="Aplicaciones" data-en="Applications">Aplicaciones</span>
+<h3 data-es="El papel de las aplicaciones móviles en los negocios modernos" data-en="The role of mobile applications in modern business">El papel de las aplicaciones móviles en los negocios modernos</h3>
+<p data-es="Conoce cómo las aplicaciones móviles pueden mejorar la experiencia de tus clientes." data-en="Learn how mobile applications can improve your customers' experience.">Conoce cómo las aplicaciones móviles pueden mejorar la experiencia de tus clientes.</p>
+<a href="blog.html"><span data-es="Leer artículo" data-en="Read article">Leer artículo</span> →</a>
+</div>
+</article>
+<article class="blog-card">
+<img class="blog-image" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Smartphone technology">
+<div class="blog-content">
+<span class="blog-category" data-es="Tecnología móvil" data-en="Mobile Technology">Tecnología móvil</span>
+<h3 data-es="Cómo cuidar y mantener tu dispositivo móvil" data-en="How to care for and maintain your mobile device">Cómo cuidar y mantener tu dispositivo móvil</h3>
+<p data-es="Algunos consejos importantes para mantener tu teléfono funcionando correctamente." data-en="Some important tips to keep your phone working properly.">Algunos consejos importantes para mantener tu teléfono funcionando correctamente.</p>
+<a href="blog.html"><span data-es="Leer artículo" data-en="Read article">Leer artículo</span> →</a>
+</div>
+</article>
+</div>
+<div class="services-cta">
+<a href="blog.html" class="btn btn-outline"><span data-es="Visitar nuestro blog" data-en="Visit our blog">Visitar nuestro blog</span> <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</div>
+</section>
+<section class="section reviews-section">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow" data-es="OPINIONES" data-en="CUSTOMER REVIEWS">OPINIONES</span>
+<h2 data-es="Lo que dicen nuestros clientes." data-en="What our customers say.">Lo que dicen nuestros clientes.</h2>
+<p data-es="La confianza y la satisfacción de nuestros clientes son importantes para nosotros." data-en="Customer trust and satisfaction are important to us.">La confianza y la satisfacción de nuestros clientes son importantes para nosotros.</p>
+</div>
+<div class="reviews-grid">
+<article class="review-card">
+<div class="stars">★★★★★</div>
+<p data-es="Excelente experiencia. El sitio web de mi negocio quedó moderno, organizado y fácil de utilizar." data-en="Excellent experience. My business website looks modern, organized and easy to use.">Excelente experiencia. El sitio web de mi negocio quedó moderno, organizado y fácil de utilizar.</p>
+<div class="review-user"><div class="avatar">CM</div><div><strong>Carlos M.</strong><small data-es="Diseño web · México" data-en="Website Design · Mexico">Diseño web · México</small></div></div>
+</article>
+<article class="review-card">
+<div class="stars">★★★★★</div>
+<p data-es="Recibí una atención muy profesional durante todo el proceso. La comunicación fue excelente." data-en="I received very professional service throughout the process. Communication was excellent.">Recibí una atención muy profesional durante todo el proceso. La comunicación fue excelente.</p>
+<div class="review-user"><div class="avatar">AP</div><div><strong>Ana P.</strong><small data-es="Asistencia tecnológica · Argentina" data-en="Technology Assistance · Argentina">Asistencia tecnológica · Argentina</small></div></div>
+</article>
+<article class="review-card">
+<div class="stars">★★★★★</div>
+<p data-es="Me ayudaron a entender las opciones disponibles para mi dispositivo. Muy buena atención." data-en="They helped me understand the available options for my device. Very good service.">Me ayudaron a entender las opciones disponibles para mi dispositivo. Muy buena atención.</p>
+<div class="review-user"><div class="avatar">JR</div><div><strong>Javier R.</strong><small data-es="Soporte Apple · Colombia" data-en="Apple Support · Colombia">Soporte Apple · Colombia</small></div></div>
+</article>
+</div>
+<p class="review-note" data-es="Las opiniones de ejemplo anteriores son demostrativas y deben sustituirse por reseñas auténticas de clientes antes de publicar el sitio." data-en="The sample reviews above are illustrative and should be replaced with genuine customer reviews before publishing the website.">Las opiniones de ejemplo anteriores son demostrativas y deben sustituirse por reseñas auténticas de clientes antes de publicar el sitio.</p>
+<div class="review-cta">
+<a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-star"></i><span data-es="Compartir mi experiencia" data-en="Share my experience">Compartir mi experiencia</span></a>
+</div>
+</div>
+</section>
+<section class="cta-section">
+<div class="container">
+<div class="cta-box">
+<div>
+<h2 data-es="¿Tienes un proyecto en mente? Hagámoslo realidad." data-en="Have a project in mind? Let's make it happen.">¿Tienes un proyecto en mente? Hagámoslo realidad.</h2>
+<p data-es="Cuéntanos lo que necesitas y encontraremos la solución adecuada para ti." data-en="Tell us what you need and we'll find the right solution for you.">Cuéntanos lo que necesitas y encontraremos la solución adecuada para ti.</p>
+</div>
+<a href="contact.html" class="btn"><span data-es="Hablar con nosotros" data-en="Talk to us">Hablar con nosotros</span> <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</div>
+</section>
+</main>
+<footer>
 <div class="container">
 <div class="footer-grid">
-<div>
 <div class="footer-brand">
-JOSE <span>TECHNOLOGIAS</span>
+<a href="index.html" class="logo" style="color:white">
+<img src="https://raw.githubusercontent.com/YOUR-GITHUB-USERNAME/YOUR-REPOSITORY/main/logo.png" alt="Logo" onerror="this.style.display='none'">
+<div>JOSE <span>TECHNOLOGIAS</span></div>
+</a>
+<p data-es="Soluciones tecnológicas profesionales para personas, emprendedores y empresas. Conectamos ideas con tecnología." data-en="Professional technology solutions for individuals, entrepreneurs and businesses. Connecting ideas with technology.">Soluciones tecnológicas profesionales para personas, emprendedores y empresas. Conectamos ideas con tecnología.</p>
+<div class="footer-socials">
+<a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="mailto:support.iunlockpro@gmail.com"><i class="fa-solid fa-envelope"></i></a>
 </div>
-<p data-es="Tu aliado tecnológico para el diseño web, desarrollo de aplicaciones, mantenimiento y soluciones digitales."
-data-en="Your technology partner for web design, application development, maintenance and digital solutions.">
-Tu aliado tecnológico para el diseño web, desarrollo de aplicaciones, mantenimiento y soluciones digitales.
-</p>
 </div>
 <div>
-<h3 data-es="Navegación" data-en="Navigation">
-Navegación
-</h3>
+<h4 class="footer-heading" data-es="Enlaces rápidos" data-en="Quick Links">Enlaces rápidos</h4>
 <div class="footer-links">
 <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
 <a href="services.html" data-es="Servicios" data-en="Services">Servicios</a>
-<a href="about.html" data-es="Nosotros" data-en="About Us">Nosotros</a>
+<a href="about.html" data-es="Nosotros" data-en="About">Nosotros</a>
 <a href="blog.html" data-es="Blog" data-en="Blog">Blog</a>
 <a href="contact.html" data-es="Contacto" data-en="Contact">Contacto</a>
 </div>
 </div>
 <div>
-<h3 data-es="Contacto" data-en="Contact">
-Contacto
-</h3>
+<h4 class="footer-heading" data-es="Nuestros servicios" data-en="Our Services">Nuestros servicios</h4>
 <div class="footer-links">
-<a href="mailto:support.iunlockpro@gmail.com">
-<i class="fas fa-envelope"></i>
-support.iunlockpro@gmail.com
-</a>
-<a href="https://www.facebook.com/" target="_blank">
-<i class="fab fa-facebook"></i>
-Facebook
-</a>
+<a href="services.html" data-es="Diseño web" data-en="Website Design">Diseño web</a>
+<a href="services.html" data-es="Aplicaciones móviles" data-en="Mobile Applications">Aplicaciones móviles</a>
+<a href="services.html" data-es="Mantenimiento" data-en="Maintenance">Mantenimiento</a>
+<a href="services.html" data-es="Soluciones móviles" data-en="Phone Solutions">Soluciones móviles</a>
+<a href="services.html" data-es="Asistencia Apple" data-en="Apple Assistance">Asistencia Apple</a>
+</div>
+</div>
+<div>
+<h4 class="footer-heading" data-es="Contáctanos" data-en="Contact Us">Contáctanos</h4>
+<div class="footer-links">
+<a href="mailto:support.iunlockpro@gmail.com"><i class="fa-solid fa-envelope"></i> support.iunlockpro@gmail.com</a>
+<a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a>
+<a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> <span data-es="Mi carrito" data-en="My cart">Mi carrito</span></a>
 </div>
 </div>
 </div>
 <div class="footer-bottom">
-<small>
-© <span id="year"></span> Jose Technologias.
-<span data-es="Todos los derechos reservados." data-en="All rights reserved.">
-Todos los derechos reservados.
-</span>
-</small>
-<small>
-<span data-es="Diseñado por" data-en="Designed by">
-Diseñado por
-</span>
-<strong>BitBridge Technologies INC.</strong>
-</small>
+<div>© <span id="year"></span> Jose Technologias. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></div>
+<div data-es="Diseñado por BitBridge Technologies INC." data-en="Designed by BitBridge Technologies INC.">Diseñado por BitBridge Technologies INC.</div>
 </div>
 </div>
 </footer>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer">
+<div class="drawer-header">
+<div class="drawer-title">JOSE <span style="color:var(--red)">TECHNOLOGIAS</span></div>
+<button class="drawer-close" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+</div>
+<nav class="drawer-links">
+<a href="index.html"><i class="fa-solid fa-house"></i> <span data-es="Inicio" data-en="Home">Inicio</span></a>
+<a href="services.html"><i class="fa-solid fa-layer-group"></i> <span data-es="Servicios" data-en="Services">Servicios</span></a>
+<a href="about.html"><i class="fa-solid fa-building"></i> <span data-es="Nosotros" data-en="About">Nosotros</span></a>
+<a href="blog.html"><i class="fa-solid fa-newspaper"></i> <span data-es="Blog" data-en="Blog">Blog</span></a>
+<a href="contact.html"><i class="fa-solid fa-envelope"></i> <span data-es="Contacto" data-en="Contact">Contacto</span></a>
+<a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> <span data-es="Mi carrito" data-en="My Cart">Mi carrito</span></a>
+</nav>
+<div class="drawer-settings">
+<div class="setting-row">
+<span><i class="fa-solid fa-language"></i> <span data-es="Idioma" data-en="Language">Idioma</span></span>
+<div class="language-buttons">
+<button id="langES" class="selected">ES</button>
+<button id="langEN">EN</button>
+</div>
+</div>
+<div class="setting-row">
+<span><i class="fa-solid fa-moon"></i> <span data-es="Modo oscuro" data-en="Dark mode">Modo oscuro</span></span>
+<button class="toggle" id="themeToggle"></button>
+</div>
+</div>
+</aside>
+<div class="toast" id="toast">
+<i class="fa-solid fa-circle-check"></i>
+<span id="toastMessage">Welcome!</span>
+</div>
 <script>
-/* ==================================
-   JOSE TECHNOLOGIAS GLOBAL SETTINGS
-================================== */
-/* LANGUAGE */
-let currentLanguage = localStorage.getItem("jt_language") || "es";
-function changeLanguage() {
-    currentLanguage = currentLanguage === "es" ? "en" : "es";
-    localStorage.setItem("jt_language", currentLanguage);
-    applyLanguage();
+/* =========================================
+   JOSE TECHNOLOGIAS - GLOBAL PREFERENCES
+========================================= */
+const STORAGE={
+language:"jose_language",
+theme:"jose_theme",
+cart:"jose_cart"
+};
+let currentLanguage=localStorage.getItem(STORAGE.language)||"es";
+let currentTheme=localStorage.getItem(STORAGE.theme)||"light";
+const translations={
+es:{
+welcome:"Bienvenido a Jose Technologias",
+added:"Servicio añadido al carrito",
+themeLight:"Modo claro activado",
+themeDark:"Modo oscuro activado"
+},
+en:{
+welcome:"Welcome to Jose Technologias",
+added:"Service added to cart",
+themeLight:"Light mode activated",
+themeDark:"Dark mode activated"
 }
-function applyLanguage() {
-    document.documentElement.lang = currentLanguage;
-    document.querySelectorAll("[data-es]").forEach(element => {
-        element.innerHTML = element.getAttribute("data-" + currentLanguage);
-    });
-    const languageButton = document.getElementById("languageButton");
-    if(languageButton) {
-        languageButton.textContent = currentLanguage === "es" ? "EN" : "ES";
-    }
+};
+function applyLanguage(language){
+currentLanguage=language;
+localStorage.setItem(STORAGE.language,language);
+document.documentElement.lang=language;
+document.querySelectorAll("[data-es][data-en]").forEach(element=>{
+const content=element.getAttribute("data-"+language);
+if(content!==null)element.innerHTML=content;
+});
+document.getElementById("langES").classList.toggle("selected",language==="es");
+document.getElementById("langEN").classList.toggle("selected",language==="en");
 }
-/* DARK AND LIGHT THEME */
-let currentTheme = localStorage.getItem("jt_theme") || "light";
-function applyTheme() {
-    document.documentElement.setAttribute("data-theme", currentTheme);
-    const button = document.getElementById("themeButton");
-    if(button) {
-        button.innerHTML = currentTheme === "dark"
-        ? '<i class="fas fa-sun"></i>'
-        : '<i class="fas fa-moon"></i>';
-    }
+function applyTheme(theme){
+currentTheme=theme;
+localStorage.setItem(STORAGE.theme,theme);
+document.documentElement.setAttribute("data-theme",theme);
+const dark=theme==="dark";
+document.getElementById("themeToggle").classList.toggle("active",dark);
+document.getElementById("themeQuick").innerHTML=dark
+?'<i class="fa-solid fa-sun"></i>'
+:'<i class="fa-solid fa-moon"></i>';
 }
-function changeTheme() {
-    currentTheme = currentTheme === "light" ? "dark" : "light";
-    localStorage.setItem("jt_theme", currentTheme);
-    applyTheme();
+function toggleTheme(){
+applyTheme(currentTheme==="light"?"dark":"light");
+showToast(translations[currentLanguage][currentTheme==="dark"?"themeDark":"themeLight"]);
 }
-/* MENU */
-function toggleMenu() {
-    document.getElementById("menuPanel").classList.toggle("active");
+document.getElementById("langES").addEventListener("click",()=>applyLanguage("es"));
+document.getElementById("langEN").addEventListener("click",()=>applyLanguage("en"));
+document.getElementById("themeToggle").addEventListener("click",toggleTheme);
+document.getElementById("themeQuick").addEventListener("click",toggleTheme);
+/* =========================================
+   MENU DRAWER
+========================================= */
+const drawer=document.getElementById("drawer");
+const overlay=document.getElementById("drawerOverlay");
+function openDrawer(){
+drawer.classList.add("open");
+overlay.classList.add("open");
+document.body.style.overflow="hidden";
 }
-/* SHOPPING CART */
-function getCart() {
-    return JSON.parse(localStorage.getItem("jt_cart") || "[]");
+function closeDrawer(){
+drawer.classList.remove("open");
+overlay.classList.remove("open");
+document.body.style.overflow="";
 }
-function saveCart(cart) {
-    localStorage.setItem("jt_cart", JSON.stringify(cart));
-    updateCartCount();
+document.getElementById("menuOpen").addEventListener("click",openDrawer);
+document.getElementById("menuClose").addEventListener("click",closeDrawer);
+overlay.addEventListener("click",closeDrawer);
+document.querySelectorAll(".drawer-links a").forEach(link=>{
+link.addEventListener("click",closeDrawer);
+});
+/* =========================================
+   SHOPPING CART
+========================================= */
+function getCart(){
+try{
+return JSON.parse(localStorage.getItem(STORAGE.cart))||[];
+}catch(error){
+return [];
 }
-function updateCartCount() {
-    const count = getCart().length;
-    document.querySelectorAll(".cart-count").forEach(element => {
-        element.textContent = count;
-    });
 }
-/* ADD SERVICE */
-function addToCart(service) {
-    const services = {
-        website: {
-            name: "Diseño de sitios web",
-            price: 3750
-        },
-        app: {
-            name: "Aplicaciones móviles y web",
-            price: 9375
-        },
-        maintenance: {
-            name: "Gestión y mantenimiento",
-            price: 0
-        },
-        phone: {
-            name: "Soluciones para teléfonos",
-            price: 0
-        },
-        icloud: {
-            name: "Soporte y soluciones Apple",
-            price: 0
-        }
-    };
-    const selected = services[service];
-    if(!selected) return;
-    const cart = getCart();
-    cart.push({
-        id: Date.now() + Math.random(),
-        type: service,
-        name: selected.name,
-        price: selected.price
-    });
-    saveCart(cart);
-    showNotification(
-        currentLanguage === "es"
-        ? "¡Servicio añadido al carrito!"
-        : "Service added to cart!"
-    );
+function saveCart(cart){
+localStorage.setItem(STORAGE.cart,JSON.stringify(cart));
+updateCartCount();
 }
-/* NOTIFICATION */
-function showNotification(message) {
-    const notification = document.createElement("div");
-    notification.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
-    notification.style.cssText = `
-        position:fixed;
-        bottom:25px;
-        right:20px;
-        background:#17191f;
-        color:white;
-        padding:16px 22px;
-        border-radius:12px;
-        z-index:9999;
-        box-shadow:0 10px 30px rgba(0,0,0,.2);
-        font-size:14px;
-        font-weight:700;
-        animation:fadeIn .3s ease;
-    `;
-    document.body.appendChild(notification);
-    setTimeout(() => {
-        notification.remove();
-    }, 2500);
+function updateCartCount(){
+const cart=getCart();
+const total=cart.reduce((sum,item)=>sum+(Number(item.quantity)||1),0);
+document.getElementById("cartCount").textContent=total;
 }
-/* INITIALIZE */
-document.getElementById("year").textContent = new Date().getFullYear();
-applyLanguage();
-applyTheme();
+function addToCart(service){
+const cart=getCart();
+const existing=cart.find(item=>item.id===service.id);
+if(existing){
+existing.quantity=(Number(existing.quantity)||1)+1;
+}else{
+cart.push({
+...service,
+quantity:1
+});
+}
+saveCart(cart);
+showToast(translations[currentLanguage].added);
+}
+/* =========================================
+   NOTIFICATIONS
+========================================= */
+let toastTimer;
+function showToast(message){
+const toast=document.getElementById("toast");
+document.getElementById("toastMessage").textContent=message;
+toast.classList.add("show");
+clearTimeout(toastTimer);
+toastTimer=setTimeout(()=>{
+toast.classList.remove("show");
+},3000);
+}
+/* =========================================
+   INITIALIZE
+========================================= */
+document.getElementById("year").textContent=new Date().getFullYear();
+applyLanguage(currentLanguage);
+applyTheme(currentTheme);
 updateCartCount();
 </script>
 </body>
